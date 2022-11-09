@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-activities',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivitiesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navigationService:NavigationService) { }
 
   ngOnInit(): void {
+    this.navigationService.curPageInd=2;
+    this.gotoTop();
   }
 
+  gotoTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }

@@ -1,0 +1,59 @@
+<img id="logo" src="./assets/imgs/logos/logo-weiss.png" />
+<div id="nav-top-spacer" *ngIf="getShowSpacer()"></div>
+
+<nav class="nav">
+
+    <ul [ngClass]="getNavIsOpen() ? 'nav-list open' : 'nav-list'">
+        <ng-container *ngFor="let route of getRoutes();let i = index">
+            <li [ngClass]="getCurrentPageInd() == i? 'item active' : 'item'" (click)="setCurPageInd(i)">
+                <button (click)="navigateToPage(i)">
+                    <h1>
+                        <fa-icon [icon]="pageIcons[i]"></fa-icon>
+                    </h1>
+                    <span>
+                        {{route}}
+                    </span>
+                </button>
+            </li>
+        </ng-container>
+    </ul>
+
+    <div id="head" class="color-gradient-h1">
+        <ul id="social-icon-list">
+            <ng-container *ngFor="let ico of getSocialIcons(); let i = index">
+                <li>
+                    <button (click)="openSocial(i)">
+                        <h1>
+                            <fa-icon [icon]="ico"></fa-icon>
+                        </h1>
+                    </button>
+                </li>
+            </ng-container>
+        </ul>
+
+        <ul id="nav-list-big">
+            <ng-container *ngFor="let route of getRoutes();let i = index">
+                <li [ngClass]="getCurrentPageInd() == i? 'item active' : 'item'" (click)="setCurPageInd(i)">
+                    <button (click)="navigateToPage(i)">
+                        <div class="link-container">
+                            <h1>
+                                <fa-icon [icon]="pageIcons[i]"></fa-icon>
+                            </h1>
+                            <span>
+                                {{route}}
+                            </span>
+                        </div>
+                        <div class="underline"></div>
+                    </button>
+                </li>
+            </ng-container>
+        </ul>
+
+        <button id="burger-btn" (click)="toggleNav()">
+            <span>{{getWebsiteName()}}</span>
+            <h1 id="burger-menu">
+                <fa-icon [icon]="burgerIcon"></fa-icon>
+            </h1>
+        </button>
+    </div>
+</nav>

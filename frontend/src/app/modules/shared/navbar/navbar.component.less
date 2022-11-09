@@ -1,0 +1,243 @@
+@import "../../../shared/variables.less";
+
+#logo {
+  position: absolute;
+  z-index: 5;
+  max-height: @navbar-height;
+  animation: startAnimation 1s 4s;
+  animation-fill-mode: both;
+}
+
+#nav-top-spacer {
+  height: @navbar-height;
+}
+
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 4;
+}
+
+@keyframes startAnimation {
+  0%{
+    transform: translateY(calc(@navbar-height * -2));
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+#head {
+  background-color: @color-navbar;
+  border-bottom: solid 1px @color-accent2;
+  backdrop-filter: blur(6px);
+  box-shadow: @box-shadow-1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: @navbar-height;
+  position: relative;
+  top: 0px;
+  z-index: 4;
+}
+
+#head button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#burger-menu {
+  color: @color-accent2;
+  padding: 0px @margin-small;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+    transition: 0.5s color;
+    color: white;
+
+}
+
+#burger-menu:hover {
+  color: @color-accent1;
+}
+
+#head button span {
+  color: white;
+  font-size: @fontsize-h2;
+}
+
+img {
+  position: absolute;
+  top: @margin-smaller;
+  z-index: 3;
+  left: calc(50% - @navbar-height / 2);
+  height: calc(@navbar-height - @margin-small);
+}
+
+#social-icon-list {
+  display: flex;
+}
+
+#social-icon-list li button {
+  height: @navbar-height;
+  padding: 0px @margin-small;
+}
+
+#social-icon-list li:hover h1 {
+  color: @color-accent2;
+}
+
+#social-icon-list h1{
+  color: white;
+  font-size: @fontsize-std;
+}
+//nav-list wide--------------------
+
+#nav-list-big{
+  display: flex;
+  flex-direction: row;
+}
+#nav-list-big h1 {
+  color: white;
+  font-size: @fontsize-std;
+  margin-right: @margin-smaller;
+}
+#nav-list-big .item button{
+  display:  flex;
+  flex-direction: column;
+}
+#nav-list-big .link-container{
+  display:  flex;
+  flex-direction: row;
+  align-items: center;
+}
+#nav-list-big .item button span{
+  font-size: @fontsize-std;
+}
+#nav-list-big button{
+  padding: @padding-small;
+}
+
+.item .underline{
+  height: 2px;
+  width: 100%;
+  background-color: transparent;
+  margin-top: @margin-smaller;
+  transition: 0.5s background-color;
+}
+
+.item.item.active .underline,
+.item:hover .underline{
+  background-color: white;
+}
+
+//nav-list--------------------------
+.nav-list {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+}
+
+.nav-list li {
+  background-color: rgba(@color-accent2,0.9);
+  height: @navbar-height;
+  position: absolute;
+  transition: 0.5s left,0.5s background-color;
+  width: 100%;
+}
+.nav-list li:hover {
+  background-color: rgba(@color-accent2,1)
+}
+
+.nav-list li:nth-child(1) {top: @navbar-height;left:-100vw;}
+.nav-list li:nth-child(2) {top: calc(@navbar-height * 2);  left: -130vw;}
+.nav-list li:nth-child(3) {top: calc(@navbar-height * 3);  left: -160vw;}
+.nav-list li:nth-child(4) {top: calc(@navbar-height * 4);  left: -190vw;}
+.nav-list li:nth-child(5) {top: calc(@navbar-height * 5);  left: -210vw;}
+.nav-list li:last-child{
+    box-shadow: @box-shadow-1
+}
+.nav-list button {
+  width: 100%;
+  height: @navbar-height;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.nav-list button h1,.nav-list button span{
+    transform: scale(0.5);
+    transition:   1.2s transform;
+}
+
+.nav-list.open button h1, .nav-list.open button span{
+    transform:scale(1);
+}
+
+.nav-list h1 {
+  width: @fontsize-h1;
+}
+
+.nav-list span,
+.nav-list h1 {
+  color: white;
+  padding-left: @padding-small;
+  font-size: @fontsize-h2;
+}
+
+.nav-list .item.active span,
+.nav-list li:hover span,
+.nav-list li:hover h1,
+.nav-list .item.active h1 {
+  color: @color-accent1;
+}
+
+.nav-list.closed li{
+    left: 0px;
+}
+.nav-list.open li{
+    left: 0px;
+}
+
+.nav-list.closed li {
+  top: 0px;
+}
+
+#head #burger-btn,
+#nav-list{
+  display: none;
+}
+
+@media screen and(max-width:@max-w-1) {
+
+  img {
+    display: none;
+  }
+
+  #social-icon-list li button {
+    padding: 0px @margin-smaller;
+  }
+}
+
+@media screen and(max-width:@max-w-2) {
+#nav-list-big{
+  display: none;
+}
+#head #burger-btn,
+#nav-list{
+  display: flex;
+}
+}
+@media screen and(max-width:@max-w-3) {
+#logo{
+  display: none;
+}
+}
