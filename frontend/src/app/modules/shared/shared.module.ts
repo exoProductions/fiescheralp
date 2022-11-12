@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReservationShortcutComponent } from './reservation-shortcut/reservation-shortcut.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SvgIconsComponent } from './svg-icons/svg-icons.component';
 
 
 
@@ -11,7 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     NavbarComponent,
     FooterComponent,
-    ReservationShortcutComponent
+    ReservationShortcutComponent,
+    SvgIconsComponent
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   exports: [
     NavbarComponent,
     FooterComponent,
+    SvgIconsComponent,
   ]
 })
 export class SharedModule { }

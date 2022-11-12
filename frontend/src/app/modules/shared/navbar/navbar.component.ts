@@ -10,11 +10,10 @@ import { NavigationService } from 'src/app/services/navigation.service';
   styleUrls: ['./navbar.component.less']
 })
 export class NavbarComponent implements OnInit {
-  pageIcons: any = [
-    faHome,
-    faBrush,
-    faLocation,
-    faGem,
+  pageIcons: string[] = [
+    "home-outline",
+    "bookmarks-outline",
+    "accessibility-outline",
   ];
 
   burgerIcon=faBars;
@@ -39,9 +38,6 @@ export class NavbarComponent implements OnInit {
     this.navigationService.navIsOpen=false;
   }
 
-  openSocial(ind: number): void {
-    window.open(this.navigationService.socialLinks[ind], "_blank");
-  }
 
   toggleNav(): void {
     this.navigationService.navIsOpen = !this.navigationService.navIsOpen;
@@ -61,18 +57,12 @@ export class NavbarComponent implements OnInit {
   getNavIsOpen(): boolean {
     return this.navigationService.navIsOpen;
   }
-  getWebsiteName(): string {
-    return this.globalVariablesService.websiteNameShort;
-  }
   getPages(): string[] {
     return this.navigationService.pages;
   }
   getCurPageInd(): number {
     return this.navigationService.curPageInd;
   }
-  getSocialIcons():any[]{
-    return this.navigationService.socialIcons
-  } 
 
 
 }
