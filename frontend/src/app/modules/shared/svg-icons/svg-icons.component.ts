@@ -19,7 +19,6 @@ export class SvgIconsComponent implements OnInit {
 
   ngOnInit(): void {
     this.size = this.sizes[this.sizeInd];
-    console.log(this.sizeInd);
   }
 
 }

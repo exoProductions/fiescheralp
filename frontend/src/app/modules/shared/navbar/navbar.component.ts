@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
   }
 
   getShowSpacer():boolean{
-    return true;
+    return false;
   }
 
   getCurrentPageInd(): number {

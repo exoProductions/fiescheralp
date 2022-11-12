@@ -1,15 +1,13 @@
 @import "../../../shared/variables.less";
 
 #logo {
-  max-height: @navbar-height;
-  animation: startAnimation 1s;
-  animation-fill-mode: both;
+  max-height: calc(@navbar-height - @padding-small);
+  padding-left: @padding-small;
 }
 
 #nav-top-spacer {
   height: @navbar-height;
 }
-
 
 nav {
   width: 100%;
@@ -17,6 +15,8 @@ nav {
   top: 0px;
   left: 0px;
   z-index: 4;
+  animation: startAnimation 1s;
+  animation-fill-mode: both;
 }
 
 @keyframes startAnimation {
@@ -31,7 +31,7 @@ nav {
 
 #head {
   background-color: white;
-  border-bottom: solid 1px @color-accent2;
+  border-bottom: solid 1px @color-accent1;
   backdrop-filter: blur(6px);
   box-shadow: @box-shadow-1;
   display: flex;
@@ -66,9 +66,6 @@ nav {
   color: @color-accent1;
 }
 
-img {
-  height: calc(@navbar-height - @margin-small);
-}
 //nav-list wide--------------------
 
 #nav-list-big {
@@ -132,15 +129,16 @@ img {
 }
 
 .nav-list li {
-  background-color: rgba(white, 0.9);
+  background-color: rgba(white, 0.8);
   height: @navbar-height;
   position: absolute;
   transition: 0.5s left, 0.5s background-color;
   width: 100%;
+  backdrop-filter: blur(6px);
 }
 
 .nav-list li:hover {
-  background-color: rgba(@color-accent2, 1)
+  background-color: rgba(@color-accent2, 0.2)
 }
 
 .nav-list li:nth-child(1) {
