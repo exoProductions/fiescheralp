@@ -10,15 +10,15 @@
                     <h1>
                         <fa-icon [icon]="pageIcons[i]"></fa-icon>
                     </h1>
-                    <span>
+                    <h2>
                         {{route}}
-                    </span>
+                    </h2>
                 </button>
             </li>
         </ng-container>
     </ul>
 
-    <div id="head" class="color-gradient-h1">
+    <div id="head">
         <ul id="social-icon-list">
             <ng-container *ngFor="let ico of getSocialIcons(); let i = index">
                 <li>
@@ -39,9 +39,9 @@
                             <h1>
                                 <fa-icon [icon]="pageIcons[i]"></fa-icon>
                             </h1>
-                            <span>
+                            <h2>
                                 {{route}}
-                            </span>
+                            </h2>
                         </div>
                         <div class="underline"></div>
                     </button>
