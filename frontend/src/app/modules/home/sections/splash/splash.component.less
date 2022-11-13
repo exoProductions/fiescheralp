@@ -7,10 +7,10 @@
     justify-content: center;
     overflow: hidden;
 }
-@bg-height:calc(80vh );
+@bg-height:calc(100vh );
 #background-section{
     height: @bg-height;
-    margin-top: 10vh;
+    //margin-top: 10vh;
     width: 100%;
     max-width: @max-w-4;
     background-attachment: fixed;
@@ -55,11 +55,7 @@
     margin-top: @margin;
 }
 
-@shift:-0.3;
 
-.word-carousel{
-    transform: translateY(calc(@fontsize-title-large * @shift));
-}
 
 @media  screen and(max-width:@max-w-2) {
     #background-section{
@@ -84,8 +80,4 @@
     #overlay-section-two{
         align-items: center;
     }
-    .word-carousel{
-        transform: translateY(calc(@fontsize-title * @shift));
-    }
-
 }

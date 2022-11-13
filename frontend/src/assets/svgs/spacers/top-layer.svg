@@ -41,8 +41,13 @@
      id="layer1">
     <path
        style="fill:#ffffff;fill-opacity:1;stroke-width:0.278026"
-       d="M -20.057054,-0.56277494 515.33603,-3.2822526 511.49318,286.52867 -22.798391,349.44894 Z"
+       d="M -20.057054,-25.401484 515.33603,-28.120962 511.49318,280.14157 -22.798391,365.06184 Z"
        id="path790"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;fill-opacity:0.533333;stroke-width:0.278026"
+       d="M -17.229098,2.3538766 518.16398,-0.36560141 514.32113,307.89693 -19.970438,392.8172 Z"
+       id="path790-3"
        sodipodi:nodetypes="ccccc" />
   </g>
 </svg>

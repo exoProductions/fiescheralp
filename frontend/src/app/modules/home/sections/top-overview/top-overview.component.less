@@ -4,6 +4,9 @@
     width: 100%;
     margin: @margin-large 0px;
 }
+.word-carousel{
+    margin-bottom: @margin-large;
+}
 
 #card-list {
     display: flex;
@@ -24,6 +27,8 @@
 
 .card:nth-child(4) {
     width: 100%;
+    max-width: @max-w-4;
+
 }
 
 .card button {
@@ -39,16 +44,16 @@
 }
 
 .card:nth-child(1) button {
-    background-color: #86483a;
+    background-color: @color-accent-light1;
 }
 
 .card:nth-child(2) button {
-    background-color: #879e8a;
+    background-color: @color-accent-light2;
     margin: @margin-small 0px;
 }
 
 .card:nth-child(3) button {
-    background-color: #b06b30;
+    background-color:@color-accent-light3 ;
 }
 
 .card:nth-child(4) button {

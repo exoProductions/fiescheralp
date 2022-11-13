@@ -60,8 +60,31 @@
         stroke-linejoin="round" />
 </svg>
 
-<svg *ngIf="name=='arrow-forward-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+<svg *ngIf="name=='arrow-forward-outline'" xmlns="http://www.w3.org/2000/svg"
+    [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
     <title>Arrow Forward</title>
+    <path fill="none" [ngStyle]="{'stroke':strokeColor,'stroke-width':strokeWidth}" stroke-linecap="round"
+        stroke-linejoin="round" d="M268 112l144 144-144 144M392 256H100" />
+</svg>
+
+<svg *ngIf="name=='book-outline'" xmlns="http://www.w3.org/2000/svg"  [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+    <title>Book</title>
+    <path
+        d="M256 160c16-63.16 76.43-95.41 208-96a15.94 15.94 0 0116 16v288a16 16 0 01-16 16c-128 0-177.45 25.81-208 64-30.37-38-80-64-208-64-9.88 0-16-8.05-16-17.93V80a15.94 15.94 0 0116-16c131.57.59 192 32.84 208 96zM256 160v288"
+        fill="none" [ngStyle]="{'stroke':strokeColor,'stroke-width':strokeWidth}" stroke-linecap="round" stroke-linejoin="round"  />
+</svg>
+
+<svg *ngIf="name=='location-outline'" xmlns="http://www.w3.org/2000/svg"  [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+    <title>Location</title>
+    <path
+        d="M256 48c-79.5 0-144 61.39-144 137 0 87 96 224.87 131.25 272.49a15.77 15.77 0 0025.5 0C304 409.89 400 272.07 400 185c0-75.61-64.5-137-144-137z"
+        fill="none" [ngStyle]="{'stroke':strokeColor,'stroke-width':strokeWidth}" stroke-linecap="round" stroke-linejoin="round"  />
+    <circle cx="256" cy="192" r="48" fill="none"  stroke-linecap="round" [ngStyle]="{'stroke':strokeColor,'stroke-width':strokeWidth}" stroke-linejoin="round"
+         />
+</svg>
+
+<svg *ngIf="name=='trail-sign-outline'" xmlns="http://www.w3.org/2000/svg"  [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+    <title>Trail Sign</title>
     <path fill="none" [ngStyle]="{'stroke':strokeColor,'stroke-width':strokeWidth}"  stroke-linecap="round" stroke-linejoin="round" 
-        d="M268 112l144 144-144 144M392 256H100" />
+        d="M256 400v64M256 208v64M256 48v32M416 208H102.63a16 16 0 01-11.32-4.69L32 144l59.31-59.31A16 16 0 01102.63 80H416a16 16 0 0116 16v96a16 16 0 01-16 16zM96 400h313.37a16 16 0 0011.32-4.69L480 336l-59.31-59.31a16 16 0 00-11.32-4.69H96a16 16 0 00-16 16v96a16 16 0 0016 16z" />
 </svg>

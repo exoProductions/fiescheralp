@@ -1,0 +1,24 @@
+@import "../../../../shared/variables.less";
+
+#infos-list{
+    flex-wrap: wrap
+}
+
+.item{
+    margin: @margin;
+}
+.item h1{
+    color: @color-accent1;
+}
+.item .icon{
+    transform: scale(1);
+    transition: 0.3s transform;
+}
+.item.open .icon{
+    transform: scale(1.2);
+}
+.info p{
+    max-width: @max-w-2;
+    padding: @padding-small;
+}
+
