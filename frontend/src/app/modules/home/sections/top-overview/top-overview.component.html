@@ -1,0 +1,23 @@
+<section id="top-overview-section" class="acc">
+    <ul id="card-list">
+        <ng-container *ngFor="let content of cardContents;let i = index">
+            <li class="card acc">
+                <button (click)="routeToPage(i)" >
+                    <div class="text-container">
+                        <h2 class="intro">{{content.introSentence}}</h2>
+                        <h2 class="title">{{content.title}}</h2>
+                        <h2 class="outro">{{content.outroSentence}}</h2>
+                    </div>
+                    <div class="icon-container">
+                        <div class="svg-icon one">
+                            <app-svg-icons  name="arrow-forward-outline" [strokeWidth]="25" strokeColor="#fff" [sizeInd]="7"></app-svg-icons>
+                        </div>
+                        <div class="svg-icon two">
+                            <app-svg-icons [name]="content.icon" [strokeWidth]="25" strokeColor="#fff" [sizeInd]="7"></app-svg-icons>
+                        </div>
+                    </div>
+                </button>
+            </li>
+        </ng-container>
+    </ul>
+</section>

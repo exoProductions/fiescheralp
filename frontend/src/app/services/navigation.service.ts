@@ -7,7 +7,7 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 })
 export class NavigationService {
 
-  pages:string[]=["Home","Reservation","Activities"];
+  pages:string[]=["Home","Reservation","Impressionen", "Aktivitäten"];
   curPageInd:number=0;
   navIsOpen:boolean=false;
   socialLinks: string[] = [

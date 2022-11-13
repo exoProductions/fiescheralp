@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   pageIcons: string[] = [
     "home-outline",
     "bookmarks-outline",
+    "image-outline",
     "accessibility-outline",
   ];
 

@@ -1,0 +1,49 @@
+@import "../../../shared/variables.less";
+
+.carousel-section{
+    height: @fontsize-title-large;
+    overflow: hidden;
+}
+
+ h1{
+    color:#425163;
+    font-size: @fontsize-title-large;
+    font-weight: 900;
+    animation: moveFont 8s infinite;
+    text-align: right;
+}
+
+@keyframes moveFont {
+    0%,16.5%,100%{
+        transform: translateY(calc(@fontsize-title-large * -2.55));
+    }
+    25%,41.5%,75%,91.5%{
+        transform: translateY(calc(@fontsize-title-large * -1.3));
+    }
+    50%,66.5%{
+        transform: translateY(calc(@fontsize-title-large * -0.1));
+    }
+}
+
+@keyframes moveFontSmall {
+    0%,16.5%,100%{
+        transform: translateY(calc(@fontsize-title * -2.55));
+    }
+    25%,41.5%,75%,91.5%{
+        transform: translateY(calc(@fontsize-title * -1.3));
+    }
+    50%,66.5%{
+        transform: translateY(calc(@fontsize-title * -0.1));
+    }
+}
+
+@media  screen and(max-width:@max-w-2) {
+    .carousel-section{
+        height: @fontsize-title;
+    }
+    h1{
+        font-size: @fontsize-title;
+        animation: moveFontSmall 8s infinite;
+        text-align: center
+    }
+}

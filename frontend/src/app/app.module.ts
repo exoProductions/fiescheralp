@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ActivitiesModule } from './modules/activities/activities.module';
 import { HomeModule } from './modules/home/home.module';
+import { ImpressionsModule } from './modules/impressions/impressions.module';
 import { ReservationModule } from './modules/reservation/reservation.module';
 import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { SharedModule } from './modules/shared/shared.module';
     HomeModule,
     ActivitiesModule,
     ReservationModule,
+    ImpressionsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

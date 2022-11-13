@@ -4,13 +4,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    overflow: hidden;
 }
-@bg-height:80vh;
+@bg-height:calc(80vh );
 #background-section{
     height: @bg-height;
+    margin-top: 10vh;
     width: 100%;
-    max-width: @max-w-3;
+    max-width: @max-w-4;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,14 +30,16 @@
 }
 #welcome-container{
     height: @bg-height;
-    width: min(50%, calc(@max-w-3 / 2));
+    width: min(calc(45% - @padding-small * 2), calc(@max-w-4 / 2.2 - @padding-small * 2));
+    padding: @padding-small;
+    animation: slideInLeft 1.5s;
 }
 #welcome-container .title-first{
-    color: red;
+    color: @color-accent1;
     margin-top: @margin;
 }
 .title-second.text{
-    max-width: calc(@max-w-3 / 2.6);
+    max-width: calc(@max-w-4 / 2.6);
     margin-top: @margin;
 }
 #overlay-section-two{
@@ -43,15 +47,45 @@
     flex-direction: column;
     align-items: flex-end;
     width: 100%;
-    max-width: @max-w-3;
+    max-width: @max-w-4;
+    animation: slideInRight 1.5s;
 }
 #welcome-container img{
     max-width: 200px;
     margin-top: @margin;
 }
-#overlay-section-two h1{
-    color:#4a4a4a;
-    font-size: @fontsize-title-large;
-    font-weight: 900;
-    transform: translateY(calc(@fontsize-title-large * -0.5));
+
+@shift:-0.3;
+
+.word-carousel{
+    transform: translateY(calc(@fontsize-title-large * @shift));
+}
+
+@media  screen and(max-width:@max-w-2) {
+    #background-section{
+        margin-top: 0px;
+        height: 100vh;
+        justify-content: flex-start;
+    }
+    #welcome-container{
+        width: calc(100% - @padding-small * 2);
+        padding: @padding-small;
+        justify-content: flex-start;
+    }
+    #welcome-container .title-second:first-child{
+        margin-top: @navbar-height;
+    }
+    .side-layer{
+        background-image: url("../../../../../assets/svgs/spacers/top-layer.svg");
+    }
+    #welcome-container img{
+        max-width: 100px;
+    }
+    #overlay-section-two{
+        align-items: center;
+    }
+    .word-carousel{
+        transform: translateY(calc(@fontsize-title * @shift));
+    }
+
 }
