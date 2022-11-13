@@ -7,6 +7,7 @@ import { TopOverviewComponent } from './sections/top-overview/top-overview.compo
 import { InfosComponent } from './sections/infos/infos.component';
 import { AppartmentComponent } from './sections/appartment/appartment.component';
 import { ReviewsComponent } from './sections/reviews/reviews.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 
@@ -21,7 +22,8 @@ import { ReviewsComponent } from './sections/reviews/reviews.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    GoogleMapsModule,
   ]
 })
 export class HomeModule { }
