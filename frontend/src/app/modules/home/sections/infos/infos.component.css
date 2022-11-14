@@ -1,0 +1,33 @@
+#infos-list {
+  flex-wrap: wrap;
+}
+.item {
+  margin: 30px;
+}
+.item h1 {
+  color: #e4cea5;
+}
+.item .icon {
+  transform: scale(1);
+  transition: 0.3s transform;
+}
+.item.open .icon {
+  transform: scale(1.2);
+}
+.info p {
+  max-width: 800px;
+  padding: 18px;
+}
+.item .underline {
+  width: 0%;
+  height: 1px;
+  background-color: #e4cea5;
+  transition: 0.3s width;
+}
+.item.open .underline,
+.item:hover .underline {
+  width: 100%;
+}
+#map {
+  width: min(calc(100% - 18px * 2), calc(1920px - 18px * 2));
+}

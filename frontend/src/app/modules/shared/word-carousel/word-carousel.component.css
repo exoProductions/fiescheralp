@@ -1,0 +1,87 @@
+.carousel-section {
+  height: 100px;
+  overflow: hidden;
+}
+h1 {
+  color: #e4cea5;
+  font-size: 100px;
+  font-weight: 900;
+  animation: moveFont 8s infinite;
+  text-align: center;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes moveFont {
+  0%,
+  16.5%,
+  100% {
+    transform: translateY(calc(100px * -2));
+  }
+  25%,
+  41.5%,
+  75%,
+  91.5% {
+    transform: translateY(calc(100px * -1));
+  }
+  50%,
+  66.5% {
+    transform: translateY(calc(100px * 0));
+  }
+}
+@keyframes moveFontSmall {
+  0%,
+  16.5%,
+  100% {
+    transform: translateY(calc(50px * -2));
+  }
+  25%,
+  41.5%,
+  75%,
+  91.5% {
+    transform: translateY(calc(50px * -1));
+  }
+  50%,
+  66.5% {
+    transform: translateY(calc(50px * 0));
+  }
+}
+@keyframes moveFontSmaller {
+  0%,
+  16.5%,
+  100% {
+    transform: translateY(calc(40px * -2));
+  }
+  25%,
+  41.5%,
+  75%,
+  91.5% {
+    transform: translateY(calc(40px * -1));
+  }
+  50%,
+  66.5% {
+    transform: translateY(calc(40px * 0));
+  }
+}
+@media screen and (max-width: 800px) {
+  .carousel-section {
+    height: 50px;
+  }
+  h1 {
+    font-size: 50px;
+    animation: moveFontSmall 8s infinite;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .carousel-section {
+    height: 40px;
+  }
+  h1 {
+    font-size: 40px;
+    animation: moveFontSmaller 8s infinite;
+    height: 40px;
+  }
+}

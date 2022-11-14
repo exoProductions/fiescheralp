@@ -25,8 +25,10 @@ export class InfosComponent implements OnInit {
     },
   ];
   zoom = 1;
-  center: google.maps.LatLngLiteral = { lat: 46.40147919848464, lng: 8.131963355266702 };
-  options: google.maps.MapOptions = {
+//  center: google.maps.LatLngLiteral = { lat: 46.40147919848464, lng: 8.131963355266702 };
+
+  center: any = { lat: 46.40147919848464, lng: 8.131963355266702 };
+  options: any = { // google.maps.MapOptions
     mapTypeId: 'hybrid',
     zoomControl: true,
     scrollwheel: false,
@@ -42,23 +44,15 @@ export class InfosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    /*navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-    });*/
+    
+
+
     this.markers.push({
       position: {
-        lat: this.center.lat + ((Math.random() - 0.5) * 2) / 10,
-        lng: this.center.lng + ((Math.random() - 0.5) * 2) / 10,
+        lat: this.center.lat,
+        lng: this.center.lng ,
       },
-      /*label: {
-        color: 'red',
-        text: 'Fiescheralp ',
-      },
-      title: 'Marker title ' + (this.markers.length + 1),*/
-      options: { animation: google.maps.Animation.BOUNCE },
+      //options: { animation: google.maps.Animation.BOUNCE },
     });
   }
 

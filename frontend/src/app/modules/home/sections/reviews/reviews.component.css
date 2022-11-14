@@ -1,60 +1,50 @@
-@import (reference) "../../../../shared/variables.less";
-
 #main-container {
-  margin-top: @margin-large;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .top-title {
-  font-size: @fontsize-title-large;
-  color: @color-accent1;
+  font-size: 100px;
+  color: #e4cea5;
   font-weight: 900;
-  margin-top: @margin;
+  margin-top: 30px;
 }
-
 #stats-list {
   width: 100%;
-  padding: @padding-large 0;
+  padding: 100px 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: @color-dark;
-  margin-top: @margin;
-  box-shadow: 0px -10px 15px rgba(black,0.4);
+  background-color: #03131c;
+  margin-top: 30px;
+  box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.4);
 }
-
 .status-item {
-  margin: @margin;
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 256px;
 }
-
 .status-item h1,
 .status-item span {
   width: fit-content;
-  color: @color-accent1;
+  color: #e4cea5;
   text-align: center;
 }
-
 .status-item .title-first {
-  font-size: @fontsize-title;
+  font-size: 50px;
 }
-
 .title-first.one {
-  margin-bottom: @margin-small;
-  margin-top: @margin-smaller;
+  margin-bottom: 18px;
+  margin-top: 8px;
 }
-
 .title-first.two,
 .title-second.two {
   color: white;
 }
-
 .img-container {
   min-height: 50vh;
   width: 100%;
@@ -64,103 +54,78 @@
   justify-content: center;
   align-items: center;
   background-image: url("../../../../../assets/imgs/home/reviews-parallax.jpg");
-
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-  //border-bottom: solid 1px @color-accent1;
 }
-
 .img-container.safari {
   background-attachment: unset;
 }
-
 .img-container .title-first {
-  margin-bottom: @margin-small;
+  margin-bottom: 18px;
 }
-
-@list-item-width: min(100vw, 512px);
-
 #quotes-list {
   display: flex;
   flex-direction: row;
-  width: @list-item-width;
+  width: min(100vw, 512px);
   overflow: hidden;
 }
-
 .quotes-item {
-  min-width: @list-item-width;
+  min-width: min(100vw, 512px);
   animation: 20s quotesLoop;
   animation-iteration-count: infinite;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .quote {
   color: white;
-  font-size: @fontsize-h1;
+  font-size: 26px;
   text-align: center;
 }
-
 .quote-person {
   color: white;
-  margin-top: @margin;
-  margin-bottom: @margin-small;
+  margin-top: 30px;
+  margin-bottom: 18px;
 }
-
-@media screen and(max-width:@max-w-2) {
-
+@media screen and (max-width: 800px) {
   #stats-list {
     flex-direction: column;
   }
-
   .top-title {
-    font-size: @fontsize-title;
+    font-size: 50px;
   }
 }
-
-
-@media screen and(max-width:@max-w-1) {
+@media screen and (max-width: 500px) {
   .top-title {
-    font-size: @fontsize-subtitle;
+    font-size: 40px;
   }
 }
-
 @keyframes quotesLoop {
-
   0%,
   100% {
     transform: translateX(0);
   }
-
   15% {
     transform: translateX(0);
   }
-
   25% {
-    transform: translateX(calc(@list-item-width * -1));
+    transform: translateX(calc(min(100vw, 512px) * -1));
   }
-
   40% {
-    transform: translateX(calc(@list-item-width * -1));
+    transform: translateX(calc(min(100vw, 512px) * -1));
   }
-
   50% {
-    transform: translateX(calc(@list-item-width * -2));
+    transform: translateX(calc(min(100vw, 512px) * -2));
   }
-
   65% {
-    transform: translateX(calc(@list-item-width * -2));
+    transform: translateX(calc(min(100vw, 512px) * -2));
   }
-
   75% {
-    transform: translateX(calc(@list-item-width * -3));
+    transform: translateX(calc(min(100vw, 512px) * -3));
   }
-
   85% {
-    transform: translateX(calc(@list-item-width * -3));
+    transform: translateX(calc(min(100vw, 512px) * -3));
   }
 }

@@ -1,1 +1,22 @@
-<p>reviews works!</p>
+<div id="main-container">
+    <!-- <h1 class="title-second top-title">Fakten & Zahlen</h1>
+    <h1 class="title-first top-title">Überblick</h1> -->
+        <h1 class="top-title">Rezensionen</h1>
+    <ul id="stats-list">
+        <li class="status-item" *ngFor="let number of numbers; let i = index">
+            <h1 class="title-first">{{number}}</h1>
+            <h1 class="title-second one">{{subtitles[i]}}</h1>
+            <span>{{texts[i]}}</span>
+        </li>
+    </ul>
+    <div [ngClass]="getIsSafari() ? 'img-container safari' : 'img-container'">
+        <h1 class="title-second two">Das sagen</h1>
+        <h1 class="title-first two">Unsere Kunden</h1>
+        <ul id="quotes-list">
+            <li class="quotes-item" *ngFor="let quote of quotes; let i = index">
+                <span class="quote">"{{quote}}"</span>
+                <span class="quote-person">{{quotesPerson[i]}}, {{quotesPersonDate[i]}} </span>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+@import (reference) "../../../shared/variables.less";
+
+#main-container{
+    width: 100%;
+    background-color: @color-dark;
+    min-height: 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#link-list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+#logo-container img{
+    max-height: 64px;
+    width: auto;
+}
+#link-list li{
+    width: 100%;
+    margin:@margin-small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#link-list li h1{
+    padding:@padding-small 0;
+    color: white;
+}
+#link-list li:hover h1{
+    cursor: default;
+    color: @color-accent1;
+}
+#copyright-container span{
+display: flex;
+flex-direction: column;
+ align-items: center;
+ margin: @margin 0;
+}
+#copyright-container p{
+color: @color-lighter;
+text-align: center;
+font-size: @fontsize-std;
+}
+
+@media screen and(max-width:@max-w-2){
+    #link-list{
+        flex-direction: column;
+    }
+    #link-list li{
+        width: 100%;
+
+    }
+    #logo-container img{
+        margin-top: @margin;
+    }
+}

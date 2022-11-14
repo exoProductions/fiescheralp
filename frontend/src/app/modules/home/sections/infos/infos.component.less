@@ -22,6 +22,17 @@
     padding: @padding-small;
 }
 
+.item .underline{
+    width: 0%;
+    height: 1px;
+    background-color: @color-accent1;
+    transition: 0.3s width;
+}
+
+.item.open .underline,.item:hover .underline{
+    width: 100%;
+}
+
 #map{
     width: min(calc(100% - @padding-small * 2), calc(@max-w-4 - @padding-small * 2));
 }
