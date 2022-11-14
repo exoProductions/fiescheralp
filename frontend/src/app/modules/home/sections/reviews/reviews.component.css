@@ -68,11 +68,11 @@
 #quotes-list {
   display: flex;
   flex-direction: row;
-  width: min(100vw, 512px);
+  width: min(100%, 512px);
   overflow: hidden;
 }
 .quotes-item {
-  min-width: min(100vw, 512px);
+  min-width: min(100%, 512px);
   animation: 20s quotesLoop;
   animation-iteration-count: infinite;
   display: flex;
@@ -111,21 +111,21 @@
     transform: translateX(0);
   }
   25% {
-    transform: translateX(calc(min(100vw, 512px) * -1));
+    transform: translateX(calc(min(100%, 512px) * -1));
   }
   40% {
-    transform: translateX(calc(min(100vw, 512px) * -1));
+    transform: translateX(calc(min(100%, 512px) * -1));
   }
   50% {
-    transform: translateX(calc(min(100vw, 512px) * -2));
+    transform: translateX(calc(min(100%, 512px) * -2));
   }
   65% {
-    transform: translateX(calc(min(100vw, 512px) * -2));
+    transform: translateX(calc(min(100%, 512px) * -2));
   }
   75% {
-    transform: translateX(calc(min(100vw, 512px) * -3));
+    transform: translateX(calc(min(100%, 512px) * -3));
   }
   85% {
-    transform: translateX(calc(min(100vw, 512px) * -3));
+    transform: translateX(calc(min(100%, 512px) * -3));
   }
 }

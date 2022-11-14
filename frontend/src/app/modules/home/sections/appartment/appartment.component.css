@@ -3,6 +3,7 @@
   color: #e4cea5;
   font-weight: 900;
   margin-top: 30px;
+  text-align: center;
 }
 @media screen and (max-width: 800px) {
   .top-title {

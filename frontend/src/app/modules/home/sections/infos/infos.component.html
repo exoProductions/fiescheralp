@@ -1,23 +1,26 @@
 <section id="infos-section" class="acc">
     <ul id="infos-list" class="acr">
         <ng-container *ngFor="let info of infos;let i=index">
-            <button (click)="openInd=i">
+            <button (click)="openInfo(i)">
                 <li [ngClass]="openInd==i? 'item open acc':'item acc'">
                     <app-svg-icons class="icon" [name]="info.icon" [strokeWidth]="25" strokeColor="#e4cea5"
                         [sizeInd]="7"></app-svg-icons>
                     <h1>{{info.title}}</h1>
                     <div class="underline"></div>
+                    <div *ngIf="i==infos.length-1" #info></div>
                 </li>
             </button>
         </ng-container>
     </ul>
-    <section *ngIf="openInd>=0" class="info">
+    <section  *ngIf="openInd>=0" class="info">
         <p>{{infos[openInd].info}}</p>
-        <google-map height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options" *ngIf="openInd==0">
+        <div class="google-map-container">
+            <google-map  height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options" *ngIf="openInd==0">
 
-            <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
-                [title]="marker.title" [options]="marker.options"></map-marker>
-
-        </google-map>
+                <map-marker (mapClick)="openMaps(i)" *ngFor="let marker of markers;let i=index" [position]="marker.position" [label]="marker.label"
+                    [title]="marker.title" [options]="marker.options"></map-marker>
+    
+            </google-map>
+        </div>
     </section>
 </section>
