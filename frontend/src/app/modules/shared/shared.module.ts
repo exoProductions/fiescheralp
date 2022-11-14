@@ -6,6 +6,7 @@ import { ReservationShortcutComponent } from './reservation-shortcut/reservation
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SvgIconsComponent } from './svg-icons/svg-icons.component';
 import { WordCarouselComponent } from './word-carousel/word-carousel.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
@@ -15,7 +16,8 @@ import { WordCarouselComponent } from './word-carousel/word-carousel.component';
     FooterComponent,
     ReservationShortcutComponent,
     SvgIconsComponent,
-    WordCarouselComponent
+    WordCarouselComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { WordCarouselComponent } from './word-carousel/word-carousel.component';
     FooterComponent,
     SvgIconsComponent,
     WordCarouselComponent,
+    CalendarComponent,
   ]
 })
 export class SharedModule { }
