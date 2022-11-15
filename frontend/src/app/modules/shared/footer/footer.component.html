@@ -1,23 +1,17 @@
 <div id="main-container">
-    <ul id="link-list">
-      <li id="logo-container">
-        <img src="./assets/imgs/logos/logo.png" />
+  <ul id="link-list">
+    <li id="logo-container">
+      <img src="./assets/imgs/logos/logo.png" />
+    </li>
+    <ng-container *ngFor="let sectionTitle of sectionTitles; let i = index">
+      <li (click)="navigateToPage(i)">
+        <h1 class="title-first">{{sectionTitle}}</h1>
       </li>
-      <ng-container  *ngFor="let sectionTitle of sectionTitles; let i = index">
-          <li (click)="navigateToPage(i)">
-              <h1 class="title-first">{{sectionTitle}}</h1>
-          </li>
-      </ng-container>
-    </ul>
-    <div id="copyright-container">
-      <p>
-          ©
-          {{currentYear}} Fritz Gerber<br>
-          Schweiz<br>
-          Kanton Luzern<br>
-          6276 Hohenrain<br>
-          Landschau 1
-      </p>
-    </div>
+    </ng-container>
+  </ul>
+  <div id="copyright-container">
+    <p>
+      © {{currentYear}} Fritz Gerber | Schweiz | Kanton Luzern | 6276 Hohenrain | Landschau 1
+    </p>
   </div>
-  
+</div>

@@ -3,7 +3,7 @@
         <ng-container *ngFor="let info of infos;let i=index">
             <button (click)="openInfo(i)">
                 <li [ngClass]="openInd==i? 'item open acc':'item acc'">
-                    <app-svg-icons class="icon" [name]="info.icon" [strokeWidth]="25" strokeColor="#e4cea5"
+                    <app-svg-icons class="icon" [name]="info.icon" [strokeWidth]="25"
                         [sizeInd]="7"></app-svg-icons>
                     <h1>{{info.title}}</h1>
                     <div class="underline"></div>

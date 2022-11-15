@@ -6,7 +6,6 @@
         <li class="status-item" *ngFor="let number of numbers; let i = index">
             <h1 class="title-first">{{number}}</h1>
             <h1 class="title-second one">{{subtitles[i]}}</h1>
-            <span>{{texts[i]}}</span>
         </li>
     </ul>
     <div [ngClass]="getIsSafari() ? 'img-container safari' : 'img-container'">
@@ -14,8 +13,15 @@
         <h1 class="title-first two">Unsere Kunden</h1>
         <ul id="quotes-list">
             <li class="quotes-item" *ngFor="let quote of quotes; let i = index">
-                <span class="quote">"{{quote}}"</span>
-                <h3 class="quote-person">{{quotesPerson[i]}}, {{quotesPersonDate[i]}} </h3>
+                <span class="quote">"{{quote.quote}}"</span>
+                <h3 class="quote-person">{{quote.person}}, {{quote.date}} </h3>
+                <ul class="acr">
+                    <li class="star-item" *ngFor="let char of quote.stars.split('');let i=index">
+                        <app-svg-icons *ngIf="char=='1'" name="star" [strokeWidth]="25" [sizeInd]="3"></app-svg-icons>
+                        <app-svg-icons *ngIf="char=='0'" name="star-outline" [strokeWidth]="25" [sizeInd]="3"></app-svg-icons>
+
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>

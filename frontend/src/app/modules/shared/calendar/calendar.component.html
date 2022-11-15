@@ -1,29 +1,46 @@
 <section id="calendar-section">
-    <div id="calendar-head">
-        <app-svg-icons name="arrow-forward-outline" [strokeWidth]="25" strokeColor="#fff" [sizeInd]="7"></app-svg-icons>
-        {{getMonthFromNumber()}}
-        <app-svg-icons name="arrow-forward-outline" [strokeWidth]="25" strokeColor="#fff" [sizeInd]="7"></app-svg-icons>
+    <div id="calendar-head" class="acr">
+        <button class="btn-prev" (click)="skipToPreviousMonth()">
+            <app-svg-icons name="chevron-back-outline" [strokeWidth]="25" strokeColor="#000" [sizeInd]="5">
+            </app-svg-icons>
+        </button>
+        <p> {{getMonthFromNumber()}} {{getCurrentYear()}} </p>
+        <button class="btn-next" (click)="skipToNextMonth()">
+            <app-svg-icons name="chevron-forward-outline" [strokeWidth]="25" [sizeInd]="5"></app-svg-icons>
+        </button>
     </div>
-    <ul>
+    <ul id="calendar-list">
         <ng-container *ngFor="let dayName of getDayNames()">
-            <li class="day-name-item">
-                <h1>{{dayName}}</h1>
+            <li class="day-name-item acc">
+                <button>
+                    <h1>{{dayName}}</h1>
+                </button>
             </li>
         </ng-container>
         <ng-container *ngFor="let prevMonthDate of getPrevMonthDays()">
-            <li class="day-item">
-                <h1> {{prevMonthDate.getDate()}} </h1>
+            <li class="day-item acc prev-day">
+                <button (click)="skipToPreviousMonth()">
+                    <h1> {{prevMonthDate.getDate()}} </h1>
+                </button>
             </li>
         </ng-container>
         <ng-container *ngFor="let date of getDaysOfCurrentMonth()">
-            <li class="day-item">
-                <h1> {{date.getDate()}} {{date.getDay()}}</h1>
+            <li class="day-item acc">
+                <button>
+                    <h1> {{date.getDate()}}</h1>
+                </button>
             </li>
         </ng-container>
         <ng-container *ngFor="let nextMonthDate of getNextMonthDays()">
-            <li class="day-item">
-                <h1> {{nextMonthDate.getDate()}} </h1>
+            <li class="day-item acc next-day">
+                <button (click)="skipToNextMonth()">
+                    <h1> {{nextMonthDate.getDate()}} </h1>
+                </button>
             </li>
         </ng-container>
     </ul>
+
+    <section id="footer">
+        
+    </section>
 </section>

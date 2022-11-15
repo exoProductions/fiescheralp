@@ -4,7 +4,8 @@
     width: 100%;
     margin: @margin-large 0px;
 }
-.word-carousel{
+
+.word-carousel {
     margin-bottom: @margin-large;
 }
 
@@ -40,7 +41,7 @@
     justify-content: space-between;
     padding: @padding-small;
     align-self: stretch;
-    box-shadow: 0px 10px 20px rgba(black,0.3);
+    box-shadow: 0px 10px 20px rgba(black, 0.3);
 }
 
 .card:nth-child(1) button {
@@ -53,7 +54,7 @@
 }
 
 .card:nth-child(3) button {
-    background-color:@color-accent-light3 ;
+    background-color: @color-accent-light3 ;
 }
 
 .card:nth-child(4) button {
@@ -83,7 +84,7 @@
 }
 
 .icon-container {
-    margin-top: @margin-large;
+    margin-top: @margin;
     margin-bottom: @margin;
     width: @fontsize-title-large ;
     height: @fontsize-title-large ;
@@ -94,6 +95,7 @@
 }
 
 .card .svg-icon {
+    color: white;
     transform: translateX(calc(@fontsize-title-large * -1));
     transition: 0.3s transform;
     opacity: 0.5;
@@ -138,8 +140,9 @@
     .card,
     .card:nth-child(4) {
         width: 100%;
+        min-height: unset;
     }
-
+    
     .card:nth-child(1) button,
     .card:nth-child(2) button,
     .card:nth-child(3) button,

@@ -6,7 +6,7 @@
         <ng-container *ngFor="let route of getRoutes();let i = index">
             <li [ngClass]="getCurrentPageInd() == i? 'item active' : 'item'" (click)="setCurPageInd(i)">
                 <button (click)="navigateToPage(i)">
-                    <app-svg-icons class="svg-icon" [name]="pageIcons[i]" strokeColor="#000" [sizeInd]="3">
+                    <app-svg-icons class="svg-icon" [name]="pageIcons[i]" [sizeInd]="3">
                     </app-svg-icons>
                     <h2>
                         {{route}}
@@ -23,7 +23,7 @@
                 <li [ngClass]="getCurrentPageInd() == i? 'item active' : 'item'" (click)="setCurPageInd(i)">
                     <button (click)="navigateToPage(i)">
                         <div class="link-container">
-                            <app-svg-icons class="svg-icon" [name]="pageIcons[i]" strokeColor="#000" [sizeInd]="3">
+                            <app-svg-icons class="svg-icon" [name]="pageIcons[i]" [sizeInd]="3">
                             </app-svg-icons>
                             <h2>
                                 {{route}}
@@ -37,7 +37,7 @@
 
         <button id="burger-btn" (click)="toggleNav()">
             <h1 id="burger-menu">
-                <app-svg-icons class="svg-icon" name="menu-outline" strokeColor="#000" [sizeInd]="5"></app-svg-icons>
+                <app-svg-icons class="svg-icon" name="menu-outline" [sizeInd]="5"></app-svg-icons>
             </h1>
         </button>
     </div>

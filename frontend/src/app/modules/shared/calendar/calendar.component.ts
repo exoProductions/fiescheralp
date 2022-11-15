@@ -41,4 +41,7 @@ export class CalendarComponent implements OnInit {
   getNextMonthDays():Date[]{
     return this.calendarService.getNextMonthDays();
   }
+  getCurrentYear():number{
+    return this.calendarService.currentYear;
+  }
 }
