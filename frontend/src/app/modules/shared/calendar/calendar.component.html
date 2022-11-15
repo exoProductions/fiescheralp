@@ -1,1 +1,29 @@
-<p>calendar works!</p>
+<section id="calendar-section">
+    <div id="calendar-head">
+        <app-svg-icons name="arrow-forward-outline" [strokeWidth]="25" strokeColor="#fff" [sizeInd]="7"></app-svg-icons>
+        {{getMonthFromNumber()}}
+        <app-svg-icons name="arrow-forward-outline" [strokeWidth]="25" strokeColor="#fff" [sizeInd]="7"></app-svg-icons>
+    </div>
+    <ul>
+        <ng-container *ngFor="let dayName of getDayNames()">
+            <li class="day-name-item">
+                <h1>{{dayName}}</h1>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let prevMonthDate of getPrevMonthDays()">
+            <li class="day-item">
+                <h1> {{prevMonthDate.getDate()}} </h1>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let date of getDaysOfCurrentMonth()">
+            <li class="day-item">
+                <h1> {{date.getDate()}} {{date.getDay()}}</h1>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let nextMonthDate of getNextMonthDays()">
+            <li class="day-item">
+                <h1> {{nextMonthDate.getDate()}} </h1>
+            </li>
+        </ng-container>
+    </ul>
+</section>
