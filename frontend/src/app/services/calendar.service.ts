@@ -9,7 +9,7 @@ export class CalendarService {
   allMonthsOfPreviousYear: Date[][] = [];
   allMonthsOfNextYear: Date[][] = [];
   currentYear: number = this.today.getFullYear();
-  currentMonth: number =10; //this.today.getMonth()
+  currentMonth: number =this.today.getMonth()
 
   selectedStartDay: number = -1;
   selectedEndDay: number = -1;
@@ -73,15 +73,23 @@ export class CalendarService {
   getDayOfFirstDayInMonth():number{
     let day=this.getDaysOfCurrentMonth()[0].getDay();
     if(day==0){
+      console.log(day);
       return 6;
     }else{
       return day-1;
     }
-    //return this.getDaysOfCurrentMonth()[0].getDay();
+  }
+  getDayOfLastDayInMonth():number{
+    let day=this.getDaysOfCurrentMonth()[this.getDaysOfCurrentMonth().length-1].getDay();
+    if(day==0){
+      console.log(day);
+      return 6;
+    }else{
+      return day-1;
+    }
   }
   getPrevMonthDays():Date[]{
     let prevMonthDays:Date[]=[];
-    console.log(this.getDayOfFirstDayInMonth());
     for(let i=this.getDayOfFirstDayInMonth()-1;i>=0;i--){ //todo ral for
       if(this.currentMonth==0){
         let prevMonth=this.allMonthsOfPreviousYear[11];
@@ -91,15 +99,16 @@ export class CalendarService {
         prevMonthDays.push(prevMonth[prevMonth.length-1-i]);
       }
     }
-    console.log(prevMonthDays)
     return prevMonthDays;
   }
 
   getNextMonthDays():Date[]{
     let nextMonthDays:Date[]=[];
-    for(let i=0;i<7-this.getDayOfFirstDayInMonth()-1;i++){ //todo ral for
+    
+    for(let i=0;i<6-this.getDayOfLastDayInMonth();i++){ //todo ral for
       if(this.currentMonth==11){
         let nextMonth=this.allMonthsOfNextYear[0];
+        console.log(nextMonth);
         nextMonthDays.push(nextMonth[i]);
       }else{
         let nextMonth=this.allMonthsOfYear[this.currentMonth+1];
