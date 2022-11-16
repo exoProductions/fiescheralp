@@ -1,44 +1,44 @@
-<div id="nav-top-spacer" *ngIf="getShowSpacer()"></div>
-
-<nav class="nav">
-
-    <ul [ngClass]="getNavIsOpen() ? 'nav-list open' : 'nav-list'">
-        <ng-container *ngFor="let route of getRoutes();let i = index">
-            <li [ngClass]="getCurrentPageInd() == i? 'item active' : 'item'" (click)="setCurPageInd(i)">
-                <button (click)="navigateToPage(i)">
-                    <app-svg-icons class="svg-icon" [name]="pageIcons[i]" [sizeInd]="3">
-                    </app-svg-icons>
-                    <h2>
-                        {{route}}
-                    </h2>
-                </button>
-            </li>
-        </ng-container>
-    </ul>
-
-    <div id="head">
-        <img id="logo" src="./assets/imgs/logos/logo.png" />
-        <ul id="nav-list-big">
-            <ng-container *ngFor="let route of getRoutes();let i = index">
-                <li [ngClass]="getCurrentPageInd() == i? 'item active' : 'item'" (click)="setCurPageInd(i)">
+<nav [ngClass]="scrollOffset>getWindowHeight() / 2? 'nav small acc':'nav acc'">
+    <div id="nav-wrapper">
+        <div id="logo-container" class="acc">
+            <img id="logo" src="./assets/imgs/logos/logo.png" />
+        </div>
+        <div id="underline"></div>
+        <ul id="list-big">
+            <ng-container *ngFor="let route of getRoutes();let i=index">
+                <li [ngClass]="getCurrentPageInd() == i? 'nav-item-big active acc' : 'nav-item-big acc'">
                     <button (click)="navigateToPage(i)">
-                        <div class="link-container">
-                            <app-svg-icons class="svg-icon" [name]="pageIcons[i]" [sizeInd]="3">
-                            </app-svg-icons>
-                            <h2>
-                                {{route}}
-                            </h2>
-                        </div>
-                        <div class="underline"></div>
+                        <h2 class="route-text">{{route}}</h2>
                     </button>
                 </li>
             </ng-container>
         </ul>
-
-        <button id="burger-btn" (click)="toggleNav()">
-            <h1 id="burger-menu">
-                <app-svg-icons class="svg-icon" name="menu-outline" [sizeInd]="5"></app-svg-icons>
-            </h1>
-        </button>
+        <ul id="list-small">
+            <li class="current-page-item-small">
+                <button class="acr">
+                    <app-svg-icons class="svg-icon" [name]="pageIcons[getCurrentPageInd()]" [sizeInd]="3">
+                    </app-svg-icons>
+                    <h2> {{getRoutes()[getCurrentPageInd()]}}
+                    </h2>
+                </button>
+            </li>
+            <li>
+                <button id="burger-btn" (click)="toggleNav()">
+                    <app-svg-icons class="svg-icon" name="menu-outline" [sizeInd]="5"></app-svg-icons>
+                </button>
+            </li>
+        </ul>
     </div>
 </nav>
+
+<div [ngClass]="getNavIsOpen()? 'list-small-nav-container open':'list-small-nav-container'">
+    <ul  [ngClass]="scrollOffset>getWindowHeight() / 2? 'list-small-nav small':'list-small-nav'">
+        <ng-container *ngFor="let route of getRoutes();let i=index">
+            <li [ngClass]="getCurrentPageInd() == i? 'nav-item-small active acc' : 'nav-item-small acc'">
+                <button (click)="navigateToPage(i)">
+                    <h2 class="route-text">{{route}}</h2>
+                </button>
+            </li>
+        </ng-container>
+    </ul>
+</div>

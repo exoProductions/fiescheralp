@@ -20,6 +20,8 @@ export class NavbarComponent implements OnInit {
   burgerIcon=faBars;
   animatedOnce:boolean=false;
 
+  scrollOffset:number=0;
+
   constructor(private navigationService: NavigationService, private globalVariablesService: GlobalVariablesService,private router:Router) { }
 
   ngOnInit(): void {
@@ -30,22 +32,22 @@ export class NavbarComponent implements OnInit {
     window.innerWidth>=800?this.navigationService.navIsOpen=false:null;
   }
 
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.scrollOffset = window.pageYOffset ||document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
   setCurPageInd(ind: number): void {
     this.navigationService.curPageInd = ind;
   }
 
   navigateToPage(ind: number): void {
-    this.router.navigate(['/' + this.getPages()[ind]]);
+    this.router.navigate(['/' + this.getRoutes()[ind]]);
     this.navigationService.navIsOpen=false;
   }
 
 
   toggleNav(): void {
     this.navigationService.navIsOpen = !this.navigationService.navIsOpen;
-  }
-
-  getShowSpacer():boolean{
-    return false;
   }
 
   getCurrentPageInd(): number {
@@ -58,12 +60,10 @@ export class NavbarComponent implements OnInit {
   getNavIsOpen(): boolean {
     return this.navigationService.navIsOpen;
   }
-  getPages(): string[] {
-    return this.navigationService.pages;
-  }
   getCurPageInd(): number {
     return this.navigationService.curPageInd;
   }
-
-
+  getWindowHeight():number{
+    return window.innerHeight;
+  }
 }

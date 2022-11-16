@@ -19,7 +19,6 @@
                     <li class="star-item" *ngFor="let char of quote.stars.split('');let i=index">
                         <app-svg-icons *ngIf="char=='1'" name="star" [strokeWidth]="25" [sizeInd]="3"></app-svg-icons>
                         <app-svg-icons *ngIf="char=='0'" name="star-outline" [strokeWidth]="25" [sizeInd]="3"></app-svg-icons>
-
                     </li>
                 </ul>
             </li>
