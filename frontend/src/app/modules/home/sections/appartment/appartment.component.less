@@ -1,5 +1,9 @@
 @import "../../../../shared/variables.less";
 
+#appartment-section{
+  width: 100%;
+}
+
 .top-title {
   font-size: @fontsize-title-large;
   color: @color-accent1;
@@ -7,7 +11,40 @@
   margin: 0px @margin;
   text-align: center;
   transform: translateY(calc(@fontsize-title-large * -0.4));
+}
 
+#foto-section{
+ min-width: 100vw;
+}
+#intro-img-list,
+#small-img-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: black;
+}
+@img-width: 50%;
+
+.small-imgs-container{
+  width: @img-width;
+}
+
+
+.item.big{
+  width: calc(@img-width - @padding-smaller * 2);
+  padding: @padding-smaller;
+}
+
+.item.small{
+  width: calc(@img-width - @padding-smaller);
+  padding: @padding-smaller @padding-smaller 0px 0px;
+}
+.item img{
+  width: calc(100%- @padding-smaller);
+  width: calc(100% - @padding-smaller);
+  display: block;
 }
 
 

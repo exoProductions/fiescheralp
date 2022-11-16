@@ -1,9 +1,41 @@
+#appartment-section {
+  width: 100%;
+}
 .top-title {
   font-size: 100px;
   color: #e4cea5;
   font-weight: 900;
-  margin-top: 30px;
+  margin: 0px 30px;
   text-align: center;
+  transform: translateY(calc(100px * -0.4));
+}
+#foto-section {
+  min-width: 100vw;
+}
+#intro-img-list,
+#small-img-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: black;
+}
+.small-imgs-container {
+  width: 50%;
+}
+.item.big {
+  width: calc(50% - 8px * 2);
+  padding: 8px;
+}
+.item.small {
+  width: calc(50% - 8px);
+  padding: 8px 8px 0px 0px;
+}
+.item img {
+  width: calc(100%-8px);
+  width: calc(100% - 8px);
+  display: block;
 }
 @media screen and (max-width: 800px) {
   .top-title {
