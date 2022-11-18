@@ -39,7 +39,7 @@ export class TopOverviewComponent implements OnInit {
       {
         introSentence: "Buchen Sie noch heute",
         title: "Reservation",
-        outroSentence: "Nur wehnige klicks stehen zwischen Ihnen und Ihrem Urlaub",
+        outroSentence: "Nur eine Entscheidung stehen zwischen Ihnen und Ihrem Urlaub",
         icon: "bookmarks-outline",
         route: navigationService.pages[1],
       }

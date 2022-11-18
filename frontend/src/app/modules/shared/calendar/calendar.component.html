@@ -25,8 +25,13 @@
             </li>
         </ng-container>
         <ng-container *ngFor="let date of getDaysOfCurrentMonth()">
-            <li class="day-item acc">
-                <button>
+            <li [ngClass]="{
+                'day-item acc': true,
+                'day-selected': getDateIsSelected(date),
+                'day-passed':getDayPassed(date)
+              }">
+            <!-- <li [ngClass]="getDateIsSelected(date)?'day-item day-selected acc':'day-item acc'"> -->
+                <button (click)="setSelectedStartDate(date)">
                     <h1> {{date.getDate()}}</h1>
                 </button>
             </li>

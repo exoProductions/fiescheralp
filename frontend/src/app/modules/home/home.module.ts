@@ -8,6 +8,7 @@ import { InfosComponent } from './sections/infos/infos.component';
 import { AppartmentComponent } from './sections/appartment/appartment.component';
 import { ReviewsComponent } from './sections/reviews/reviews.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AppartmentInfosComponent } from './sections/appartment/appartment-infos/appartment-infos.component';
 
 
 
@@ -18,7 +19,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     TopOverviewComponent,
     InfosComponent,
     AppartmentComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    AppartmentInfosComponent
   ],
   imports: [
     CommonModule,

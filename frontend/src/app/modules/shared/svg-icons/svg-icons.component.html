@@ -109,16 +109,43 @@
         stroke-linejoin="round" d="M184 112l144 144-144 144" />
 </svg>
 
-<svg *ngIf="name=='star-outline'" xmlns="http://www.w3.org/2000/svg"
-    [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+<svg *ngIf="name=='star-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}"
+    viewBox="0 0 512 512">
     <title>Star</title>
     <path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="none" stroke="currentColor"
         [ngStyle]="{'stroke-width':strokeWidth}" stroke-linejoin="round" />
 </svg>
 
-<svg *ngIf="name=='star'" xmlns="http://www.w3.org/2000/svg"
-    [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+<svg *ngIf="name=='star'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}"
+    viewBox="0 0 512 512">
     <title>Star</title>
-    <path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="currentColor" stroke="currentColor"
-        [ngStyle]="{'stroke-width':strokeWidth}" stroke-linejoin="round" />
+    <path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="currentColor"
+        stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linejoin="round" />
+</svg>
+
+<svg *ngIf="name=='pencil-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}"
+    viewBox="0 0 512 512">
+    <title>Pencil</title>
+    <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
+</svg>
+
+<svg *ngIf="name=='close-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}"
+    viewBox="0 0 512 512">
+    <title>Close</title>
+    <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round"
+        stroke-linejoin="round" d="M368 368L144 144M368 144L144 368" />
+</svg>
+
+<svg *ngIf="name=='add-outline'" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round">
+    <title>Add</title>
+    <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round" stroke-linejoin="round" 
+        d="M256 112v288M400 256H112" />
+</svg>
+
+<svg *ngIf="name=='subtract-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round" viewBox="0 0 512 512">
+    <title>Remove</title>
+    <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round" stroke-linejoin="round" 
+        d="M400 256H112" />
 </svg>

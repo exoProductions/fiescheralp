@@ -1,0 +1,103 @@
+@import "../../../shared/variables.less";
+
+@section-height:calc(@navbar-height / 2);
+
+
+//calendar------------------------------------------
+#calendar-section{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(white,0.3);
+    backdrop-filter: blur(12px);
+}
+
+#close-calendar-btn{
+    color: @color-danger;
+}
+
+//shortcut balken-----------------------------------
+#shortcut-section{
+    height: @section-height;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.shortcut-list{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    //width: calc(100% - @padding * 2);
+    width: 100%;
+    height: 100%;
+    //border-radius: @std-edge-rad @std-edge-rad 0 0;
+    box-shadow: 0px -10px 15px rgba(black,0.3);
+    border: solid 1px @color-accent1;
+    border-bottom: none;
+    transform: translateY(@section-height);
+    transition: 0.5s transform;
+}
+.shortcut-list.show{
+    transform: translateY(0px);
+}
+
+.item{
+    height: 100%;
+    padding: 0px @padding;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.item:nth-child(2){
+    padding: 0px;
+}
+.svg-icon.edit{
+    padding-left: @padding-smaller;
+}
+.current-date{
+    font-size: @fontsize-std;
+}
+#close-calendar-btn .svg-icon{
+    padding-left: @padding-small;
+    height: 100%;
+}
+.change-duration-btn h2{
+    color: black;
+    width: @btn-small;
+    height: @btn-small;
+}
+.svg-icon{
+    width: @btn-small;
+    height: @btn-small;
+}
+
+#duration{
+    padding:0px @padding-smaller;
+    text-align: center;
+    font-size: @fontsize-std;
+    user-select: none;
+}
+.btn-round{
+margin: 0px;
+padding: @padding-smaller @padding-small;
+}
+.btn-round h1{
+    font-size: @fontsize-std;
+}
+
+@media screen and(max-width:@max-w-1){
+.item:nth-child(2){
+    display: none;
+}
+.item{
+    padding: @padding-smaller;
+}
+}

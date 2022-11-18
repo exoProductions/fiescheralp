@@ -8,40 +8,53 @@ import { CalendarService } from 'src/app/services/calendar.service';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor(private calendarService:CalendarService) { }
+  constructor(private calendarService: CalendarService) { }
 
   ngOnInit(): void {
   }
 
-  skipToPreviousMonth():void{
+  skipToPreviousMonth(): void {
     this.calendarService.skipToPreviousMonth();
   }
-  skipToNextMonth():void{
+  skipToNextMonth(): void {
     this.calendarService.skipToNextMonth();
   }
-
-  getDaysOfCurrentMonth():Date[]{
+  setSelectedStartDate(date:Date){
+    if(!this.getDayPassed(date)){
+      this.calendarService.selectedStartDate=date;
+    }
+  }
+  getDayPassed(date:Date):boolean{
+    if(date.getMonth()!=this.calendarService.today.getMonth()){
+      return false;
+    }
+    return date.getDate()<this.calendarService.today.getDate();
+  }
+  getDateIsSelected(date: Date): boolean {
+    return date == this.calendarService.selectedStartDate;
+  }
+  getDaysOfCurrentMonth(): Date[] {
     console.log(this.calendarService.getDaysOfCurrentMonth());
     return this.calendarService.getDaysOfCurrentMonth();
   }
 
-  getDayNames():string[]{
+  getDayNames(): string[] {
     return this.calendarService.dayNames;
   }
 
-  getMonthFromNumber():string{
+  getMonthFromNumber(): string {
     return this.calendarService.getMonthFromNumber(this.calendarService.currentMonth);
   }
-  getDayOfFirstDayInMonth():number{
+  getDayOfFirstDayInMonth(): number {
     return this.calendarService.getDayOfFirstDayInMonth();
   }
-  getPrevMonthDays():Date[]{
+  getPrevMonthDays(): Date[] {
     return this.calendarService.getPrevMonthDays();
   }
-  getNextMonthDays():Date[]{
+  getNextMonthDays(): Date[] {
     return this.calendarService.getNextMonthDays();
   }
-  getCurrentYear():number{
+  getCurrentYear(): number {
     return this.calendarService.currentYear;
   }
 }

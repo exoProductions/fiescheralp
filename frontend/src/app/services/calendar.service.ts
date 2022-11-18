@@ -11,8 +11,8 @@ export class CalendarService {
   currentYear: number = this.today.getFullYear();
   currentMonth: number =this.today.getMonth()
 
-  selectedStartDay: number = -1;
-  selectedEndDay: number = -1;
+  selectedStartDate: Date = this.today;
+  duration:number=1;
 
   dayNames:string[]=["Mo","Di","Mi","Do","Fr","Sa","So"];
 
@@ -135,6 +135,17 @@ export class CalendarService {
       case 11: return "Dezember"; break;
       default: return "Januar";
     }
+  }
+
+
+  subtractFromDuration():void{
+    this.duration--;
+    if(this.duration<1){
+      this.duration=1;
+    }
+  }
+  addToDuration():void{
+    this.duration++;
   }
 
 }

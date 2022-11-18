@@ -8,7 +8,7 @@ a,
 button {
   margin: 0px;
   padding: 0px;
-  font-family: 'Roboto1', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   text-decoration: none;
 }
@@ -23,7 +23,9 @@ h3,
 h4 {
   margin: 0px;
   padding: 0px;
-  font-family: 'Roboto1', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 h1 {
   font-size: 26px;
@@ -35,9 +37,9 @@ h3 {
   font-size: 14px;
 }
 p {
-  font-family: 'Roboto1', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
-  color: #221e2c;
+  color: #03131c;
 }
 ul {
   margin: 0px;
@@ -47,7 +49,7 @@ ul {
 form,
 textarea {
   font-size: 16px;
-  font-family: 'Roboto1', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 .text-input,
 textarea {
@@ -61,39 +63,40 @@ textarea {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   padding: 4px;
   min-height: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 label {
   color: #666;
 }
 .title-first {
-  font-family: 'Roboto1', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 26px;
   text-align: center;
-  color: white;
+  color: black;
 }
 .title-second {
   font-size: 16px;
   text-align: center;
   text-transform: uppercase;
-  color: white;
+  color: #03131c;
+  font-weight: 300;
 }
 .link {
   font-size: 16px;
-  color: #2df3c2;
+  color: #d3b680;
   margin-left: 8px;
   transition: color 0.5s;
 }
 .link:hover {
-  color: #0099ff;
+  color: #ba7e4b;
 }
 .btn-round {
   margin-top: 30px;
-  background-color: #2df3c2;
+  background-color: #d3b680;
   padding: 8px;
-  border-radius: 5px;
-  box-shadow: 0 25px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
   animation: 2s wobbleSmooth infinite;
@@ -102,12 +105,12 @@ label {
   animation: 2s wobbleSmooth;
 }
 .text-gradient-1 {
-  background-image: linear-gradient(90deg, #2df3c2, #0099ff);
+  background-image: linear-gradient(90deg, #d3b680, #ba7e4b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .color-gradient-v1 {
-  background: linear-gradient(0deg, #2df3c2, #0099ff);
+  background: linear-gradient(0deg, #d3b680, #ba7e4b);
 }
 .color-gradient-v2 {
   background: linear-gradient(180deg, #420f81, #171124);
@@ -116,7 +119,7 @@ label {
   background: linear-gradient(180deg, #4db9e8, #08348c);
 }
 .color-gradient-h1 {
-  background: linear-gradient(90deg, #2df3c2, #0099ff);
+  background: linear-gradient(90deg, #d3b680, #ba7e4b);
 }
 .color-gradient-h2 {
   background: linear-gradient(90deg, #340031, #09274C);
@@ -133,15 +136,17 @@ label {
   justify-content: center;
   align-items: center;
 }
-.spacer {
+.bg-img {
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.layer1 {
-  aspect-ratio: 500/25;
-}
+/*
+.side-layer{
+    aspect-ratio: 500/500;
+    background-image: url("./assets/svgs/spacers/side-layer.svg");
+}*/
 @keyframes wobbleSmooth {
   0% {
     transform: translateX(0px);

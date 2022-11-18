@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CalendarService } from 'src/app/services/calendar.service';
 
 @Component({
   selector: 'app-reservation-shortcut',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationShortcutComponent implements OnInit {
 
-  constructor() { }
+  show: boolean = false;
+  closed: boolean = false;
+  calendarIsOpen: boolean = false;
+  constructor(private calendarService: CalendarService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    let scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    scrollOffset > window.innerHeight * 2 ? this.show = true : this.show = false;
+  }
+
+  subtractFromDuration(): void {
+    this.calendarService.subtractFromDuration();
+  }
+  addToDuration(): void {
+    this.calendarService.addToDuration();
+  }
+  goToReservation() {
+    this.router.navigate(["Reservation"]);
+  }
+  getCurrentDate(): string {
+    return this.calendarService.selectedStartDate.getDate().toString() + "." + (this.calendarService.selectedStartDate.getMonth() + 1).toString() + "." + this.calendarService.selectedStartDate.getFullYear().toString();
+  }
+  getDuration(): number {
+    return this.calendarService.duration;
   }
 
 }

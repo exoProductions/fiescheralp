@@ -26,6 +26,7 @@ import { CalendarComponent } from './calendar/calendar.component';
   exports: [
     NavbarComponent,
     FooterComponent,
+    ReservationShortcutComponent,
     SvgIconsComponent,
     WordCarouselComponent,
     CalendarComponent,
