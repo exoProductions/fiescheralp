@@ -1,0 +1,62 @@
+#appartment-info-section {
+  width: 100%;
+  transform: translateY(-10vh);
+}
+#info-list {
+  width: calc(100% - 10vw - 18px * 2);
+  max-width: 1200px;
+}
+.info-item {
+  max-width: 1200px;
+  width: 100%;
+  height: min(50vw, 80vh);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transform: translateX(5vw);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.info-item:nth-child(1) {
+  background-image: url("../../../../../assets/imgs/home/appartment/info-1.jpg");
+}
+.text-box-wrapper {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.info-item:nth-child(1) .text-box-wrapper {
+  align-items: flex-start;
+}
+.text-box {
+  width: calc(50%);
+  height: 50%;
+  padding: 100px 18px;
+  background-color: rgba(211, 182, 128, 0.8);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0% 100%);
+  transform: translateX(-10vw);
+}
+.text-box h1,
+.text-box p {
+  color: white;
+}
+@media screen and (max-width: 800px) {
+  #info-list {
+    width: calc(100% - 10vw);
+    max-width: 1200px;
+  }
+  .info-item {
+    min-height: 80vh;
+  }
+  .text-box {
+    width: 90%;
+  }
+}

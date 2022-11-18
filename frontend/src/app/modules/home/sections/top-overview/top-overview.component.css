@@ -31,6 +31,7 @@
   padding: 18px;
   align-self: stretch;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 .card:nth-child(1) button {
   background-color: #a87e74;
@@ -43,7 +44,7 @@
   background-color: #d89d6a;
 }
 .card:nth-child(4) button {
-  background-color: #e4cea5;
+  background-color: #d3b680;
   margin-top: 0px;
   align-self: stretch;
 }
@@ -62,7 +63,7 @@
   margin-top: 30px;
 }
 .icon-container {
-  margin-top: 100px;
+  margin-top: 30px;
   margin-bottom: 30px;
   width: 100px;
   height: 100px;
@@ -72,6 +73,7 @@
   justify-content: flex-start;
 }
 .card .svg-icon {
+  color: white;
   transform: translateX(calc(100px * -1));
   transition: 0.3s transform;
   opacity: 0.5;
@@ -106,6 +108,7 @@
   .card,
   .card:nth-child(4) {
     width: 100%;
+    min-height: unset;
   }
   .card:nth-child(1) button,
   .card:nth-child(2) button,

@@ -142,6 +142,10 @@ label {
   background-position: center;
   background-size: cover;
 }
+.layer1 {
+  aspect-ratio: 100/21;
+  background-image: url("assets/svgs/spacers/triangle2.svg");
+}
 /*
 .side-layer{
     aspect-ratio: 500/500;

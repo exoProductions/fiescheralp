@@ -1,175 +1,182 @@
 @import "./app/shared/variables.less";
+
 html,
 body {
-    margin: 0px;
-    padding: 0px;
-    background-color: white;
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
 }
 
 a,
 button {
-    margin: 0px;
-    padding: 0px;
-    font-family: @std-font;
-    font-size: @fontsize-std;
-    text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: @std-font;
+  font-size: @fontsize-std;
+  text-decoration: none;
 }
 
 button {
-    background-color: transparent;
-    border: none;
-    outline: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    margin: 0px;
-    padding: 0px;
-    font-family: @std-font;
-    font-weight: 300;
-    text-transform: uppercase;
+  margin: 0px;
+  padding: 0px;
+  font-family: @std-font;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 h1 {
-    font-size: @fontsize-h1 ;
+  font-size: @fontsize-h1 ;
 }
 
 h2 {
-    font-size: @fontsize-h2 ;
+  font-size: @fontsize-h2 ;
 }
 
 h3 {
-    font-size: @fontsize-h3;
+  font-size: @fontsize-h3;
 }
 
 p {
-    font-family: @std-font;
-    font-size: @fontsize-h2;
-    color: @color-dark;
+  font-family: @std-font;
+  font-size: @fontsize-h2;
+  color: @color-dark;
 }
 
 ul {
-    margin: 0px;
-    padding: 0px;
-    list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
 }
 
 form,
 textarea {
-    font-size: @fontsize-std;
-    font-family: @std-font;
+  font-size: @fontsize-std;
+  font-family: @std-font;
 }
 
 .text-input,
 textarea {
-    width: calc(100% - @padding-smallest * 2);
-    height: 30px;
-    background-color: white;
-    color: black;
-    margin-bottom: @margin-small;
-    border: solid 1px @color-lightest;
-    outline: none;
-    box-shadow: 0 10px 10px rgba(black, 0.3);
-    padding: @padding-smallest;
-    min-height: @btn-small;
-    border-radius: @std-edge-rad;
+  width: calc(100% - @padding-smallest * 2);
+  height: 30px;
+  background-color: white;
+  color: black;
+  margin-bottom: @margin-small;
+  border: solid 1px @color-lightest;
+  outline: none;
+  box-shadow: 0 10px 10px rgba(black, 0.3);
+  padding: @padding-smallest;
+  min-height: @btn-small;
+  border-radius: @std-edge-rad;
 }
 
 label {
-    color: @color-light;
+  color: @color-light;
 }
 
 .title-first {
-    font-family: @std-font;
-    font-weight: 900;
-    font-size: @fontsize-h1;
-    text-align: center;
-    color: black;
+  font-family: @std-font;
+  font-weight: 900;
+  font-size: @fontsize-h1;
+  text-align: center;
+  color: black;
 }
 
 .title-second {
-    font-size: @fontsize-std;
-    text-align: center;
-    text-transform: uppercase;
-    color: @color-dark;
-    font-weight: 300;
+  font-size: @fontsize-std;
+  text-align: center;
+  text-transform: uppercase;
+  color: @color-dark;
+  font-weight: 300;
 }
 
 .link {
-    font-size: @fontsize-std;
-    color: @color-accent1;
-    margin-left: @margin-smaller;
-    transition: color 0.5s;
+  font-size: @fontsize-std;
+  color: @color-accent1;
+  margin-left: @margin-smaller;
+  transition: color 0.5s;
 }
 
 .link:hover {
-    color: @color-accent2;
+  color: @color-accent2;
 }
 
 .btn-round {
-    margin-top: @margin;
-    background-color: @color-accent1;
-    padding: @padding-smaller;
-    border-radius: @std-edge-rad;
-    box-shadow: @box-shadow-1;
-    color: white;
-    text-align: center;
-    animation: 2s wobbleSmooth infinite;
+  margin-top: @margin;
+  background-color: @color-accent1;
+  padding: @padding-smaller;
+  border-radius: @std-edge-rad;
+  box-shadow: @box-shadow-1;
+  color: white;
+  text-align: center;
+  animation: 2s wobbleSmooth infinite;
 }
 
 .btn-round:hover {
-    animation: 2s wobbleSmooth;
+  animation: 2s wobbleSmooth;
 }
 
 .text-gradient-1 {
-    background-image: linear-gradient(90deg, @color-accent1, @color-accent2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, @color-accent1, @color-accent2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .color-gradient-v1 {
-    background: linear-gradient(0deg, @color-accent1, @color-accent2);
+  background: linear-gradient(0deg, @color-accent1, @color-accent2);
 }
 
 .color-gradient-v2 {
-    background: linear-gradient(180deg, rgb(66, 15, 129), rgb(23, 17, 36));
+  background: linear-gradient(180deg, rgb(66, 15, 129), rgb(23, 17, 36));
 }
 
 .color-gradient-v3 {
-    background: linear-gradient(180deg, #4db9e8, #08348c);
+  background: linear-gradient(180deg, #4db9e8, #08348c);
 }
 
 .color-gradient-h1 {
-    background: linear-gradient(90deg, @color-accent1, @color-accent2);
+  background: linear-gradient(90deg, @color-accent1, @color-accent2);
 }
 
 .color-gradient-h2 {
-    background: linear-gradient(90deg, #340031, #09274C);
+  background: linear-gradient(90deg, #340031, #09274C);
 }
 
 .acr {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .acc {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .bg-img {
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
+
+.layer1 {
+  aspect-ratio: 100/21;
+  background-image: url("./assets/svgs/spacers/triangle2.svg");
+}
+
 /*
 .side-layer{
     aspect-ratio: 500/500;
@@ -180,81 +187,81 @@ label {
 
 
 @keyframes wobbleSmooth {
-    0% {
-        transform: translateX(0px);
-    }
+  0% {
+    transform: translateX(0px);
+  }
 
-    15% {
-        transform: translateX(-6px) rotate(-1deg);
-    }
+  15% {
+    transform: translateX(-6px) rotate(-1deg);
+  }
 
-    30% {
-        transform: translateX(5px) rotate(0.75deg);
-    }
+  30% {
+    transform: translateX(5px) rotate(0.75deg);
+  }
 
-    45% {
-        transform: translateX(-3px) rotate(-0.75deg);
-    }
+  45% {
+    transform: translateX(-3px) rotate(-0.75deg);
+  }
 
-    60% {
-        transform: translateX(2px) rotate(0.5deg);
-    }
+  60% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
 
-    75% {
-        transform: translateX(-1px) rotate(-0.25deg);
-    }
+  75% {
+    transform: translateX(-1px) rotate(-0.25deg);
+  }
 
-    100% {
-        transform: translateX(0px);
-    }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes slideInLeft {
-    0% {
-        transform: translateX(-100vw);
-    }
+  0% {
+    transform: translateX(-100vw);
+  }
 
-    60% {
-        transform: translateX(5vw);
-    }
+  60% {
+    transform: translateX(5vw);
+  }
 
-    100% {
-        transform: translateX(0px);
-    }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes slideInRight {
-    0% {
-        transform: translateX(100vw);
-    }
+  0% {
+    transform: translateX(100vw);
+  }
 
-    60% {
-        transform: translateX(-5vw);
-    }
+  60% {
+    transform: translateX(-5vw);
+  }
 
-    100% {
-        transform: translateX(0px);
-    }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
-    0% {
-        transform: scale(0);
-    }
+  0% {
+    transform: scale(0);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* You can add global styles to this file, and also import other style files */
