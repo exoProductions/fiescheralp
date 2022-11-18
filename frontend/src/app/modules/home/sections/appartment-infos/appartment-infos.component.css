@@ -15,11 +15,20 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  transform: translateX(5vw);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+  margin: 30px 0px;
 }
 .info-item:nth-child(1) {
-  background-image: url("../../../../../assets/imgs/home/appartment/info-1.jpg");
+  background-image: url("../../../../../assets/imgs/home/appartment/info-0.jpg");
+  transform: translateX(5vw);
+}
+.info-item:nth-child(2) {
+  background-image: url("../../../../../assets/imgs/home/appartment/info-0.jpg");
+  transform: translateX(-5vw);
+}
+.info-item:nth-child(3) {
+  background-image: url("../../../../../assets/imgs/home/appartment/info-0.jpg");
+  transform: translateX(5vw);
 }
 .text-box-wrapper {
   max-width: 1200px;
@@ -28,25 +37,58 @@
   justify-content: center;
   height: 100%;
 }
-.info-item:nth-child(1) .text-box-wrapper {
+.info-item:nth-child(1) .text-box-wrapper,
+.info-item:nth-child(3) .text-box-wrapper {
   align-items: flex-start;
+}
+.info-item:nth-child(2) .text-box-wrapper {
+  align-items: flex-end;
 }
 .text-box {
   width: calc(50%);
   height: 50%;
-  padding: 100px 18px;
-  background-color: rgba(211, 182, 128, 0.8);
+  padding: 100px 30px;
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+.info-item:nth-child(1) .text-box {
   clip-path: polygon(0 0, 100% 20%, 100% 80%, 0% 100%);
   transform: translateX(-10vw);
+  background-color: rgba(168, 126, 116, 0.8);
+}
+.info-item:nth-child(2) .text-box {
+  clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 80%);
+  transform: translateX(10vw);
+  background-color: rgba(122, 168, 172, 0.8);
+}
+.info-item:nth-child(3) .text-box {
+  clip-path: polygon(0 0, 100% 20%, 100% 80%, 0% 100%);
+  transform: translateX(-10vw);
+  background-color: rgba(168, 126, 116, 0.8);
 }
 .text-box h1,
 .text-box p {
   color: white;
+}
+.title.one {
+  font-size: 50px;
+  transform: translateX(-10px);
+}
+.first-letter {
+  font-size: 100px;
+}
+.title.two {
+  font-weight: 900;
+}
+.title.one,
+.title.two {
+  margin: 0px;
+}
+.info-text {
+  margin-bottom: 0px;
 }
 @media screen and (max-width: 800px) {
   #info-list {
@@ -58,5 +100,6 @@
   }
   .text-box {
     width: 90%;
+    padding: 100px 18px;
   }
 }

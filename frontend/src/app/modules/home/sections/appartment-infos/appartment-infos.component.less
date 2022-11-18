@@ -1,6 +1,7 @@
 @import "../../../../shared/variables.less";
 
 @bg-color: #222;
+@transparency-text-box: 0.8;
 
 #appartment-info-section {
   width: 100%;
@@ -22,13 +23,23 @@
   align-items: center;
   justify-content: center;
   border-radius: @std-edge-rad;
-  transform: translateX(5vw);
   box-shadow: 0px 10px 10px rgba(black, 0.3);
+  margin: @margin 0px;
 }
 
 .info-item:nth-child(1) {
-  background-image: url("../../../../../assets/imgs/home/appartment/info-1.jpg");
+  background-image: url("../../../../../assets/imgs/home/appartment/info-0.jpg");
+  transform: translateX(5vw);
+}
 
+.info-item:nth-child(2) {
+  background-image: url("../../../../../assets/imgs/home/appartment/info-0.jpg");
+  transform: translateX(-5vw);
+}
+
+.info-item:nth-child(3) {
+  background-image: url("../../../../../assets/imgs/home/appartment/info-0.jpg");
+  transform: translateX(5vw);
 }
 
 .text-box-wrapper {
@@ -39,28 +50,72 @@
   height: 100%;
 }
 
-.info-item:nth-child(1) .text-box-wrapper {
+.info-item:nth-child(1) .text-box-wrapper,
+.info-item:nth-child(3) .text-box-wrapper {
   align-items: flex-start;
+}
+
+.info-item:nth-child(2) .text-box-wrapper {
+  align-items: flex-end;
 }
 
 .text-box {
   width: calc(50%);
   height: 50%;
-  padding: @padding-large @padding-small;
-  background-color: rgba(@color-accent1, 0.8);
+  padding: @padding-large @padding;
   backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+}
+
+.info-item:nth-child(1) .text-box {
   clip-path: polygon(0 0, 100% 20%, 100% 80%, 0% 100%);
   transform: translateX(-10vw);
+  background-color: rgba(@color-accent-light1, @transparency-text-box);
 }
+
+.info-item:nth-child(2) .text-box {
+  clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 80%);
+  transform: translateX(10vw);
+  background-color: rgba(@color-accent-light2, @transparency-text-box);
+}
+
+.info-item:nth-child(3) .text-box {
+    clip-path: polygon(0 0, 100% 20%, 100% 80%, 0% 100%);
+    transform: translateX(-10vw);
+    background-color: rgba(@color-accent-light1, @transparency-text-box);
+  }
 
 .text-box h1,
 .text-box p {
   color: white;
 }
+
+.title.one {
+  font-size: @fontsize-title;
+  transform: translateX(-10px);
+}
+
+.first-letter {
+  font-size: @fontsize-title-large;
+}
+
+.title.two {
+  font-weight: 900;
+}
+
+.title.one,
+.title.two {
+  margin: 0px;
+}
+
+.info-text {
+  margin-bottom: 0px;
+}
+
 
 @media screen and(max-width:@max-w-2) {
   #info-list {
@@ -74,5 +129,6 @@
 
   .text-box {
     width: 90%;
+    padding: @padding-large @padding-small;
   }
 }

@@ -1,14 +1,16 @@
 <!-- <div class="bg-img layer1"></div> -->
 <section id="appartment-info-section" class="acc">
     <ul id="info-list" class="acc">
-        <li class="info-item bg-img">
-          <div class="text-box-wrapper">
-            <div class="text-box">
-                <h1>Eine kurze Übersicht</h1>
-                <p>öalskdfjas jfasölkdfj aösldjf öasdjf aölksdjf aösdfj aslkdfj alsködfjasdf jasdflk jasdfasdfas fasdf
-                    lkajsdf asdf asdf asdf asdf asdfasdfasedf</p>
+        <li class="info-item bg-img" *ngFor="let content of contents;let i=index">
+            <div class="text-box-wrapper">
+                <div class="text-box">
+                    <div>
+                        <h1 class="title one"><span class="first-letter">{{content.firstLetter}}</span>{{content.titleOne}}</h1>
+                        <h1 class="title two">{{content.titleTwo}}</h1>
+                    </div>
+                    <p class="info-text">{{content.text}}</p>
+                </div>
             </div>
-          </div>
         </li>
     </ul>
 </section>
