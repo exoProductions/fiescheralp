@@ -1,14 +1,19 @@
 #infos-section {
   margin: 100px 0px;
+  min-height: 50vh;
 }
 #infos-list {
+  width: 100%;
+  min-height: 50vh;
   flex-wrap: wrap;
+  background-image: url("../../../../../assets/imgs/home/reviews-parallax.jpg");
 }
 .item {
   margin: 30px;
+  color: #d3b680;
 }
 .item h1 {
-  color: #e4cea5;
+  color: #d3b680;
 }
 .item .icon {
   transform: scale(1);
@@ -24,7 +29,7 @@
 .item .underline {
   width: 0%;
   height: 1px;
-  background-color: #e4cea5;
+  background-color: #d3b680;
   transition: 0.3s width;
 }
 .item.open .underline,
