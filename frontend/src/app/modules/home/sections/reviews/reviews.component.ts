@@ -16,7 +16,7 @@ export class ReviewsComponent implements OnInit {
   subtitles: string[] = [
     "Vermietungen im Sommer",
     "Vermietungen im Winter",
-    "Positive Rückmeldungen"
+    "Wiederkehrende Gäste"
   ];
 
 

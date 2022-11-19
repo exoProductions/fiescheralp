@@ -25,10 +25,11 @@ export class CalendarComponent implements OnInit {
     }
   }
   getDayPassed(date:Date):boolean{
-    if(date.getMonth()!=this.calendarService.today.getMonth()){
-      return false;
+    if(date.getMonth()<this.calendarService.today.getMonth() && date.getFullYear()<=this.calendarService.today.getFullYear()){
+      return true;
     }
-    return date.getDate()<this.calendarService.today.getDate();
+
+    return date.getDate()<this.calendarService.today.getDate() && date.getMonth()==this.calendarService.today.getMonth() && date.getFullYear()==this.calendarService.today.getFullYear();
   }
   getDateIsSelected(date: Date): boolean {
     return date == this.calendarService.selectedStartDate;

@@ -12,7 +12,7 @@ export class CalendarService {
   currentMonth: number =this.today.getMonth()
 
   selectedStartDate: Date = this.today;
-  duration:number=1;
+  duration:number=2;
 
   dayNames:string[]=["Mo","Di","Mi","Do","Fr","Sa","So"];
 

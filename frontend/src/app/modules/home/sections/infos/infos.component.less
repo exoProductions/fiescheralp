@@ -1,47 +1,85 @@
 @import "../../../../shared/variables.less";
-#infos-section{
+
+#infos-section {
     margin: @margin-large 0px;
     min-height: 50vh;
-}
-#infos-list{
-    width: 100%;
-    min-height: 50vh;
-    flex-wrap: wrap;
-    background-image: url("../../../../../assets/imgs/home/reviews-parallax.jpg");
+
 }
 
-.item{
+#infos-list-wrapper {
+    width: 100%;
+   // width:calc(100% - @padding-small * 2);
+    max-width: calc(@max-w-4 - @padding-small * 2);
+    min-height: 100vh;
+    background-image: url("../../../../../assets/imgs/home/infos-parallax.jpg");
+    background-attachment: fixed;
+   // border-radius: @std-edge-rad;
+    box-shadow: 0 10px 15px rgba(black,0.4);
+}
+
+
+#infos-list {
+    width: fit-content;
+    flex-wrap: wrap;
+    //background-color: rgba(@color-accent1,0.3);
+    backdrop-filter: blur(6px);
+    border: solid 1px white;
     margin: @margin;
-    color: @color-accent1;
+    border-radius: @std-edge-rad;
+    padding: 0px @padding;
+    //background-image: url("../../../../../assets/svgs/backgrounds/corners.svg");
 }
-.item h1{
-    color: @color-accent1;
+
+.item {
+    margin: @margin;
+    color: white;
 }
-.item .icon{
+
+.item h1 {
+    color: white;
+}
+
+.item .icon {
     transform: scale(1);
     transition: 0.3s transform;
 }
-.item.open .icon{
+
+.item.open .icon {
     transform: scale(1.2);
 }
-.info p{
+
+.info p {
     max-width: @max-w-2;
     padding: @padding-small;
 }
 
-.item .underline{
+.item .underline {
     width: 0%;
-    height: 1px;
-    background-color: @color-accent1;
+    height: 2px;
+    background-color: white;
     transition: 0.3s width;
 }
 
-.item.open .underline,.item:hover .underline{
+.item.open .underline,
+.item:hover .underline {
     width: 100%;
 }
 
-.google-map-container{
-    box-shadow: 0px 10px 20px rgba(black,0.4);
-    margin:0px @margin-small;
-   // width: min(calc(100% - @padding-small * 2), calc(@max-w-4 - @padding-small * 2));
+.google-map-container {
+    box-shadow: 0px 10px 20px rgba(black, 0.4);
+    margin: 0px @margin-small;
+    // width: min(calc(100% - @padding-small * 2), calc(@max-w-4 - @padding-small * 2));
+}
+
+@media screen and(max-width:@max-w-2){
+    #infos-list-wrapper {
+        height: 100vh;
+      
+    }
+
+    #infos-list{
+        border: none;
+        backdrop-filter: none;
+        background-color: transparent;
+    }
 }

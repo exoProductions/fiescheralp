@@ -5,7 +5,7 @@
             <div class="acr">
                 <h2 class="current-date"> {{getCurrentDate()}}</h2>
                 <button (click)="calendarIsOpen=true">
-                    <app-svg-icons class="svg-icon edit" name="pencil-outline" [sizeInd]="4"></app-svg-icons>
+                    <app-svg-icons class="svg-icon edit" name="pencil-outline" [sizeInd]="4" [strokeWidth]="40"></app-svg-icons>
                 </button>
             </div>
         </li>
@@ -14,13 +14,13 @@
             <div class="acr">
                 <button class="change-duration-btn" (click)="subtractFromDuration()">
                     <h2>
-                        <app-svg-icons class="svg-icon" name="subtract-outline" [sizeInd]="4"></app-svg-icons>
+                        <app-svg-icons class="svg-icon" name="subtract-outline" [sizeInd]="4" [strokeWidth]="60"></app-svg-icons>
                     </h2>
                 </button>
                 <h2 id="duration">{{getDuration()}} {{getDuration()>1?'Tage':'Tag'}}</h2>
                 <button class="change-duration-btn" (click)="addToDuration()">
                     <h2>
-                        <app-svg-icons class="svg-icon" name="add-outline" [sizeInd]="4"></app-svg-icons>
+                        <app-svg-icons class="svg-icon" name="add-outline" [sizeInd]="4" [strokeWidth]="60"></app-svg-icons>
                     </h2>
                 </button>
             </div>
@@ -32,7 +32,7 @@
         </li>
         <li>
             <button (click)="closed=true">
-                <app-svg-icons class="svg-icon" name="close-outline" [sizeInd]="4"></app-svg-icons>
+                <app-svg-icons class="svg-icon" name="close-outline" [sizeInd]="4" [strokeWidth]="60"></app-svg-icons>
             </button>
         </li>
     </ul>
@@ -40,7 +40,7 @@
 
 <section *ngIf="calendarIsOpen" id="calendar-section" class="acc">
     <button (click)="calendarIsOpen=false" id="close-calendar-btn">
-        <app-svg-icons class="svg-icon" name="close-outline" [sizeInd]="5"></app-svg-icons>
+        <app-svg-icons class="svg-icon" name="close-outline" [sizeInd]="5" [strokeWidth]="60"></app-svg-icons>
     </button>
     <app-calendar></app-calendar>
 </section>

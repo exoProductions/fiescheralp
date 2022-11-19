@@ -35,7 +35,7 @@
     <ul  [ngClass]="scrollOffset>getWindowHeight() / 8? 'list-small-nav small':'list-small-nav'">
         <ng-container *ngFor="let route of getRoutes();let i=index">
             <li [ngClass]="getCurrentPageInd() == i? 'nav-item-small active acc' : 'nav-item-small acc'">
-                <button (click)="navigateToPage(i)">
+                <button (click)="navigateToPage(i)" class="acr">
                     <h2 class="route-text">{{route}}</h2>
                 </button>
             </li>

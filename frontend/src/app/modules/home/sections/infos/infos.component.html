@@ -1,17 +1,19 @@
 <section id="infos-section" class="acc">
-    <ul id="infos-list" class="acr img-bg">
-        <ng-container *ngFor="let info of infos;let i=index">
-            <button (click)="openInfo(i)">
-                <li [ngClass]="openInd==i? 'item open acc':'item acc'">
-                    <app-svg-icons class="icon" [name]="info.icon" [strokeWidth]="25"
-                        [sizeInd]="7"></app-svg-icons>
-                    <h1>{{info.title}}</h1>
-                    <div class="underline"></div>
-                    <div *ngIf="i==infos.length-1" #info></div>
-                </li>
-            </button>
-        </ng-container>
-    </ul>
+    <div id="infos-list-wrapper" class="acc bg-img">
+        <ul id="infos-list" class="acr bg-img">
+            <ng-container *ngFor="let info of infos;let i=index">
+                <button (click)="openInfo(i)">
+                    <li [ngClass]="openInd==i? 'item open acc':'item acc'">
+                        <app-svg-icons class="icon" [name]="info.icon" [strokeWidth]="25"
+                            [sizeInd]="7"></app-svg-icons>
+                        <h1>{{info.title}}</h1>
+                        <div class="underline"></div>
+                        <div *ngIf="i==infos.length-1" #info></div>
+                    </li>
+                </button>
+            </ng-container>
+        </ul>
+    </div>
     <section  *ngIf="openInd>=0" class="info">
         <p>{{infos[openInd].info}}</p>
         <div class="google-map-container">
