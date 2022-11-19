@@ -11,6 +11,9 @@
                     <p class="info-text">{{content.text}}</p>
                 </div>
             </div>
+            <button *ngIf="i==contents.length-1" id="reserve-now-btn" (click)="goToReservation()">
+                <h1>Jetzt Buchen<br>&<br>10% Spahren</h1>
+            </button>
         </li>
     </ul>
 </section>

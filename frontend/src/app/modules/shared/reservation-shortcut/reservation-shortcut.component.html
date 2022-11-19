@@ -2,12 +2,10 @@
     <ul [ngClass]="show && !closed? 'shortcut-list show':'shortcut-list'">
         <li class="item">
             <!-- <h1 class="item-title">Start</h1> -->
-            <div class="acr">
-                <h2 class="current-date"> {{getCurrentDate()}}</h2>
-                <button (click)="calendarIsOpen=true">
+                <button (click)="calendarIsOpen=true" class="acr">
+                    <h2 class="current-date"> {{getCurrentDate()}}</h2>
                     <app-svg-icons class="svg-icon edit" name="pencil-outline" [sizeInd]="4" [strokeWidth]="40"></app-svg-icons>
                 </button>
-            </div>
         </li>
         <li class="item">
             <!-- <h1 class="item-title">Dauer</h1> -->

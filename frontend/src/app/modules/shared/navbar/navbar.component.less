@@ -118,9 +118,11 @@ color: @color-accent1;
   border-radius:0 0 @std-edge-rad @std-edge-rad;
   transition: 0.5s padding-top;
 }
+.list-small-nav.big{
+  width: 100%;
+}
 
-
-.list-small-nav.small{
+.list-small-nav.big{
   padding-top:calc(@navbar-height / 2 + @padding-small);
 }
 
@@ -131,10 +133,14 @@ color: @color-accent1;
   width: 100%;
 }
 .nav-item-small .route-text{
-  margin: @margin-small @margin;
+  margin: @margin-small @margin @margin-small @margin-small;
 }
-
-.nav-item-small.active .route-text, .nav-item-small:hover .route-text{
+.nav-item-small .svg-icon{
+  margin-left: @margin;
+  transition: 0.3s color;
+}
+.nav-item-small.active .route-text, .nav-item-small:hover .route-text,
+.nav-item-small.active .svg-icon, .nav-item-small:hover .svg-icon{
   color: @color-accent1;
 }
 

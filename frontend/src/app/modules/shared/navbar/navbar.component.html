@@ -32,10 +32,11 @@
 </nav>
 
 <div [ngClass]="getNavIsOpen()? 'list-small-nav-container open':'list-small-nav-container'">
-    <ul  [ngClass]="scrollOffset>getWindowHeight() / 8? 'list-small-nav small':'list-small-nav'">
+    <ul [ngClass]="scrollOffset>getWindowHeight() / 8? 'list-small-nav big':'list-small-nav'">
         <ng-container *ngFor="let route of getRoutes();let i=index">
             <li [ngClass]="getCurrentPageInd() == i? 'nav-item-small active acc' : 'nav-item-small acc'">
                 <button (click)="navigateToPage(i)" class="acr">
+                    <app-svg-icons class="svg-icon route" [name]="pageIcons[i]" [sizeInd]="3"></app-svg-icons>
                     <h2 class="route-text">{{route}}</h2>
                 </button>
             </li>
