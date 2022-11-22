@@ -10,6 +10,10 @@
   background-color: white;
   border-radius: @std-edge-rad;
   min-height: calc(7 * @day-width + @head-height);
+  max-width: calc(@day-width * 7 + @padding-small * 2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #calendar-head {

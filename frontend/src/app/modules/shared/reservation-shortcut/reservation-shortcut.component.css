@@ -19,7 +19,8 @@
   left: 0px;
 }
 .shortcut-list {
-  background-color: white;
+  background-color: rgba(211, 182, 128, 0.8);
+  backdrop-filter: blur(12px);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -43,11 +44,18 @@
   align-items: flex-start;
   justify-content: center;
 }
+.item h2 {
+  color: white;
+  font-weight: 900;
+}
 .item:nth-child(2) {
   padding: 0px;
 }
 .svg-icon.edit {
   padding-left: 8px;
+}
+.svg-icon {
+  color: white;
 }
 .current-date {
   font-size: 16px;
@@ -55,9 +63,10 @@
 #close-calendar-btn .svg-icon {
   padding-left: 18px;
   height: 100%;
+  color: #d83535;
 }
 .change-duration-btn h2 {
-  color: black;
+  color: white;
   width: 20px;
   height: 20px;
 }
@@ -66,23 +75,26 @@
   height: 20px;
 }
 #duration {
-  padding: 0px 8px;
   text-align: center;
   font-size: 16px;
   user-select: none;
+  min-width: calc(16px * 5);
 }
 .btn-round {
   margin: 0px;
   padding: 8px 18px;
+  background-color: white;
 }
 .btn-round h1 {
   font-size: 16px;
+  color: #d3b680;
+  font-weight: 900;
 }
 @media screen and (max-width: 500px) {
   .item:nth-child(2) {
     display: none;
   }
   .item {
-    padding: 8px;
+    padding: 18px;
   }
 }
