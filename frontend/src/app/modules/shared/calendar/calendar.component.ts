@@ -35,7 +35,6 @@ export class CalendarComponent implements OnInit {
     return date == this.calendarService.selectedStartDate;
   }
   getDaysOfCurrentMonth(): Date[] {
-    console.log(this.calendarService.getDaysOfCurrentMonth());
     return this.calendarService.getDaysOfCurrentMonth();
   }
 

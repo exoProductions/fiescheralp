@@ -18,7 +18,6 @@ export class CalendarService {
 
   constructor() {
     this.generateNewYear(this.currentYear);
-    console.log(this.allMonthsOfYear);
   }
 
   generateNewYear(year: number): void {
@@ -115,7 +114,6 @@ export class CalendarService {
         nextMonthDays.push(nextMonth[i]);
       }
     }
-    console.log(nextMonthDays)
     return nextMonthDays;
   }
 

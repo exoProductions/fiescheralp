@@ -1,8 +1,29 @@
 @import "../../../../shared/variables.less";
 
 #reservation-info-section{
-    width: 100%;
+    min-width: 100%;
+    max-width: 70%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-title{
+    width: 100%;
+    font-size: @fontsize-title-large;
+    font-weight: 900;
+    color: white;
+}
+
+#infos{
     background-color: white;
-border-radius: @std-edge-rad;
+    width: 100%;
+    border-radius: @std-edge-rad;
+    box-shadow: @box-shadow-1;
+}
+
+#host-pb{
+    max-width: 100px;
+    border-radius: 100px;
 }
