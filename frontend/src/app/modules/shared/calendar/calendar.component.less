@@ -1,16 +1,11 @@
 @import "../../../shared/variables.less";
 
-@day-width: @btn-medium;
-@day-width-small: calc(@btn-medium / 1.2);
+
 @head-height:60px;
 
 #calendar-section {
-  box-shadow: 0px 10px 15px rgba(black, 0.4);
-  padding: @padding-small;
-  background-color: white;
-  border-radius: @std-edge-rad;
-  min-height: calc(7 * @day-width + @head-height);
-  max-width: calc(@day-width * 7 + @padding-small * 2);
+  min-height: calc(7 * @day-width-calendar + @head-height);
+  max-width: calc(@day-width-calendar * 7 + @padding-small * 2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +37,7 @@
 
 
 #calendar-list {
-  width: calc(@day-width * 7);
+  width: calc(@day-width-calendar * 7);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -50,9 +45,9 @@
 
 .day-item,
 .day-name-item {
-  width: @day-width;
-  height: @day-width;
-  border-radius: @day-width;
+  width: @day-width-calendar;
+  height: @day-width-calendar;
+  border-radius: @day-width-calendar;
   background-color: transparent;
   transition: 0.3s background-color;
   overflow: hidden;
@@ -85,20 +80,20 @@
 
 @media screen and(max-width:@max-w-1) {
 #calendar-section{
-  min-height: calc(7 * @day-width-small + @head-height);
+  min-height: calc(7 * @day-width-calendar-small + @head-height);
 }
   #calendar-head p {
     margin: 0px @margin-smaller;
   }
 
   #calendar-list {
-    width: calc(@day-width-small * 7);
+    width: calc(@day-width-calendar-small * 7);
   }
 
   .day-item,
   .day-name-item {
-    width: @day-width-small;
-    height: @day-width-small;
+    width: @day-width-calendar-small;
+    height: @day-width-calendar-small;
   }
 
   .day-item button h1,

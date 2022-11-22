@@ -1,5 +1,26 @@
 @import "./app/shared/variables.less";
 
+@import 'swiper/less';
+@import 'swiper/less/navigation';
+@import 'swiper/less/pagination';
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: @color-accent1;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet {
+    background-color: rgba(@color-accent1, 0.5);
+    opacity: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: @color-accent1;
+}
+.swiper-slide{
+  overflow: visible;
+}
 html,
 body {
   margin: 0px;

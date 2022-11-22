@@ -1,8 +1,7 @@
 @import "../../../../shared/variables.less";
 
 #reservation-info-section{
-    min-width: 100%;
-    max-width: 70%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
 }
 
 .top-title{
-    width: 100%;
     font-size: @fontsize-title-large;
     font-weight: 900;
     color: white;
@@ -18,12 +16,44 @@
 
 #infos{
     background-color: white;
-    width: 100%;
+    box-shadow: 0px -10px 15px rgba(black,0.3);
+   width: calc(100% - @padding-small * 2);
     border-radius: @std-edge-rad;
-    box-shadow: @box-shadow-1;
+   // box-shadow: @box-shadow-1;
+    padding: @padding-small;
 }
 
 #host-pb{
     max-width: 100px;
     border-radius: 100px;
+}
+
+#swiper{
+    max-width: 100%;
+}
+.swiper-slide{
+    
+}
+.slide-container{
+   // max-height: 512px;
+   width:calc(100% - @margin-smaller * 2);
+    overflow: hidden;
+    border-radius: @std-edge-rad;
+    box-shadow: @box-shadow-2;
+    margin: @margin-smaller;
+    margin-bottom: calc(@margin * 2);
+    max-width: 512px;
+}
+.swiper-text-container{
+    padding: @padding-small;
+}
+.slide-container img{
+    display: block;
+    max-width: 100%;
+}
+
+@media screen and(max-width:@max-w-2) {
+.top-title{
+    font-size: @fontsize-title;
+}
 }

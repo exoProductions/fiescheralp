@@ -37,8 +37,10 @@
 </section>
 
 <section *ngIf="calendarIsOpen" id="calendar-section" class="acc">
+ <div id="calendar-wrapper">
     <button (click)="calendarIsOpen=false" id="close-calendar-btn">
         <app-svg-icons class="svg-icon" name="close-outline" [sizeInd]="5" [strokeWidth]="60"></app-svg-icons>
     </button>
     <app-calendar></app-calendar>
+ </div>
 </section>

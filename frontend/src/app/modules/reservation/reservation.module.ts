@@ -4,6 +4,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { SharedModule } from '../shared/shared.module';
 import { InfoSectionComponent } from './sections/info-section/info-section.component';
 import { SettingsSectionComponent } from './sections/settings-section/settings-section.component';
+import { SwiperModule } from 'swiper/angular';
 
 
 
@@ -15,7 +16,8 @@ import { SettingsSectionComponent } from './sections/settings-section/settings-s
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    SwiperModule,
   ]
 })
 export class ReservationModule { }

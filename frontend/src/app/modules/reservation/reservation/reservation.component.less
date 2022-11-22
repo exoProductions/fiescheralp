@@ -1,53 +1,53 @@
 @import "../../../shared/variables.less";
 
-#reservation-section {
-  min-height: 100vh;
-  min-width: 100%;
-}
-
-
-
 #content-section {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin-bottom: @margin-large;
-  width: 100%;
-  max-width: @max-w-4;
-  position: relative;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-bottom: @margin-large;
+    width: 100%;
+    position: relative;
 }
 
 .bg-img {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-
-  background-image: url("../../../../assets/imgs/reservation/top-img.jpg");
-  height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background-image: url("../../../../assets/imgs/reservation/top-img.jpg");
+    height: 100vh;
 }
 
 #reservation-list {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  z-index: 1;
-  margin: 80vh @margin-small 0 @margin-small;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin: 80vh @margin-small 0 @margin-small;
 }
+
+
 
 #info-section {
-  //width: calc(50% - @margin-smaller);
-  width: calc(100% - @margin-small * 2);
-  margin-right: @padding-small;
-  min-height: 100%;
-
+    max-width: @max-w-3;
+    width: calc(100% - @day-width-calendar * 7 - @padding-small * 3);
+    margin-right: @padding-small;
 }
 
-#settings-section {
-  //width: calc(50% - @margin-smaller);
 
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@media screen and(max-width:@max-w-2) {
+    #reservation-list {
+        flex-direction: column;
+        margin: 80vh @margin-smaller 0 @margin-smaller;
+    }
+
+    #info-section {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: @margin;
+    }
+    #settings-section{
+        width: 100%;
+    }
 }
