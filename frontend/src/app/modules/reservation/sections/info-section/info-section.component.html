@@ -4,10 +4,10 @@
         <ul id="infos-list">
             <li class="info-item first-item">
                 <div>
-                    <h1>
+                    <h1 class="section-title first-title">
                         Fiescheralp Appartment
                     </h1>
-                    <p>Geignet für 5 Gäste, 2 Schlafzimmer, 4 Betten, 1 Badezimmer, Küche</p>
+                    <p class="section-subtitle">Geignet für 5 Gäste, 2 Schlafzimmer, 4 Betten, 1 Badezimmer, Küche</p>
                 </div>
                 <img id="host-pb" src="./assets/imgs/reservation/host-pb.jpg" />
             </li>
@@ -15,7 +15,7 @@
             <li class="info-item">
                 <ul id="advantage-list">
                     <li class="advantage-item " *ngFor="let advantage of advantages;let i = index">
-                        <app-svg-icons class="advantage-icon" [name]="advantage.icon" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
+                        <app-svg-icons class="icon advantage" [name]="advantage.icon" [strokeWidth]="25" [sizeInd]="4">
                         </app-svg-icons>
                         <p>{{advantage.advantage}}</p>
                     </li>
@@ -23,7 +23,7 @@
             </li>
             <li class="section-line"></li>
             <li class="info-item">
-                <h1>
+                <h1 class="section-title">
                     Das Wichtigste in Kürze
                 </h1>
                 <p>
@@ -35,31 +35,33 @@
             <li class="info-item swiper-item">
                 <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="getSwiperConfig()"
                     (slideChange)="onSlideChange()">
-                        <ng-template class="swiper-slide acc" swiperSlide *ngFor="let slideContent of slideContents;let i = index">
-                            <button class="slide-container">
-                                <img src="./assets/imgs/reservation/slide-imgs/{{i}}.jpg" />
-                                <div class="swiper-text-container">
-                                    <h2>{{slideContent.title}}</h2>
-                                    <p>{{slideContent.text}}</p>
-                                </div>
-                            </button>
-                        </ng-template>
+                    <ng-template class="swiper-slide acc" swiperSlide
+                        *ngFor="let slideContent of slideContents;let i = index">
+                        <button class="slide-container">
+                            <img src="./assets/imgs/reservation/slide-imgs/{{i}}.jpg" />
+                            <div class="swiper-text-container">
+                                <h2>{{slideContent.title}}</h2>
+                                <p>{{slideContent.text}}</p>
+                            </div>
+                        </button>
+                    </ng-template>
                 </swiper>
             </li>
             <li class="section-line"></li>
-            <li class="info-item acc">
-                <h1>Das alles ist auch dabei</h1>
+            <li class="info-item">
+                <h1 class="section-title">Das alles ist auch dabei</h1>
                 <ul id="addon-list">
-                    <ng-container  *ngFor="let addon of addons;let i=index">
+                    <ng-container *ngFor="let addon of addons;let i=index">
                         <li class="addon-item" *ngIf="i<6 || showAllAddons">
-                            <app-svg-icons class="addon-icon" [name]="addon.icon" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
+                            <app-svg-icons class="icon addon" [name]="addon.icon" [strokeWidth]="25" [sizeInd]="4">
                             </app-svg-icons>
                             <p>{{addon.text}}</p>
                         </li>
                     </ng-container>
                 </ul>
-                <button id="show-all-addons-btn" (click)="showAllAddons=!showAllAddons">
-                    <app-svg-icons class="ellipsis-horizontal-outline" name="home-outline" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
+                <button id="show-all-addons-btn" class="acc" (click)="showAllAddons=!showAllAddons">
+                    <app-svg-icons [name]="showAllAddons?'chevron-up-outline':'chevron-down-outline'"
+                        [strokeWidth]="32" [sizeInd]="6">
                     </app-svg-icons>
                 </button>
             </li>

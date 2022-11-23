@@ -9,17 +9,23 @@
     box-shadow: @box-shadow-1;
     border-radius: @std-edge-rad;
     padding: @padding-small;
-    background-color: white;
+    background-color: rgba(white,0.8);
+    backdrop-filter: blur(6px);
 }
+
+.setting-title{
+    font-size: @fontsize-std;
+}
+
 .settings-item.calendar{
     margin-bottom: @margin-small;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .host-item img{
     max-width: 100%;
+    border-bottom: solid 1px @color-lightest;
 }
 
 

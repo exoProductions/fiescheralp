@@ -21,7 +21,7 @@ export class CalendarComponent implements OnInit {
   }
   setSelectedStartDate(date:Date){
     if(!this.getDayPassed(date)){
-      this.calendarService.selectedStartDate=date;
+      this.calendarService.setSelectedStartDate(date);
     }
   }
   getDayPassed(date:Date):boolean{
@@ -32,7 +32,10 @@ export class CalendarComponent implements OnInit {
     return date.getDate()<this.calendarService.today.getDate() && date.getMonth()==this.calendarService.today.getMonth() && date.getFullYear()==this.calendarService.today.getFullYear();
   }
   getDateIsSelected(date: Date): boolean {
-    return date == this.calendarService.selectedStartDate;
+   let selected:Date=this.calendarService.getSelectedStartDate();
+    let isSelected:boolean=this.calendarService.getDayIsInSelectionRange(date)
+   
+   return isSelected;
   }
   getDaysOfCurrentMonth(): Date[] {
     return this.calendarService.getDaysOfCurrentMonth();

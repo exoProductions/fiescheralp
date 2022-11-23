@@ -9,40 +9,33 @@ export class CalendarService {
   allMonthsOfPreviousYear: Date[][] = [];
   allMonthsOfNextYear: Date[][] = [];
   currentYear: number = this.today.getFullYear();
-  currentMonth: number =this.today.getMonth()
+  currentMonth: number = this.today.getMonth()
 
-  selectedStartDate: Date = this.today;
-  duration:number=2;
+  private selectedStartDate: Date = this.today;
+  duration: number = 2;
+  maxDuration: number = 35;
+  possibleDaysInRange: Date[] = [];
 
-  dayNames:string[]=["Mo","Di","Mi","Do","Fr","Sa","So"];
+  dayNames: string[] = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
 
   constructor() {
     this.generateNewYear(this.currentYear);
   }
 
   generateNewYear(year: number): void {
-    this.allMonthsOfYear=[];
-    this.allMonthsOfNextYear=[];
-    this.allMonthsOfPreviousYear=[];
+    this.allMonthsOfYear = [];
+    this.allMonthsOfNextYear = [];
+    this.allMonthsOfPreviousYear = [];
     for (let i = 0; i < 12; i++) {
       this.allMonthsOfYear.push(this.getDaysInMonthUTC(i, year));
-      this.allMonthsOfPreviousYear.push(this.getDaysInMonthUTC(i, year-1));
-      this.allMonthsOfNextYear.push(this.getDaysInMonthUTC(i, year+1));
+      this.allMonthsOfPreviousYear.push(this.getDaysInMonthUTC(i, year - 1));
+      this.allMonthsOfNextYear.push(this.getDaysInMonthUTC(i, year + 1));
     }
+    this.generatePossibleDaysInRange();
   }
-/*
-  getDaysInMonth(month: number, year: number): Date[] {
-    let date: Date = new Date(year, month, 1);
-    let days: Date[] = [];
-    while (date.getMonth() === month) {
-      days.push(new Date(date));
-      date.setDate(date.getDate() + 1);
-    }
-    return days;
-  }
-*/
+
   getDaysInMonthUTC(month: number, year: number): Date[] {
-    var date: Date = new Date(Date.UTC(year, month, 1));
+    let date: Date = new Date(Date.UTC(year, month, 1));
     let days: Date[] = [];
     while (date.getUTCMonth() === month) {
       days.push(new Date(date));
@@ -66,51 +59,51 @@ export class CalendarService {
       this.generateNewYear(this.currentYear);
     }
   }
-  getDaysOfCurrentMonth():Date[]{
+  getDaysOfCurrentMonth(): Date[] {
     return this.allMonthsOfYear[this.currentMonth];
   }
-  getDayOfFirstDayInMonth():number{
-    let day=this.getDaysOfCurrentMonth()[0].getDay();
-    if(day==0){
+  getDayOfFirstDayInMonth(): number {
+    let day = this.getDaysOfCurrentMonth()[0].getDay();
+    if (day == 0) {
       console.log(day);
       return 6;
-    }else{
-      return day-1;
+    } else {
+      return day - 1;
     }
   }
-  getDayOfLastDayInMonth():number{
-    let day=this.getDaysOfCurrentMonth()[this.getDaysOfCurrentMonth().length-1].getDay();
-    if(day==0){
+  getDayOfLastDayInMonth(): number {
+    let day = this.getDaysOfCurrentMonth()[this.getDaysOfCurrentMonth().length - 1].getDay();
+    if (day == 0) {
       console.log(day);
       return 6;
-    }else{
-      return day-1;
+    } else {
+      return day - 1;
     }
   }
-  getPrevMonthDays():Date[]{
-    let prevMonthDays:Date[]=[];
-    for(let i=this.getDayOfFirstDayInMonth()-1;i>=0;i--){ //todo ral for
-      if(this.currentMonth==0){
-        let prevMonth=this.allMonthsOfPreviousYear[11];
-        prevMonthDays.push(prevMonth[prevMonth.length-1-i]);
-      }else{
-        let prevMonth=this.allMonthsOfYear[this.currentMonth-1];
-        prevMonthDays.push(prevMonth[prevMonth.length-1-i]);
+  getPrevMonthDays(): Date[] {
+    let prevMonthDays: Date[] = [];
+    for (let i = this.getDayOfFirstDayInMonth() - 1; i >= 0; i--) { //todo ral for
+      if (this.currentMonth == 0) {
+        let prevMonth = this.allMonthsOfPreviousYear[11];
+        prevMonthDays.push(prevMonth[prevMonth.length - 1 - i]);
+      } else {
+        let prevMonth = this.allMonthsOfYear[this.currentMonth - 1];
+        prevMonthDays.push(prevMonth[prevMonth.length - 1 - i]);
       }
     }
     return prevMonthDays;
   }
 
-  getNextMonthDays():Date[]{
-    let nextMonthDays:Date[]=[];
-    
-    for(let i=0;i<6-this.getDayOfLastDayInMonth();i++){ //todo ral for
-      if(this.currentMonth==11){
-        let nextMonth=this.allMonthsOfNextYear[0];
+  getNextMonthDays(): Date[] {
+    let nextMonthDays: Date[] = [];
+
+    for (let i = 0; i < 6 - this.getDayOfLastDayInMonth(); i++) { //todo ral for
+      if (this.currentMonth == 11) {
+        let nextMonth = this.allMonthsOfNextYear[0];
         console.log(nextMonth);
         nextMonthDays.push(nextMonth[i]);
-      }else{
-        let nextMonth=this.allMonthsOfYear[this.currentMonth+1];
+      } else {
+        let nextMonth = this.allMonthsOfYear[this.currentMonth + 1];
         nextMonthDays.push(nextMonth[i]);
       }
     }
@@ -135,15 +128,44 @@ export class CalendarService {
     }
   }
 
+  getDayIsInSelectionRange(date: Date): boolean {
+    for (let i = 0; i < this.duration; i++) {
+      let curDayFromList=this.possibleDaysInRange[i];
+      if(date.getDate()==curDayFromList.getDate() && date.getMonth()==curDayFromList.getMonth() && date.getFullYear()==curDayFromList.getFullYear() ){
+        return true;
+      }
+    }
+    return false;
+  }
 
-  subtractFromDuration():void{
+  generatePossibleDaysInRange(): void {
+    let startDay: Date = new Date(Date.UTC(this.selectedStartDate.getFullYear(), this.selectedStartDate.getMonth(), this.selectedStartDate.getDate()));
+    this.possibleDaysInRange = [];
+
+    while (this.possibleDaysInRange.length < this.maxDuration) {
+      this.possibleDaysInRange.push(new Date(startDay));
+      startDay.setUTCDate(startDay.getUTCDate() + 1);
+    }
+    console.log(this.possibleDaysInRange);
+  }
+
+  subtractFromDuration(): void {
     this.duration--;
-    if(this.duration<1){
-      this.duration=1;
+    if (this.duration < 1) {
+      this.duration = 1;
     }
   }
-  addToDuration():void{
-    this.duration++;
+  addToDuration(): void {
+    if (this.duration < this.maxDuration) {
+      this.duration++;
+    }
+  }
+  setSelectedStartDate(newStartDate: Date): void {
+    this.selectedStartDate = newStartDate;
+    this.generatePossibleDaysInRange()
+  }
+  getSelectedStartDate(): Date {
+    return this.selectedStartDate;
   }
 
 }

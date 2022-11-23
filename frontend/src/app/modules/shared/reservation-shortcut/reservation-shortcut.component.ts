@@ -33,7 +33,7 @@ export class ReservationShortcutComponent implements OnInit {
     this.router.navigate(["Reservation"]); //todo uncomment
   }
   getCurrentDate(): string {
-    return this.calendarService.selectedStartDate.getDate().toString() + "." + (this.calendarService.selectedStartDate.getMonth() + 1).toString() + "." + this.calendarService.selectedStartDate.getFullYear().toString();
+    return this.calendarService.getSelectedStartDate().getDate().toString() + "." + (this.calendarService.getSelectedStartDate().getMonth() + 1).toString() + "." + this.calendarService.getSelectedStartDate().getFullYear().toString();
   }
   getDuration(): number {
     return this.calendarService.duration;

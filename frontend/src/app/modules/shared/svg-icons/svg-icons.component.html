@@ -108,6 +108,19 @@
     <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round"
         stroke-linejoin="round" d="M184 112l144 144-144 144" />
 </svg>
+<svg *ngIf="name=='chevron-down-outline'" xmlns="http://www.w3.org/2000/svg"
+    [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+    <title>Chevron Down</title>
+    <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round"
+        stroke-linejoin="round" d="M112 184l144 144 144-144" />
+</svg>
+
+<svg *ngIf="name=='chevron-up-outline'" xmlns="http://www.w3.org/2000/svg"
+    [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+    <title>Chevron Up</title>
+    <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round"
+        stroke-linejoin="round" d="M112 328l144-144 144 144" />
+</svg>
 
 <svg *ngIf="name=='star-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}"
     viewBox="0 0 512 512">
@@ -139,7 +152,7 @@
 </svg>
 
 <svg *ngIf="name=='add-outline'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-[ngStyle]="{'width.px':size,'height.px':size}" stroke-linecap="round">
+    [ngStyle]="{'width.px':size,'height.px':size}" stroke-linecap="round">
     <title>Add</title>
     <path fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-linecap="round"
         stroke-linejoin="round" d="M256 112v288M400 256H112" />
@@ -152,9 +165,13 @@
         stroke-linejoin="round" d="M400 256H112" />
 </svg>
 
-<svg *ngIf="name=='ellipsis-horizontal-outline'" xmlns="http://www.w3.org/2000/svg" [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
+<svg *ngIf="name=='ellipsis-horizontal-outline'" xmlns="http://www.w3.org/2000/svg"
+    [ngStyle]="{'width.px':size,'height.px':size}" viewBox="0 0 512 512">
     <title>Ellipsis Horizontal</title>
-    <circle cx="256" cy="256" r="32" fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-miterlimit="10"  />
-    <circle cx="416" cy="256" r="32" fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-miterlimit="10" />
-    <circle cx="96" cy="256" r="32" fill="none" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}" stroke-miterlimit="10" />
+    <circle cx="256" cy="256" r="32" fill="currentColor" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}"
+        stroke-miterlimit="10" />
+    <circle cx="416" cy="256" r="32" fill="currentColor" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}"
+        stroke-miterlimit="10" />
+    <circle cx="96" cy="256" r="32" fill="currentColor" stroke="currentColor" [ngStyle]="{'stroke-width':strokeWidth}"
+        stroke-miterlimit="10" />
 </svg>

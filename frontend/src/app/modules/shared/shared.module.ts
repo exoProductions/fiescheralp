@@ -16,7 +16,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     ReservationShortcutComponent,
     SvgIconsComponent,
     WordCarouselComponent,
-    CalendarComponent
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
