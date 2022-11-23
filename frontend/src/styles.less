@@ -46,7 +46,8 @@ button {
 h1,
 h2,
 h3,
-h4 {
+h4,
+label {
   margin: 0px;
   padding: 0px;
   font-family: @std-font;
@@ -93,14 +94,15 @@ textarea {
   margin-bottom: @margin-small;
   border: solid 1px @color-lightest;
   outline: none;
-  box-shadow: 0 10px 10px rgba(black, 0.3);
+  box-shadow: @box-shadow-2;
   padding: @padding-smallest;
   min-height: @btn-small;
   border-radius: @std-edge-rad;
 }
 
 label {
-  color: @color-light;
+  color: @color-lighter;
+  margin-bottom: @margin-small;
 }
 
 .title-first {

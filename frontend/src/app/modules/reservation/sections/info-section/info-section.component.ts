@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationService } from 'src/app/services/reservation.service';
 import SwiperCore, { SwiperOptions, Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 // install Swiper modules
@@ -75,6 +76,10 @@ export class InfoSectionComponent implements OnInit {
   showAllAddons:boolean=false;
   addons: any[] = [
     {
+      text: "Stornieren und Geld zurück bis eine Woche vor Beginn des Urlaubs",
+      icon: "home-outline"
+    },
+    {
       text: "Blick auf den Aletsch Gletscher",
       icon: "home-outline"
     },
@@ -97,9 +102,13 @@ export class InfoSectionComponent implements OnInit {
       text: "Tische / Arbeitsplätze",
       icon: "home-outline"
     },
+    {
+      text: "Beim Verlassen der Wohnung machen Sie nur das Nötigste, wir erledigen den Rest",
+      icon: "home-outline"
+    },
   ];
 
-  constructor() { }
+  constructor(private reservationService:ReservationService) { }
 
   ngOnInit(): void {
   }
@@ -119,5 +128,8 @@ export class InfoSectionComponent implements OnInit {
   }
   getIsLargeSwiper(): boolean {
     return window.innerWidth >= 1200;
+  }
+  getMaxGuests():number{
+    return this.reservationService.maxGuests;
   }
 }

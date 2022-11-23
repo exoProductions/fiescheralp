@@ -5,6 +5,7 @@ import { InfoSectionComponent } from './sections/info-section/info-section.compo
 import { SettingsSectionComponent } from './sections/settings-section/settings-section.component';
 import { SwiperModule } from 'swiper/angular';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     SwiperModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
   ]
 })
 export class ReservationModule { }

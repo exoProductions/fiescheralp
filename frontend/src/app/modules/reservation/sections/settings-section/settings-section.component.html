@@ -1,10 +1,43 @@
 <ul id="settings-list">
     <li class="settings-item">
-        <h1 class="setting-title"> Anzahl Personen</h1>
+        <!-- <h1 class="setting-title"> Anzahl Personen</h1> -->
+        <div class="number-input">
+            <button class="change-number-btn" (click)="subtractFromGuests()">
+                <h2>
+                    <app-svg-icons class="svg-icon" name="subtract-outline" [sizeInd]="4" [strokeWidth]="48">
+                    </app-svg-icons>
+                </h2>
+            </button>
+            <h2 class="number-container">
+                <p class="number">{{getNumberOfGuests()}}</p>
+                <p class="unit">{{getNumberOfGuests()>1?'Personen':'Person'}}</p>
+            </h2>
+            <button class="change-number-btn" (click)="addToGuests()">
+                <h2>
+                    <app-svg-icons class="svg-icon" name="add-outline" [sizeInd]="4" [strokeWidth]="48"></app-svg-icons>
+                </h2>
+            </button>
+        </div>
     </li>
     <li class="settings-item">
-        <h1 class="setting-title"> Dauer </h1>
-
+        <!-- <h1 class="setting-title"> Dauer </h1> -->
+        <div class="number-input">
+            <button class="change-number-btn" (click)="subtractFromDuration()">
+                <h2>
+                    <app-svg-icons class="svg-icon" name="subtract-outline" [sizeInd]="4" [strokeWidth]="48">
+                    </app-svg-icons>
+                </h2>
+            </button>
+            <h2 class="number-container">
+                <p class="number">{{getDuration()}}</p>
+                <p class="unit">{{getDuration()>1?'Tage':'Tag'}}</p>
+            </h2>
+            <button class="change-number-btn" (click)="addToDuration()">
+                <h2>
+                    <app-svg-icons class="svg-icon" name="add-outline" [sizeInd]="4" [strokeWidth]="48"></app-svg-icons>
+                </h2>
+            </button>
+        </div>
     </li>
 
     <li class="settings-item calendar">
@@ -12,16 +45,43 @@
     </li>
 
     <li class="settings-item">
-        <h1 class="setting-title">Preis</h1>
+        <!-- <h1 class="setting-title">Preis</h1> -->
+        <h2 class="number-container">
+            <p class="number">{{getPrice()}}</p>
+            <p class="unit">CHF</p>
+        </h2>
     </li>
     <li class="settings-item">
-        <button>
-            <h1 class="setting-title">Jetzt Buchen</h1>
+        <form #contactForm="ngForm" (change)="onFormChanged()">
+            <ul class="input-list">
+                <li class="input-item">
+                    <label for="firstname">Vorname</label>
+                    <input class="text-input" name="firstname" type="text" id="firstname"
+                        [(ngModel)]="getUserdata().firstname">
+                </li>
+                <li class="input-item">
+                    <label for="lastname">Nachname</label>
+                    <input class="text-input" name="lastname" type="text" id="lastname"
+                        [(ngModel)]="getUserdata().lastname">
+                </li>
+                <li class="input-item">
+                    <label for="e-mail">E-Mail</label>
+                    <input class="text-input" name="e-mail" type="mail" id="e-mail" [(ngModel)]="getUserdata().eMail">
+                </li>
+                <li class="accepted-agb-item">
+                    <button [ngClass]="getUserdata().acceptedAGB?'accept-btn accepted':'accept-btn'" (click)="getUserdata().acceptedAGB=!getUserdata().acceptedAGB"><div></div></button>
+                    <p class="read-agb-text">Ich habe die <button class="agb-link" (click)="navigateToAGB()" >AGB & Datenschutzerklärung</button> gelesen und akzeptiere diese.</p>
+                </li>
+            </ul>
+        </form>
+    </li>
+    <li>
+        <button id="book-now-btn">
+            <h1>Jetzt Buchen</h1>
         </button>
     </li>
     <li class="host-item acc">
-        <img src="./assets/imgs/reservation/host-pb-big.jpg" />
-        <h1 class="setting-title">Wir freuen uns auf Sie!</h1>
-
+        <img src="./assets/imgs/reservation/host-pb-big.png" />
+        <h1 >Wir freuen uns auf Sie!</h1>
     </li>
 </ul>

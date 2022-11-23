@@ -7,7 +7,7 @@
                     <h1 class="section-title first-title">
                         Fiescheralp Appartment
                     </h1>
-                    <p class="section-subtitle">Geignet für 5 Gäste, 2 Schlafzimmer, 4 Betten, 1 Badezimmer, Küche</p>
+                    <p class="section-subtitle first-subtitle">Geignet für bis zu {{getMaxGuests()}} Gästen, 2 Schlafzimmer, 4 Betten, 1 Badezimmer, Küche</p>
                 </div>
                 <img id="host-pb" src="./assets/imgs/reservation/host-pb.jpg" />
             </li>
@@ -49,7 +49,7 @@
             </li>
             <li class="section-line"></li>
             <li class="info-item">
-                <h1 class="section-title">Das alles ist auch dabei</h1>
+                <h1 class="section-title">Zusätzlich Inklusive</h1>
                 <ul id="addon-list">
                     <ng-container *ngFor="let addon of addons;let i=index">
                         <li class="addon-item" *ngIf="i<6 || showAllAddons">

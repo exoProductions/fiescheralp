@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 
 @Component({
   selector: 'app-footer',
@@ -16,13 +17,13 @@ export class FooterComponent implements OnInit {
     "Impressum"
   ];
 
-  constructor() { }
+  constructor(private globalVariableService:GlobalVariablesService) { }
 
   ngOnInit(): void {
   }
 
   navigateToPage(ind:number):void{
-    window.open("https://www.legality.exo-productions.ch/"+ind, "_blank");
+    window.open(this.globalVariableService.legalityLink+ind, "_blank");
   }
 
 }

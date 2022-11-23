@@ -1,36 +1,127 @@
 @import "../../../../shared/variables.less";
 
-#settings-list{
+#settings-list {
     min-width: 100%;
 }
 
-.settings-item{
+.settings-item {
     margin-bottom: @margin-small;
     box-shadow: @box-shadow-1;
     border-radius: @std-edge-rad;
     padding: @padding-small;
-    background-color: rgba(white,0.8);
-    backdrop-filter: blur(6px);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.setting-title{
+.setting-title {
     font-size: @fontsize-std;
+    margin-bottom: @margin-small;
+    user-select: none;
 }
 
-.settings-item.calendar{
+//number input------------------------------------
+.number-input {
+    display: flex;
+    flex-direction: row;
+}
+
+.number-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px @margin-small;
+    user-select: none;
+}
+
+.number {
+    margin: 0px @margin-smaller;
+    font-size: @fontsize-title;
+    color: @color-accent1;
+}
+
+.unit {
+    margin-bottom: 0px;
+    margin-top: @margin-smaller;
+    font-size: @fontsize-h3;
+    color: @color-accent1;
+}
+
+.change-number-btn {
+    color: @color-accent1;
+}
+
+//calendar------------------------------
+.settings-item.calendar {
     margin-bottom: @margin-small;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.host-item img{
+
+//form-----------------------------------
+.accepted-agb-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.accept-btn {
+    width: calc(@btn-smaller + 4px);
+    height: calc(@btn-smaller + 4px);
+    border: solid 2px @color-accent1;
+    border-radius: @btn-smaller;
+}
+
+.accept-btn div {
+    background-color: white;
+    width: calc(@btn-smaller - 4px);
+    height: calc(@btn-smaller - 4px);
+    //width: calc(100% - 4px);
+    //height: calc(100% - 4px);
+    border: solid 2px white;
+    border-radius: @btn-smaller;
+    transition: 0.3s color;
+}
+
+.accept-btn.accepted div {
+    background-color: @color-accent1;
+}
+
+.read-agb-text {
+    margin: 0px;
+    margin-left: @margin-small;
+    color: @color-lighter;
+}
+.agb-link{
+    color: @color-accent1;
+}
+//book now-------------------------------
+#book-now-btn{
+    background-color: @color-accent1;
+    color: white;
+    width: 100%;
+    padding: @padding-small;
+    margin-bottom: @margin;
+    border-radius: @std-edge-rad;
+    box-shadow: @box-shadow-1;
+    animation: wobbleSmooth 2s infinite;
+}
+//finisher image-------------------------
+.host-item img {
     max-width: 100%;
     border-bottom: solid 1px @color-lightest;
+}
+.host-item h1{
+    font-size: @fontsize-h1;
+    color: @color-lighter;
+    text-align: center;
 }
 
 
 @media screen and(max-width:@max-w-2) {
-#settings-list{
-    min-width: 100%;
-}
+    #settings-list {
+        min-width: 100%;
+    }
 }

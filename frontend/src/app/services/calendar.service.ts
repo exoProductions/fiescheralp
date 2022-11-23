@@ -146,7 +146,6 @@ export class CalendarService {
       this.possibleDaysInRange.push(new Date(startDay));
       startDay.setUTCDate(startDay.getUTCDate() + 1);
     }
-    console.log(this.possibleDaysInRange);
   }
 
   subtractFromDuration(): void {

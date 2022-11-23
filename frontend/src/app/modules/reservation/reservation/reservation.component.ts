@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { NavigationService } from 'src/app/services/navigation.service';
 })
 export class ReservationComponent implements OnInit {
 
-  constructor(private navigationService:NavigationService) { }
+  constructor(private navigationService:NavigationService,private globalVariableService:GlobalVariablesService) { }
 
   ngOnInit(): void {
     this.navigationService.curPageInd=1;
@@ -21,5 +22,9 @@ export class ReservationComponent implements OnInit {
       left: 0,
       behavior: 'smooth'
     });
+  }
+
+  getEmail():string{
+    return this.globalVariableService.eMail;
   }
 }
