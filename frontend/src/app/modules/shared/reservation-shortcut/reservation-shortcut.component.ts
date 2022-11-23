@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarService } from 'src/app/services/calendar.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-reservation-shortcut',
@@ -12,7 +13,7 @@ export class ReservationShortcutComponent implements OnInit {
   show: boolean = false;
   closed: boolean = false;
   calendarIsOpen: boolean = false;
-  constructor(private calendarService: CalendarService, private router: Router) { }
+  constructor(private calendarService: CalendarService,private navigationService:NavigationService , private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +37,10 @@ export class ReservationShortcutComponent implements OnInit {
   }
   getDuration(): number {
     return this.calendarService.duration;
+  }
+
+  getShowShortcut():boolean{
+    return this.navigationService.curPageInd==0;
   }
 
 }

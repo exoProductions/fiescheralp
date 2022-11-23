@@ -2,7 +2,7 @@
     <h1 class="top-title">Buchen</h1>
     <section id="infos">
         <ul id="infos-list">
-            <li class="info-item">
+            <li class="info-item first-item">
                 <div>
                     <h1>
                         Fiescheralp Appartment
@@ -14,25 +14,18 @@
             <li class="section-line"></li>
             <li class="info-item">
                 <ul id="advantage-list">
-                    <li class="advantage-item">
-                        <app-svg-icons name="home-outline" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
+                    <li class="advantage-item " *ngFor="let advantage of advantages;let i = index">
+                        <app-svg-icons class="advantage-icon" [name]="advantage.icon" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
                         </app-svg-icons>
-                        <h2>Advantage1 öalkdsaö asdfl jafklasdf asdf asdf</h2>
-                    </li>
-                    <li class="advantage-item">
-                        <app-svg-icons name="home-outline" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
-                        </app-svg-icons>
-                        <h2>Advantage1 öalkdsaö asdfl jafklasdf asdf asdf</h2>
-                    </li>
-                    <li class="advantage-item">
-                        <app-svg-icons name="home-outline" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
-                        </app-svg-icons>
-                        <h2>Advantage1 öalkdsaö asdfl jafklasdf asdf asdf</h2>
+                        <p>{{advantage.advantage}}</p>
                     </li>
                 </ul>
             </li>
             <li class="section-line"></li>
             <li class="info-item">
+                <h1>
+                    Das Wichtigste in Kürze
+                </h1>
                 <p>
                     Short Description öalkdjö asdfaskdlfj aösdfj asfdasdf lkadsf asdfkl adsökflj aödf asdfkj asdf öasdf
                     asdflöakjsdf asdf asdföl asdfasdf asdfasdf klasdfkaösdfasdf asf kladfaf
@@ -42,8 +35,7 @@
             <li class="info-item swiper-item">
                 <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="getSwiperConfig()"
                     (slideChange)="onSlideChange()">
-                    <ng-container *ngFor="let slideContent of slideContents;let i = index">
-                        <ng-template class="swiper-slide acc" swiperSlide>
+                        <ng-template class="swiper-slide acc" swiperSlide *ngFor="let slideContent of slideContents;let i = index">
                             <button class="slide-container">
                                 <img src="./assets/imgs/reservation/slide-imgs/{{i}}.jpg" />
                                 <div class="swiper-text-container">
@@ -52,21 +44,24 @@
                                 </div>
                             </button>
                         </ng-template>
-                    </ng-container>
                 </swiper>
             </li>
             <li class="section-line"></li>
-            <li class="info-item">
+            <li class="info-item acc">
                 <h1>Das alles ist auch dabei</h1>
-                <ul>
-                    <ng-container *ngFor="let addon of addons;let i=index">
-                        <li class="advantage-item">
-                            <app-svg-icons [name]="addon.icon" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
+                <ul id="addon-list">
+                    <ng-container  *ngFor="let addon of addons;let i=index">
+                        <li class="addon-item" *ngIf="i<6 || showAllAddons">
+                            <app-svg-icons class="addon-icon" [name]="addon.icon" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
                             </app-svg-icons>
                             <p>{{addon.text}}</p>
                         </li>
                     </ng-container>
                 </ul>
+                <button id="show-all-addons-btn" (click)="showAllAddons=!showAllAddons">
+                    <app-svg-icons class="addon-icon" name="home-outline" [strokeWidth]="25" strokeColor="#000" [sizeInd]="4">
+                    </app-svg-icons>
+                </button>
             </li>
         </ul>
     </section>

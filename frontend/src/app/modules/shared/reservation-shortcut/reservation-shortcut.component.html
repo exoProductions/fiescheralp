@@ -1,14 +1,12 @@
-<section id="shortcut-section" class="acc">
+<section *ngIf="getShowShortcut()" id="shortcut-section" class="acc">
     <ul [ngClass]="show && !closed? 'shortcut-list show':'shortcut-list'">
         <li class="item">
-            <!-- <h1 class="item-title">Start</h1> -->
                 <button (click)="calendarIsOpen=true" class="acr">
                     <h2 class="current-date"> {{getCurrentDate()}}</h2>
                     <app-svg-icons class="svg-icon edit" name="pencil-outline" [sizeInd]="4" [strokeWidth]="40"></app-svg-icons>
                 </button>
         </li>
         <li class="item">
-            <!-- <h1 class="item-title">Dauer</h1> -->
             <div class="acr">
                 <button class="change-duration-btn" (click)="subtractFromDuration()">
                     <h2>

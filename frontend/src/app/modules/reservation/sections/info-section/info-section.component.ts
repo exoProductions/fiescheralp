@@ -12,7 +12,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export class InfoSectionComponent implements OnInit {
   configLarge: SwiperOptions = {
     slidesPerView: 3,
-    spaceBetween:0,
+    spaceBetween: 0,
     navigation: false,
     pagination: { clickable: true },
     scrollbar: { draggable: true },
@@ -31,6 +31,21 @@ export class InfoSectionComponent implements OnInit {
     pagination: { clickable: true },
     scrollbar: { draggable: true },
   };
+
+  advantages: any[] = [
+    {
+      advantage: "aölksdfjöas aölskdfj askdfjasdkf askdfk kdsf asddfka sddfaksdf aksdf kasdfas",
+      icon: "home-outline"
+    },
+    {
+      advantage: "aölksdfjöas aölskdfj askdfjasdkf askdfk kdsf asddfka sddfaksdf aksdf kasdfas",
+      icon: "home-outline"
+    }, {
+      advantage: "aölksdfjöas aölskdfj askdfjasdkf askdfk kdsf asddfka sddfaksdf aksdf kasdfas",
+      icon: "home-outline"
+    },
+  ];
+
   slideContents: any[] = [
     {
       img: "0.jpg",
@@ -57,29 +72,30 @@ export class InfoSectionComponent implements OnInit {
     },
   ];
 
-  addons:any[]=[
+  showAllAddons:boolean=false;
+  addons: any[] = [
     {
-      text:"Blick auf den Aletsch Gletscher",
-      icon:"home-outline"
+      text: "Blick auf den Aletsch Gletscher",
+      icon: "home-outline"
     },
     {
-      text:"Wlan",
-      icon:"home-outline"
-    },   {
-      text:"Vorgarten",
-      icon:"home-outline"
-    },   {
-      text:"Feuerstelle",
-      icon:"home-outline"
-    },   {
-      text:"Garage",
-      icon:"home-outline"
-    },   {
-      text:"Balkon",
-      icon:"home-outline"
-    },   {
-      text:"Tische / Arbeitsplätze",
-      icon:"home-outline"
+      text: "Wlan",
+      icon: "home-outline"
+    }, {
+      text: "Vorgarten",
+      icon: "home-outline"
+    }, {
+      text: "Feuerstelle",
+      icon: "home-outline"
+    }, {
+      text: "Garage",
+      icon: "home-outline"
+    }, {
+      text: "Balkon",
+      icon: "home-outline"
+    }, {
+      text: "Tische / Arbeitsplätze",
+      icon: "home-outline"
     },
   ];
 
@@ -90,18 +106,18 @@ export class InfoSectionComponent implements OnInit {
   onSlideChange() {
     console.log('slide change');
   }
-  getSwiperConfig():SwiperOptions{
-    if(window.innerWidth>1200){
+  getSwiperConfig(): SwiperOptions {
+    if (window.innerWidth > 1200) {
       return this.configLarge;
-    }else{
-      if(window.innerWidth>800){
+    } else {
+      if (window.innerWidth > 800) {
         return this.configSmall
-      }else{
+      } else {
         return this.configSmaller
       }
     }
   }
-  getIsLargeSwiper():boolean{
-    return window.innerWidth>=1200;
+  getIsLargeSwiper(): boolean {
+    return window.innerWidth >= 1200;
   }
 }
