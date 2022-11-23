@@ -18,7 +18,10 @@
             </li>
         </ng-container>
         <ng-container *ngFor="let prevMonthDate of getPrevMonthDays()">
-            <li class="day-item acc prev-day">
+            <li [ngClass]="{
+                'day-item acc prev-day': true,
+                'day-selected': getDateIsSelected(prevMonthDate)
+              }">
                 <button (click)="skipToPreviousMonth()">
                     <h1> {{prevMonthDate.getDate()}} </h1>
                 </button>
@@ -36,7 +39,10 @@
             </li>
         </ng-container>
         <ng-container *ngFor="let nextMonthDate of getNextMonthDays()">
-            <li class="day-item acc next-day">
+            <li [ngClass]="{
+                'day-item acc next-day': true,
+                'day-selected': getDateIsSelected(nextMonthDate)
+              }">
                 <button (click)="skipToNextMonth()">
                     <h1> {{nextMonthDate.getDate()}} </h1>
                 </button>
@@ -45,6 +51,6 @@
     </ul>
 
     <section id="footer">
-        
+
     </section>
 </section>
