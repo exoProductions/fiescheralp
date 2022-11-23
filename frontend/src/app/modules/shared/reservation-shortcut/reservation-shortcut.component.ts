@@ -13,7 +13,7 @@ export class ReservationShortcutComponent implements OnInit {
   show: boolean = false;
   closed: boolean = false;
   calendarIsOpen: boolean = false;
-  constructor(private calendarService: CalendarService,private navigationService:NavigationService , private router: Router) { }
+  constructor(private calendarService: CalendarService,private router:Router,private navigationService:NavigationService ) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +30,7 @@ export class ReservationShortcutComponent implements OnInit {
     this.calendarService.addToDuration();
   }
   goToReservation() {
-    this.router.navigate(["Reservation"]);
+    this.router.navigate(["Reservation"]); //todo uncomment
   }
   getCurrentDate(): string {
     return this.calendarService.selectedStartDate.getDate().toString() + "." + (this.calendarService.selectedStartDate.getMonth() + 1).toString() + "." + this.calendarService.selectedStartDate.getFullYear().toString();

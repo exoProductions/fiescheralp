@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { faFacebook, faInstagram, faYoutube } from '@fortawesome/fontawesome-free-brands';
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +16,6 @@ export class NavigationService {
   ];
   
   socialLinksTitle:string[]=["Facebook","Instagram","Youtube","TikTok"]
-  socialIcons: any = [
-    faFacebook,
-    faInstagram,
-    faYoutube,
-    faTiktok,
-  ];
 
   isSafari:boolean=false;
   constructor() { 

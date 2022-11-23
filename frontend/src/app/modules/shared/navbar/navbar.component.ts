@@ -1,7 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faHome, faBrush, faLocation, faGem, faBars } from '@fortawesome/free-solid-svg-icons';
-import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
@@ -17,12 +15,11 @@ export class NavbarComponent implements OnInit {
     "accessibility-outline",
   ];
 
-  burgerIcon=faBars;
   animatedOnce:boolean=false;
 
   scrollOffset:number=0;
 
-  constructor(private navigationService: NavigationService, private globalVariablesService: GlobalVariablesService,private router:Router) { }
+  constructor(private navigationService: NavigationService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -41,7 +38,7 @@ export class NavbarComponent implements OnInit {
   }
 
   navigateToPage(ind: number): void {
-    this.router.navigate(['/' + this.getRoutes()[ind]]);
+    this.router.navigate(['/' + this.getRoutes()[ind]]); //todo uncomment 
     this.navigationService.navIsOpen=false;
   }
 
