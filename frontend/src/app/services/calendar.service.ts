@@ -18,8 +18,24 @@ export class CalendarService {
 
   dayNames: string[] = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
 
+  alreadyBookedDays: Date[] = [];
+
   constructor() {
+    this.loadAlreadyBookedDays();
     this.generateNewYear(this.currentYear);
+  }
+
+  loadAlreadyBookedDays(): void {
+    let loadedDays: any[] = [
+      { date: 25, month: 10, fullYear: 2022 },
+      { date: 5, month: 11, fullYear: 2022 },
+      { date: 6, month: 11, fullYear: 2022 },
+      { date: 1, month: 0, fullYear: 2023 },
+    ];
+    for (let i = 0; i < loadedDays.length; i++) {
+      this.alreadyBookedDays.push(new Date(Date.UTC(loadedDays[i].fullYear, loadedDays[i].month, loadedDays[i].date,)))
+    }
+    console.log(this.alreadyBookedDays);
   }
 
   generateNewYear(year: number): void {
@@ -100,7 +116,6 @@ export class CalendarService {
     for (let i = 0; i < 6 - this.getDayOfLastDayInMonth(); i++) { //todo ral for
       if (this.currentMonth == 11) {
         let nextMonth = this.allMonthsOfNextYear[0];
-        console.log(nextMonth);
         nextMonthDays.push(nextMonth[i]);
       } else {
         let nextMonth = this.allMonthsOfYear[this.currentMonth + 1];
@@ -130,8 +145,8 @@ export class CalendarService {
 
   getDayIsInSelectionRange(date: Date): boolean {
     for (let i = 0; i < this.duration; i++) {
-      let curDayFromList=this.possibleDaysInRange[i];
-      if(date.getDate()==curDayFromList.getDate() && date.getMonth()==curDayFromList.getMonth() && date.getFullYear()==curDayFromList.getFullYear() ){
+      let curDayFromList = this.possibleDaysInRange[i];
+      if (date.getDate() == curDayFromList.getDate() && date.getMonth() == curDayFromList.getMonth() && date.getFullYear() == curDayFromList.getFullYear()) {
         return true;
       }
     }
@@ -146,6 +161,14 @@ export class CalendarService {
       this.possibleDaysInRange.push(new Date(startDay));
       startDay.setUTCDate(startDay.getUTCDate() + 1);
     }
+  }
+  getDayAlreadyBooked(date:Date):boolean{
+      for(let bookedDay of this.alreadyBookedDays){
+        if (date.getDate() == bookedDay.getDate() && date.getMonth() == bookedDay.getMonth() && date.getFullYear() == bookedDay.getFullYear()) {
+          return true;
+        }
+      }
+    return false;
   }
 
   subtractFromDuration(): void {

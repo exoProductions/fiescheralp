@@ -76,10 +76,6 @@ export class InfoSectionComponent implements OnInit {
   showAllAddons:boolean=false;
   addons: any[] = [
     {
-      text: "Stornieren und Geld zurück bis eine Woche vor Beginn des Urlaubs",
-      icon: "home-outline"
-    },
-    {
       text: "Blick auf den Aletsch Gletscher",
       icon: "home-outline"
     },

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { CalendarService } from 'src/app/services/calendar.service';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -8,14 +10,19 @@ import { NavigationService } from 'src/app/services/navigation.service';
   styleUrls: ['./reservation.component.less']
 })
 export class ReservationComponent implements OnInit {
+  @ViewChild('settingsSection') settingsElem!:ElementRef;
+  scrollY:number=0;
 
-  constructor(private navigationService:NavigationService,private globalVariableService:GlobalVariablesService) { }
+  constructor(private calendarService:CalendarService ,private navigationService:NavigationService,private globalVariableService:GlobalVariablesService,private reservationService:ReservationService) { }
 
   ngOnInit(): void {
     this.navigationService.curPageInd=1;
     this.gotoTop();
   }
-
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
   gotoTop() {
     window.scroll({
       top: 0,
@@ -26,5 +33,19 @@ export class ReservationComponent implements OnInit {
 
   getEmail():string{
     return this.globalVariableService.eMail;
+  }
+
+  getPricePerDay():number{
+    return this.reservationService.pricePerDay;
+  }
+  getStartDate():string{
+    let selected:Date=this.calendarService.getSelectedStartDate();
+      return selected.getDate().toString()+"."+selected.getMonth()+"."+selected.getFullYear();
+  }
+  scrollToSettings():void{
+    this.settingsElem.nativeElement.scrollIntoView({ behavior: 'smooth'});
+  }
+  getShowGoToSettingsSection():boolean{
+    return this.scrollY> window.innerHeight/2 && window.innerWidth<800;
   }
 }

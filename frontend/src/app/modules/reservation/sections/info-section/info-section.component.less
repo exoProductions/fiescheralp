@@ -90,7 +90,26 @@ p{
     display: block;
     max-width: 100%;
 }
+//guarantee----------------------------------------------------------
+.guarantee{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.guarantee svg{
+    margin-right: @margin-small;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+}
 
+.guarantee p{
+    margin: 0px;
+    width: fit-content;
+}
+#lock{
+    fill: @color-accent1;
+}
 //addon zusätzlich dabei----------------------------------------------
 #addon-list{
     display: flex;

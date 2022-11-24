@@ -1,8 +1,4 @@
 #calendar-section {
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
-  padding: 18px;
-  background-color: white;
-  border-radius: 10px;
   min-height: calc(7 * 50px + 60px);
   max-width: calc(50px * 7 + 18px * 2);
   display: flex;
@@ -20,6 +16,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 }
 .btn-prev,
 .btn-next {
@@ -43,6 +40,7 @@
   background-color: transparent;
   transition: 0.3s background-color;
   overflow: hidden;
+  user-select: none;
 }
 .day-item.day-selected,
 .day-item:hover:not(.prev-day):not(.next-day) {
@@ -51,6 +49,10 @@
 .day-item.prev-day:hover,
 .day-item.next-day:hover {
   background-color: #CCC;
+}
+.day-already-booked button {
+  text-decoration: line-through;
+  color: #CCC;
 }
 .day-item.prev-day button,
 .day-item.next-day button,

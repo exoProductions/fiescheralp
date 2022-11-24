@@ -1,4 +1,42 @@
 @import "../../../shared/variables.less";
+.go-to-settings-section.hide{
+transform: translateY(calc(@navbar-height / 2));
+}
+.go-to-settings-section{
+    transform: translateY(0px);
+    transition: 0.3s transform;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(@navbar-height / 2);
+    padding:0px @padding-small;
+    width: calc(100% - @padding-small * 2);
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 3;
+    background-color: @color-accent1;
+}
+.go-to-settings-section h1{
+    font-size: @fontsize-std;
+    color: white;
+}
+.go-to-settings-section button{
+    background-color: white;
+    border-radius: @std-edge-rad;
+    box-shadow: @box-shadow-1;
+    animation: wobbleSmooth 2s infinite;
+    color: @color-accent1;
+    padding:@padding-smaller @padding-small;
+}
+.go-to-settings-section button p{
+    font-size: @fontsize-std;
+    color: @color-accent1;
+    font-weight: 900;
+    margin: 0px;
+}
+
 
 #content-section {
     position: absolute;
@@ -27,7 +65,9 @@
     margin: 70vh @margin-small 0 @margin-small;
 }
 
-
+#scroll-to-elem{
+    margin-top: calc(@navbar-height / 2);
+}
 
 #info-section {
     max-width: @max-w-3;

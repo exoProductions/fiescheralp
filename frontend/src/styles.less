@@ -1,8 +1,10 @@
 @import "./app/shared/variables.less";
 
-@import 'swiper/less';
-@import 'swiper/less/navigation';
-@import 'swiper/less/pagination';
+
+@import './app/shared/swiper.less';
+//@import 'swiper/less';
+//@import 'swiper/less/navigation';
+//@import 'swiper/less/pagination';
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: @color-accent1;
@@ -53,6 +55,8 @@ label {
   font-family: @std-font;
   font-weight: 300;
   text-transform: uppercase;
+  user-select: none;
+
 }
 
 h1 {
@@ -147,31 +151,6 @@ label {
   animation: 2s wobbleSmooth;
 }
 
-.text-gradient-1 {
-  background-image: linear-gradient(90deg, @color-accent1, @color-accent2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.color-gradient-v1 {
-  background: linear-gradient(0deg, @color-accent1, @color-accent2);
-}
-
-.color-gradient-v2 {
-  background: linear-gradient(180deg, rgb(66, 15, 129), rgb(23, 17, 36));
-}
-
-.color-gradient-v3 {
-  background: linear-gradient(180deg, #4db9e8, #08348c);
-}
-
-.color-gradient-h1 {
-  background: linear-gradient(90deg, @color-accent1, @color-accent2);
-}
-
-.color-gradient-h2 {
-  background: linear-gradient(90deg, #340031, #09274C);
-}
 
 .acr {
   display: flex;

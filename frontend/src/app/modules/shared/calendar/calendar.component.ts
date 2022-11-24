@@ -31,11 +31,13 @@ export class CalendarComponent implements OnInit {
 
     return date.getDate()<this.calendarService.today.getDate() && date.getMonth()==this.calendarService.today.getMonth() && date.getFullYear()==this.calendarService.today.getFullYear();
   }
+
+  getDayAlreadyBooked(date:Date):boolean{
+  return this.calendarService.getDayAlreadyBooked(date);
+  }
+
   getDateIsSelected(date: Date): boolean {
-   let selected:Date=this.calendarService.getSelectedStartDate();
-    let isSelected:boolean=this.calendarService.getDayIsInSelectionRange(date)
-   
-   return isSelected;
+   return this.calendarService.getDayIsInSelectionRange(date);
   }
   getDaysOfCurrentMonth(): Date[] {
     return this.calendarService.getDaysOfCurrentMonth();

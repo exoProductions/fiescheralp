@@ -1,18 +1,25 @@
+<section [ngClass]="getShowGoToSettingsSection()?'go-to-settings-section':'go-to-settings-section hide'">
+    <h1> {{getPricePerDay()}}.-/Nacht<br>{{getStartDate()}}</h1>
+    <button class="to-settings-btn" (click)="scrollToSettings()">
+        <p>Urlaub Konfigurieren</p>
+    </button>
+</section>
 <section id="reservation-section" class="acc">
-<div id="content-section" >
-    <div class="bg-img"></div>
-    <ul id="reservation-list">
-        <li id="info-section">
-            <app-info-section></app-info-section>
-        </li>
-        <li id="settings-section">
-            <app-settings-section></app-settings-section>
-        </li>
-    </ul>
-
-</div>
-<p>{{getEmail()}}</p>
-<a class="btn-round" href="mailto:{{getEmail()}}">
-    <h2>Kontaktieren Sie uns bei Fragen</h2>
-</a>
+    <div id="content-section">
+        <div class="bg-img"></div>
+        <ul id="reservation-list">
+            <li id="info-section">
+                <app-info-section></app-info-section>
+                <div  #settingsSection *ngIf="getShowGoToSettingsSection()" ></div>
+            </li>
+            <li *ngIf="getShowGoToSettingsSection()"  id="scroll-to-elem"> </li>
+            <li  id="settings-section">
+                <app-settings-section></app-settings-section>
+            </li>
+        </ul>
+    </div>
+    <p>{{getEmail()}}</p>
+    <a class="btn-round" href="mailto:{{getEmail()}}">
+        <h2>Kontaktieren Sie uns bei Fragen</h2>
+    </a>
 </section>
