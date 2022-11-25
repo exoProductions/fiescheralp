@@ -1,1 +1,19 @@
-<p>impressions works!</p>
+<section class="top-img bg-img">
+  
+</section>
+
+<section id="img-lists">
+    <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="getSwiperConfig()">
+        <ng-template class="swiper-slide acc" swiperSlide
+            *ngFor="let slideContent of slideContents;let i = index">
+            <button class="slide-container">
+                <img src="./assets/imgs/impressions/slide1-imgs/{{i}}.jpg" />
+                <div class="swiper-text-container">
+                    <h2>{{slideContent.title}}</h2>
+                    <p>{{slideContent.text}}</p>
+                </div>
+            </button>
+        </ng-template>
+    </swiper>
+</section>
+

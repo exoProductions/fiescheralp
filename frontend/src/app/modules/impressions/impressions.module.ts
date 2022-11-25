@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImpressionsComponent } from './impressions/impressions.component';
+import { SwiperModule } from 'swiper/angular';
 
 
 
@@ -9,7 +10,8 @@ import { ImpressionsComponent } from './impressions/impressions.component';
     ImpressionsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SwiperModule,
   ]
 })
 export class ImpressionsModule { }

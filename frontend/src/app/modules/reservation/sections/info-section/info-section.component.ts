@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { ReservationService } from 'src/app/services/reservation.service';
 import SwiperCore, { SwiperOptions, Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
@@ -11,27 +12,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   styleUrls: ['./info-section.component.less']
 })
 export class InfoSectionComponent implements OnInit {
-  configLarge: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    navigation: false,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
-  };
-  configSmall: SwiperOptions = {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    navigation: false,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
-  };
-  configSmaller: SwiperOptions = {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    navigation: false,
-    pagination: { clickable: true },
-    scrollbar: { draggable: true },
-  };
+  
 
   advantages: any[] = [
     {
@@ -104,7 +85,7 @@ export class InfoSectionComponent implements OnInit {
     },
   ];
 
-  constructor(private reservationService:ReservationService) { }
+  constructor(private reservationService:ReservationService,private globalVariableService:GlobalVariablesService) { }
 
   ngOnInit(): void {
   }
@@ -112,15 +93,7 @@ export class InfoSectionComponent implements OnInit {
     console.log('slide change');
   }
   getSwiperConfig(): SwiperOptions {
-    if (window.innerWidth > 1200) {
-      return this.configLarge;
-    } else {
-      if (window.innerWidth > 800) {
-        return this.configSmall
-      } else {
-        return this.configSmaller
-      }
-    }
+   return this.globalVariableService.getSwiperConfig()
   }
   getIsLargeSwiper(): boolean {
     return window.innerWidth >= 1200;
