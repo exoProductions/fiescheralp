@@ -2,9 +2,9 @@
 
 
 @import './app/shared/swiper.less';
-//@import 'swiper/less';
-//@import 'swiper/less/navigation';
-//@import 'swiper/less/pagination';
+@import 'swiper/less';
+@import 'swiper/less/navigation';
+@import 'swiper/less/pagination';
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: @color-accent1;
@@ -22,6 +22,11 @@
 }
 .swiper-slide{
   overflow: visible;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
 }
 html,
 body {

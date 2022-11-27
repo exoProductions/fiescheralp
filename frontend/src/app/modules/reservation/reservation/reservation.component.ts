@@ -12,7 +12,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
 export class ReservationComponent implements OnInit {
   @ViewChild('settingsSection') settingsElem!:ElementRef;
   scrollY:number=0;
-
+  scrolledToSettings:boolean=false;
   constructor(private calendarService:CalendarService ,private navigationService:NavigationService,private globalVariableService:GlobalVariablesService,private reservationService:ReservationService) { }
 
   ngOnInit(): void {
@@ -44,8 +44,11 @@ export class ReservationComponent implements OnInit {
   }
   scrollToSettings():void{
     this.settingsElem.nativeElement.scrollIntoView({ behavior: 'smooth'});
+    this.scrolledToSettings=true;
   }
   getShowGoToSettingsSection():boolean{
-    return this.scrollY> window.innerHeight/2 && window.innerWidth<800;
+    let show:boolean=(this.scrollY> window.innerHeight/2 && window.innerWidth<800) && !this.scrolledToSettings;
+
+    return show;
   }
 }

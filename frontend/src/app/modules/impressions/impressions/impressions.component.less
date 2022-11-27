@@ -1,5 +1,22 @@
+@import "../../../shared/variables.less";
+
 .top-img{
-    height: 100vh;
+    height: calc(100vh + @margin-large);
     width: 100%;
     background-image: url("../../../../assets/imgs/impressions/splash.jpg");
+}
+#img-lists{
+    transform: translateY(calc(@margin-large * -1));
+    margin-top: @margin-small;
+}
+.slide-container{
+    width: calc(100% - @padding-smallest * 2);
+    padding:0px @padding-smallest;
+    padding-bottom: @padding-small;
+}
+
+.slide-container img{
+    max-width: 100%;
+    border-radius: @std-edge-rad;
+    box-shadow: @box-shadow-1;
 }
