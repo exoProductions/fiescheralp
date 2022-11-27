@@ -21,6 +21,7 @@
             <li [ngClass]="{
                 'day-item acc prev-day': true,
                 'day-selected': getDateIsSelected(prevMonthDate),
+                'already-booked-in-selection':getAlreadyBookedDayInSelection(),
                 'day-already-booked':getDayAlreadyBooked(prevMonthDate)
               }">
                 <button (click)="skipToPreviousMonth()">
@@ -32,6 +33,7 @@
             <li [ngClass]="{
                 'day-item acc': true,
                 'day-selected': getDateIsSelected(date),
+                'already-booked-in-selection':getAlreadyBookedDayInSelection(),
                 'day-passed':getDayPassed(date),
                 'day-already-booked':getDayAlreadyBooked(date)
               }">
@@ -44,6 +46,7 @@
             <li [ngClass]="{
                 'day-item acc next-day': true,
                 'day-selected': getDateIsSelected(nextMonthDate),
+                'already-booked-in-selection':getAlreadyBookedDayInSelection(),
                 'day-already-booked':getDayAlreadyBooked(nextMonthDate)
 
               }">
@@ -55,6 +58,6 @@
     </ul>
 
     <section id="footer">
-
+        <p *ngIf="showSelectOtherText()">Es befinden sich leider bereits vergebene Tage in Ihrer Auswahl.</p>
     </section>
 </section>

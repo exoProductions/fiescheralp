@@ -59,6 +59,9 @@
 .day-item:hover:not(.prev-day):not(.next-day) {
   background-color: @color-accent1;
 }
+.day-item.day-selected.already-booked-in-selection{
+  background-color: @color-danger;
+}
 
 .day-item.prev-day:hover,
 .day-item.next-day:hover {
@@ -82,6 +85,9 @@
     height: 100%;
 }
 
+#footer p{
+  text-align: center;
+}
 
 @media screen and(max-width:@max-w-1) {
 #calendar-section{

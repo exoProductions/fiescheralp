@@ -62,4 +62,11 @@ export class CalendarComponent implements OnInit {
   getCurrentYear(): number {
     return this.calendarService.currentYear;
   }
+
+  getAlreadyBookedDayInSelection():boolean{
+    return this.calendarService.alreadyBookedDayInSelection;
+  }
+  showSelectOtherText():boolean{
+    return this.calendarService.showSelectOtherText
+  }
 }

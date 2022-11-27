@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,14 @@ export class CalendarService {
   currentYear: number = this.today.getFullYear();
   currentMonth: number = this.today.getMonth()
 
-  private selectedStartDate: Date = this.today;
+  private selectedStartDate: Date =this.today;
   duration: number = 2;
   maxDuration: number = 35;
   possibleDaysInRange: Date[] = [];
-
+  daysInRange:Date[]=[];
+  alreadyBookedDayInSelection:boolean=false;
+  showSelectOtherText:boolean=false;
   dayNames: string[] = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
-
   alreadyBookedDays: Date[] = [];
 
   constructor() {
@@ -28,6 +30,7 @@ export class CalendarService {
   loadAlreadyBookedDays(): void {
     let loadedDays: any[] = [
       { date: 25, month: 10, fullYear: 2022 },
+      { date: 27, month: 10, fullYear: 2022 },
       { date: 5, month: 11, fullYear: 2022 },
       { date: 6, month: 11, fullYear: 2022 },
       { date: 1, month: 0, fullYear: 2023 },
@@ -35,7 +38,6 @@ export class CalendarService {
     for (let i = 0; i < loadedDays.length; i++) {
       this.alreadyBookedDays.push(new Date(Date.UTC(loadedDays[i].fullYear, loadedDays[i].month, loadedDays[i].date,)))
     }
-    console.log(this.alreadyBookedDays);
   }
 
   generateNewYear(year: number): void {
@@ -144,13 +146,36 @@ export class CalendarService {
   }
 
   getDayIsInSelectionRange(date: Date): boolean {
+    this.alreadyBookedDayInSelection=false;
     for (let i = 0; i < this.duration; i++) {
       let curDayFromList = this.possibleDaysInRange[i];
       if (date.getDate() == curDayFromList.getDate() && date.getMonth() == curDayFromList.getMonth() && date.getFullYear() == curDayFromList.getFullYear()) {
+        if(this.daysInRange.length<this.duration){
+          this.daysInRange.push(date);
+          if(this.daysInRange.length==this.duration){
+            this.calcAlreadyBookedDayInSelection();
+          }
+        }
+        if(this.getDayAlreadyBooked(date)){
+          this.alreadyBookedDayInSelection=true;
+        }
         return true;
       }
     }
     return false;
+  }
+
+  calcAlreadyBookedDayInSelection():void{
+    setTimeout(()=>{
+      this.showSelectOtherText=false;
+      for(let dayInRange of this.daysInRange){
+        if(this.getDayAlreadyBooked(dayInRange)){
+            this.showSelectOtherText=true;
+        }
+      }
+    },100);
+
+   // return false
   }
 
   generatePossibleDaysInRange(): void {
@@ -184,6 +209,7 @@ export class CalendarService {
   }
   setSelectedStartDate(newStartDate: Date): void {
     this.selectedStartDate = newStartDate;
+    this.daysInRange=[];
     this.generatePossibleDaysInRange()
   }
   getSelectedStartDate(): Date {
