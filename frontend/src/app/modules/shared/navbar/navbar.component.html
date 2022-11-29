@@ -1,4 +1,4 @@
-<nav [ngClass]="scrollOffset>getWindowHeight() / 8 || getCurPageInd()==2? 'nav small acc':'nav acc'">
+<nav [ngClass]="scrollOffset>getWindowHeight() / 8 || getCurPageInd()==2 || getCurPageInd()==3? 'nav small acc':'nav acc'">
     <div id="nav-wrapper">
         <div id="logo-container" class="acc">
             <img id="logo" src="./assets/imgs/logos/logo.png" />
@@ -32,7 +32,7 @@
 </nav>
 
 <div [ngClass]="getNavIsOpen()? 'list-small-nav-container open':'list-small-nav-container'">
-    <ul [ngClass]="scrollOffset>getWindowHeight() / 8 || getCurPageInd()==2? 'list-small-nav big':'list-small-nav'">
+    <ul [ngClass]="scrollOffset>getWindowHeight() / 8 || getCurPageInd()==2 || getCurPageInd()==3? 'list-small-nav big':'list-small-nav'">
         <ng-container *ngFor="let route of getRoutes();let i=index">
             <li [ngClass]="getCurrentPageInd() == i? 'nav-item-small active acc' : 'nav-item-small acc'">
                 <button (click)="navigateToPage(i)" class="acr">

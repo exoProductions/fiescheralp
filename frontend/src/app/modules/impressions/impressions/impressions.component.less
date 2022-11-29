@@ -2,6 +2,7 @@
 
 #impressions-section {
   background: linear-gradient(90deg, #f8345f 0%, #5e35b0 100%);
+  overflow: hidden;
 }
 
 .top-img-section {
@@ -43,6 +44,14 @@
   right: 0px;
   transform: translate(calc(@fontsize-title-large / 2), calc(@fontsize-title-large / 2));
   z-index: 1;
+}
+
+.title-one-container {
+  animation: slideInLeft 1.5s;
+}
+
+.title-two-container {
+  animation: slideInRight 1.5s;
 }
 
 .top-img-title-list {
@@ -135,7 +144,7 @@
   text-align: center;
 }
 
-.btn-round{
+.btn-round {
   background-color: white;
   color: #5e35b0;
   border-radius: @btn-medium;
@@ -143,7 +152,8 @@
   padding: @padding-small @padding;
   transition: 0.3s color;
 }
-.btn-round:hover{
+
+.btn-round:hover {
   color: #f8345f;
 }
 
