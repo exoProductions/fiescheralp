@@ -1,4 +1,4 @@
-<nav [ngClass]="scrollOffset>getWindowHeight() / 8? 'nav small acc':'nav acc'">
+<nav [ngClass]="scrollOffset>getWindowHeight() / 8 || getCurPageInd()==2? 'nav small acc':'nav acc'">
     <div id="nav-wrapper">
         <div id="logo-container" class="acc">
             <img id="logo" src="./assets/imgs/logos/logo.png" />

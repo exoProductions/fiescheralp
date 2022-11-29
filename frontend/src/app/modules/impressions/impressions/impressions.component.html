@@ -1,29 +1,38 @@
-<section class="top-img bg-img"></section>
-
-<section id="img-lists">
-    <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="config"   [slidesPerView]="getSlidesPerView(true)">
-        <ng-template class="swiper-slide acc" swiperSlide
-            *ngFor="let slideContent of slideContents;let i = index">
-            <button class="slide-container">
-                <img src="./assets/imgs/impressions/slide1-imgs/{{i}}.jpg" />
-                <div class="swiper-text-container">
-                    <h2>{{slideContent.title}}</h2>
-                    <p>{{slideContent.text}}</p>
-                </div>
-            </button>
-        </ng-template>
-    </swiper>
-    <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="config" [slidesPerView]="getSlidesPerView(false)">
-        <ng-template class="swiper-slide acc" swiperSlide
-            *ngFor="let slideContent of slideContents;let i = index">
-            <button class="slide-container">
-                <img src="./assets/imgs/impressions/slide1-imgs/{{i}}.jpg" />
-                <div class="swiper-text-container">
-                    <h2>{{slideContent.title}}</h2>
-                    <p>{{slideContent.text}}</p>
-                </div>
-            </button>
-        </ng-template>
-    </swiper>
+<section id="impressions-section">
+    <section class="top-img-section acc">
+        <div class="width-wrapper">
+         <h1 class="top-img-title one">Impressionen</h1>
+         <div class=" top-img bg-img"></div>
+         <h1 class="top-img-title two">& Bilder</h1>
+        </div>
+     </section>
+     <section id="img-lists">
+        <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="config"   [slidesPerView]="getSlidesPerView(true)">
+            <ng-template class="swiper-slide acc" swiperSlide
+                *ngFor="let slideContent of slideContents;let i = index">
+                <button class="slide-container">
+                    <img src="./assets/imgs/impressions/slide1-imgs/{{i}}.jpg" />
+                    <div class="swiper-text-container">
+                        <h2>{{slideContent.title}}</h2>
+                        <p>{{slideContent.text}}</p>
+                    </div>
+                </button>
+            </ng-template>
+        </swiper>
+        <swiper *ngIf="getIsLargeSwiper() || 1" id="swiper" [config]="config" [slidesPerView]="getSlidesPerView(false)">
+            <ng-template class="swiper-slide acc" swiperSlide
+                *ngFor="let slideContent of slideContents;let i = index">
+                <button class="slide-container">
+                    <img src="./assets/imgs/impressions/slide1-imgs/{{i}}.jpg" />
+                    <div class="swiper-text-container">
+                        <h2>{{slideContent.title}}</h2>
+                        <p>{{slideContent.text}}</p>
+                    </div>
+                </button>
+            </ng-template>
+        </swiper>
+    </section>
 </section>
+
+
 
