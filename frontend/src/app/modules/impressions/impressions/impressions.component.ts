@@ -3,9 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
-import SwiperCore, { SwiperOptions, Navigation, Pagination, Scrollbar, A11y,EffectCube, EffectCoverflow } from 'swiper';
+import SwiperCore, { SwiperOptions, Navigation, Pagination, Scrollbar, A11y, EffectCube, EffectCoverflow } from 'swiper';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y,EffectCoverflow]);
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
 
 
 @Component({
@@ -30,24 +30,56 @@ export class ImpressionsComponent implements OnInit {
       modifier: 4
     }*/
   };
-  slideContents: any[] = [
+  imgs: any[] = [
     {
       img: "0.jpg",
-      text: "",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:0,
     },
     {
       img: "1.jpg",
-      text: "",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:2,
     }, {
       img: "2.jpg",
-      text: "",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:1,
     }, {
       img: "3.jpg",
-      text: "",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:1,
     }, {
       img: "4.jpg",
-      text: "",
-    }
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:2,
+    },
+    {
+      img: "4.jpg",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:0,
+    },
+    {
+      img: "2.jpg",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:0,
+    }, {
+      img: "3.jpg",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:1,
+    }, {
+      img: "4.jpg",
+      title: "Img Title",
+      text: "Some words text bla bla another text phrases bli blu",
+      sizeInd:2,
+    },
   ];
 
   constructor(private navigationService: NavigationService) {
@@ -66,14 +98,14 @@ export class ImpressionsComponent implements OnInit {
       behavior: 'smooth'
     });
   }
-  getSlidesPerView(isSwiperOne:boolean): number {
+  getSlidesPerView(isSwiperOne: boolean): number {
     if (window.innerWidth > 1200) {
-      return isSwiperOne?3:4;
+      return isSwiperOne ? 3 : 4;
     } else {
       if (window.innerWidth > 800) {
-        return isSwiperOne?2:3;
+        return isSwiperOne ? 2 : 3;
       } else {
-        return isSwiperOne?1:2;
+        return isSwiperOne ? 1 : 2;
       }
     }
   }
