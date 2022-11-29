@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -14,22 +14,9 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
   styleUrls: ['./impressions.component.less']
 })
 export class ImpressionsComponent implements OnInit {
-  config: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 0,
-    navigation: false,
-    pagination: { clickable: false },
-    scrollbar: { draggable: false },
-    /*effect: 'coverflow',
-    grabCursor: true,
-    coverflowEffect: {
-      slideShadows: true,
-      rotate: 5,
-      stretch: 15,
-      depth: 40,
-      modifier: 4
-    }*/
-  };
+
+  titleArray:String[]="IMPRESSIONEN".split('');
+
   imgs: any[] = [
     {
       img: "0.jpg",
@@ -82,7 +69,7 @@ export class ImpressionsComponent implements OnInit {
     },
   ];
 
-  constructor(private navigationService: NavigationService) {
+  constructor(private navigationService: NavigationService,private router:Router) {
   }
 
   ngOnInit(): void {
@@ -90,6 +77,9 @@ export class ImpressionsComponent implements OnInit {
     this.gotoTop();
   }
 
+  routeToReservation():void{
+    this.router.navigate(["Reservation"]);
+  }
 
   gotoTop() {
     window.scroll({

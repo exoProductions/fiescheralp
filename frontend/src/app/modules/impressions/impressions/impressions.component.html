@@ -1,9 +1,14 @@
-<section id="impressions-section">
+<section id="impressions-section" class="acc">
     <section class="top-img-section acc">
         <div class="width-wrapper">
             <h1 class="top-img-title one">Impressionen</h1>
             <div class=" top-img bg-img"></div>
             <h1 class="top-img-title two">& Bilder</h1>
+            <ul class="top-img-title-list acc">
+                <li *ngFor="let char of titleArray">
+                    <h1>{{char}}</h1>
+                </li>
+            </ul>
         </div>
     </section>
     <ul id="img-lists">
@@ -14,13 +19,16 @@
                 'medium': img.sizeInd==1,
                 'big': img.sizeInd==2
               }">
-              <!-- <div class="img-item-img bg-img" [ngStyle]="{'background-image':'../../../../assets/imgs/impressions/slide1-imgs/'+i+'.jpg'}"></div> -->
+                <!-- <div class="img-item-img bg-img" [ngStyle]="{'background-image':'../../../../assets/imgs/impressions/slide1-imgs/'+i+'.jpg'}"></div> -->
                 <img src="./assets/imgs/impressions/slide1-imgs/{{i}}.jpg" />
                 <div class="text-container acc">
-                    <h1>{{img.title}}</h1>
-                    <p>{{img.text}}</p>
+                    <button>
+                        <h1>{{img.title}}</h1>
+                        <p>{{img.text}}</p>
+                    </button>
                 </div>
             </li>
         </ng-container>
     </ul>
+    <button class="btn-round" (click)="routeToReservation()"><h1>Jetzt Buchen</h1></button>
 </section>
