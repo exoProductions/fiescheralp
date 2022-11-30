@@ -11,6 +11,7 @@ export class GlobalVariablesService {
   isWiderThan800:boolean=true;
   legalityLink:string="https://www.legality.exo-productions.ch/";
   eMail:string="benigerber@livenet.ch";
+  navbarHeight:number=120;
   configLarge: SwiperOptions = {
     slidesPerView: 3,
     spaceBetween: 0,

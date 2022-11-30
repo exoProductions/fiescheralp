@@ -1,17 +1,21 @@
 @import (reference) "../../../shared/variables.less";
 
-#main-container{
+.main-container,.main-container.small{
     width: 100%;
     background-color: @color-footer;
-    min-height: 128px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: calc(@padding-large * 2) 0px;
+    position: relative;
+    z-index: 4;
+}
+.main-container.small{
+    padding: 0px;
 }
 
-#link-list{
+.link-list, .link-list.small{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -22,18 +26,22 @@
     max-height: 64px;
     width: auto;
 }
-#link-list li{
-    width: 100%;
+.link-list li{
     margin:@margin-small;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-#link-list li h1{
+.link-list li h1{
     padding:@padding-small 0;
     color: white;
+    transition: 0.3s color;
 }
-#link-list li:hover h1{
+.link-list.small li h1{
+    padding: 0px;
+    font-size: @fontsize-h2;
+}
+.link-list li:hover h1{
     cursor: default;
     color: @color-accent1;
 }

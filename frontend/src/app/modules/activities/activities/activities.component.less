@@ -2,52 +2,126 @@
 
 
 #activities-section {
-  background: linear-gradient(90deg, #f8345f 0%, #5e35b0 100%);
+    background: linear-gradient(90deg, #f8345f 0%, #5e35b0 100%);
+    position: relative;
 }
 
 #svg-line-container {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #svg-line-container svg {
-  display: inline-block;
-  height: 100%;
-  stroke: white;
+    height: 100%;
+    //width: 100%;
+    stroke: white;
 }
 
 #svg-line-container svg #flow-line {
-  stroke: white;
+    stroke: white;
+    stroke-width: 2;
 }
 
-//overview-----------------------------
-#overview-section {
-  min-height: 100vh;
+//splash-------------------------------
+#splash-section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-#top-img-container {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+#clipped-splash-img-container {
+    margin-top: calc(@navbar-height / 2);
+    width: calc(min(50vh, 50vw));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 3;
 }
 
-img {
+#clipped-splash-img-container .clipping-img {
     position: absolute;
-  clip-path: url(#clipPath);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;    
+    clip-path: url(#clipPathSplash);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.splash-item {
+    position: absolute;
+}
+
+.splash-item.one {
+    z-index: 0;
+    bottom: 0px;
+    left: 0px;
+    transform: translate(calc(40% * -1), 10%) rotate(-45deg);
+    width: 80%;
+
+}
+
+.splash-item.two {
+    z-index: 0;
+    top: calc(20% * -1);
+    right: calc(10% * -2);
+    width: 90%;
+}
+
+.splash-item.three {
+    z-index: 0;
+    bottom: 0px;
+    right: 0%;
+    transform: translate(30%, 30%) rotate(60deg);
+    width: 60%;
+}
+
+//activities-title---------------------
+
+#activities-title-section {
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+#activities-title-section h1 {
+    color: white;
+    opacity: 0.3;
+    font-size: @fontsize-title-large;
+    font-weight: 900;
+}
+
+//all-activities-section-----------------------------------
+
+#all-activities-section {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.activity-item {
+    height: 50vh;
+}
+
+@media screen and(max-width:@max-w-2) {
+    #clipped-splash-img-container {
+        width: calc(min(80vh, 80vw));
+    }
+
+    #activities-title-section h1 {
+        font-size: @fontsize-title;
+    }
 }

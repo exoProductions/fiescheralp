@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-footer',
@@ -17,7 +18,7 @@ export class FooterComponent implements OnInit {
     "Impressum"
   ];
 
-  constructor(private globalVariableService:GlobalVariablesService) { }
+  constructor(private globalVariableService:GlobalVariablesService,private navigationService:NavigationService) { }
 
   ngOnInit(): void {
   }
@@ -26,4 +27,10 @@ export class FooterComponent implements OnInit {
     window.open(this.globalVariableService.legalityLink+ind, "_blank");
   }
 
+  getShowSmallFooter():boolean{
+    if(this.navigationService.curPageInd==3){
+      return true;
+    }
+    return false;
+  }
 }

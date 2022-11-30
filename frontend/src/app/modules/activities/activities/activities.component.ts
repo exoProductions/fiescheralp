@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { ActivityData } from './activity-data';
 
 @Component({
   selector: 'app-activities',
@@ -12,63 +14,16 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   private routeSub!: Subscription;
   activityInd: number = 0;
   @ViewChild("path") pathElem!: ElementRef;
+  @ViewChild("dirt1") dirtElem1!: ElementRef;
+  @ViewChild("dirt2") dirtElem2!: ElementRef;
+  @ViewChild("shoes") shoesElem!: ElementRef;
+  @ViewChild("activitiesTitle") activitiesTitle!: ElementRef;
 
-  activityRows: any[][] = [
-    [
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 0,
-      },
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 1,
-      },
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 2,
-      },
-    ],
-    [
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 3,
-      },
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 4,
-      },
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 5,
-      },
-    ],
-    [
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 6,
-      },
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 7,
-      },
-      {
-        activityTitle: "Activity one",
-        shortDescription: "Short Description of Activity one",
-        activityInd: 8,
-      },
-    ],
-  ]
-  pathLength:number=10;
+  activities = new ActivityData().activities;
 
-  constructor(private navigationService: NavigationService, private route: ActivatedRoute) {
+  pathLength: number = 10;
+
+  constructor(private navigationService: NavigationService, private route: ActivatedRoute, private globalVariableService: GlobalVariablesService) {
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params['id']);
       this.activityInd = params['id'];
@@ -81,8 +36,10 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
     this.gotoTop();
   }
   ngAfterViewInit(): void {
- //this.pathLength  = this.pathElem.nativeElement.getTotalLength();
-    this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + this.pathLength;
+    //this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + 0;
+    //this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
+    this.pathLength=4*this.pathLength //400vh;
+    this.pathElem.nativeElement.style.strokeDasharray = this.pathLength+' '+this.pathLength;
     this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
   }
   ngOnDestroy(): void {
@@ -91,9 +48,20 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll() {
-    let scrollPercentage=(document.documentElement.scrollTop + document.body.scrollTop)/(document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    let drawLength=this.pathLength*scrollPercentage;
-    this.pathElem.nativeElement.style.strokeDashoffset=this.pathLength-drawLength;
+    // console.log(document.documentElement.scrollTop ,document.documentElement.scrollHeight)
+    //let scrollPercentage=(document.documentElement.scrollTop + document.body.scrollTop)/(document.documentElement.scrollHeight - document.documentElement.clientHeight);
+    // let scrollPercentage=Math.max(0,(document.documentElement.scrollTop + document.body.scrollTop - window.innerHeight +this.globalVariableService.navbarHeight/2)/(document.documentElement.scrollHeight- window.innerHeight * 2 +this.globalVariableService.navbarHeight/2));
+    let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - window.innerHeight);
+    let drawLength = this.pathLength * scrollPercentage;
+    //drawLength=5;
+    this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength-drawLength;
+    console.log( this.pathElem.nativeElement.style.strokeDashoffset );
+    let scrollY = window.scrollY;
+    /*this.dirtElem1.nativeElement.style.bottom=scrollY/8+"px";
+    this.dirtElem2.nativeElement.style.bottom=scrollY/10+"px";
+    this.shoesElem.nativeElement.style.top="calc(20% * -1 + "+scrollY/20+"px)";
+    */
+    this.activitiesTitle.nativeElement.style.top = scrollY * -0.5 + "px";
   }
 
   gotoTop() {
@@ -102,5 +70,9 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
       left: 0,
       behavior: 'smooth'
     });
+  }
+
+  getSize():number{
+    return window.innerHeight * 7;
   }
 }
