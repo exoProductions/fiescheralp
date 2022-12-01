@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -23,7 +23,7 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   pathLength: number = 10;
 
-  constructor(private navigationService: NavigationService, private route: ActivatedRoute, private globalVariableService: GlobalVariablesService) {
+  constructor(private navigationService: NavigationService, private route: ActivatedRoute, private router:Router) {
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params['id']);
       this.activityInd = params['id'];
@@ -38,7 +38,7 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     //this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + 0;
     //this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
-    this.pathLength=4*this.pathLength //400vh;
+    this.pathLength=4.5*this.pathLength //450vh;
     this.pathElem.nativeElement.style.strokeDasharray = this.pathLength+' '+this.pathLength;
     this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
   }
@@ -70,6 +70,10 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
       left: 0,
       behavior: 'smooth'
     });
+  }
+
+  bookNow():void{
+    this.router.navigate(["Reservation"]);
   }
 
   getSize():number{
