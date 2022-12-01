@@ -36,7 +36,11 @@ transform: translateY(calc(@navbar-height / 2));
     font-weight: 900;
     margin: 0px;
 }
-
+//content--------------------------------------
+#reservation-section{
+    width: 100%;
+    overflow: hidden;
+}
 
 #content-section {
     position: absolute;
@@ -73,6 +77,11 @@ transform: translateY(calc(@navbar-height / 2));
     max-width: @max-w-3;
     width: calc(100% - @day-width-calendar * 7 - @padding-small * 3);
     margin-right: @padding-small;
+    animation: slideInLeft 1.5s;
+}
+
+#settings-section{
+    animation: slideInRight 1.5s;
 }
 
 .btn-round{

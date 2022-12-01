@@ -35,6 +35,10 @@
   font-weight: 900;
   margin: 0px;
 }
+#reservation-section {
+  width: 100%;
+  overflow: hidden;
+}
 #content-section {
   position: absolute;
   top: 0px;
@@ -66,6 +70,10 @@
   max-width: 1200px;
   width: calc(100% - 50px * 7 - 18px * 3);
   margin-right: 18px;
+  animation: slideInLeft 1.5s;
+}
+#settings-section {
+  animation: slideInRight 1.5s;
 }
 .btn-round {
   padding: 18px;

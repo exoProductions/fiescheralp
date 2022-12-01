@@ -21,6 +21,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 #logo-container img{
     max-height: 64px;
@@ -58,11 +59,11 @@ font-size: @fontsize-std;
 }
 
 @media screen and(max-width:@max-w-2){
-    #link-list{
+    .link-list{
         flex-direction: column;
     }
-    #link-list li{
-        width: 100%;
+    .link-list li{
+        width: calc(100% - @margin-small * 2);
 
     }
     #logo-container img{
