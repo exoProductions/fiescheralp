@@ -1,12 +1,6 @@
 <section id="activities-section" class="acc">
 
-    <div id="svg-line-container">
-        <svg viewBox="0 0 1000 1000" fill="none">
-            <path #path pathLength="10" vector-effect="non-scaling-stroke" id="flow-line"
-                d="M500.5 0V114.5H586L500.5 126.5V300H428L500.5 314.5V428.5L586 439.5H500.5V559H428L500.5 568.5V681H586L500.5 690.5V801L428 809L500.5 816V922L581 930.5L500.5 936.5V1000"
-                stroke="black" />
-        </svg>
-    </div>
+
 
     <section id="splash-section" class="acc">
         <div #splashElem id="clipped-splash-img-container">
@@ -61,6 +55,12 @@
         <h1>Aktivitäten</h1>
     </section>
     <section id="all-activities-section">
+        <div id="svg-line-container">
+            <svg viewBox="0 0 1000 1000" fill="none">
+                <path #path pathLength="10" vector-effect="non-scaling-stroke" id="flow-line" d="M500 0L500 1000"
+                    stroke="black" />
+            </svg>
+        </div>
         <ul class="activity-list">
             <ng-container *ngFor="let activity of activities">
                 <li class="activity-item acr">
@@ -79,7 +79,9 @@
             </ng-container>
         </ul>
     </section>
-    <section id="book-now-section" class="acc">
-        <button class="btn-round" (click)="bookNow()"><h1>Jetzt Buchen</h1></button>
+    <section id="book-now-section">
+        <button class="btn-round" (click)="bookNow()">
+            <h1>Jetzt Buchen</h1>
+        </button>
     </section>
 </section>

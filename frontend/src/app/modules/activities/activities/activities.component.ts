@@ -23,7 +23,7 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   pathLength: number = 10;
 
-  constructor(private navigationService: NavigationService, private route: ActivatedRoute, private router:Router) {
+  constructor(private navigationService: NavigationService, private route: ActivatedRoute, private router: Router) {
     this.routeSub = this.route.params.subscribe(params => {
       console.log(params['id']);
       this.activityInd = params['id'];
@@ -38,8 +38,8 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     //this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + 0;
     //this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
-    this.pathLength=4.5*this.pathLength //450vh;
-    this.pathElem.nativeElement.style.strokeDasharray = this.pathLength+' '+this.pathLength;
+    this.pathLength = 3.25 * this.pathLength //450vh;
+    this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + this.pathLength;
     this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
   }
   ngOnDestroy(): void {
@@ -48,19 +48,14 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll() {
-    // console.log(document.documentElement.scrollTop ,document.documentElement.scrollHeight)
-    //let scrollPercentage=(document.documentElement.scrollTop + document.body.scrollTop)/(document.documentElement.scrollHeight - document.documentElement.clientHeight);
-    // let scrollPercentage=Math.max(0,(document.documentElement.scrollTop + document.body.scrollTop - window.innerHeight +this.globalVariableService.navbarHeight/2)/(document.documentElement.scrollHeight- window.innerHeight * 2 +this.globalVariableService.navbarHeight/2));
-    let scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - window.innerHeight);
+    console.log(document.documentElement.scrollHeight, window.innerHeight * 4.5);
+    let scrollPercentage = (document.documentElement.scrollTop - window.innerHeight) / (document.documentElement.scrollHeight - window.innerHeight * 2);
     let drawLength = this.pathLength * scrollPercentage;
-    //drawLength=5;
-    this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength-drawLength;
-    console.log( this.pathElem.nativeElement.style.strokeDashoffset );
+    this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength - drawLength;
+    console.log(scrollPercentage);
+
+    //parallax
     let scrollY = window.scrollY;
-    /*this.dirtElem1.nativeElement.style.bottom=scrollY/8+"px";
-    this.dirtElem2.nativeElement.style.bottom=scrollY/10+"px";
-    this.shoesElem.nativeElement.style.top="calc(20% * -1 + "+scrollY/20+"px)";
-    */
     this.activitiesTitle.nativeElement.style.top = scrollY * -0.5 + "px";
   }
 
@@ -72,11 +67,11 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  bookNow():void{
+  bookNow(): void {
     this.router.navigate(["Reservation"]);
   }
 
-  getSize():number{
+  getSize(): number {
     return window.innerHeight * 7;
   }
 }

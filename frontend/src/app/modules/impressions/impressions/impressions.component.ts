@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
@@ -14,6 +14,9 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]);
   styleUrls: ['./impressions.component.less']
 })
 export class ImpressionsComponent implements OnInit {
+
+  @ViewChild("titleOne") titleOne!:ElementRef;
+  @ViewChild("titleTwo") titleTwo!:ElementRef;
 
   titleArray:String[]="IMPRESSIONEN".split('');
 
@@ -75,6 +78,13 @@ export class ImpressionsComponent implements OnInit {
   ngOnInit(): void {
     this.navigationService.curPageInd = 2;
     this.gotoTop();
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll() {
+    let scrollY = window.scrollY;
+    this.titleOne.nativeElement.style.left = scrollY *  -1 + "px";
+    this.titleTwo.nativeElement.style.right = scrollY * -1 + "px";
   }
 
   routeToReservation():void{

@@ -18,19 +18,12 @@ export class FooterComponent implements OnInit {
     "Impressum"
   ];
 
-  constructor(private globalVariableService:GlobalVariablesService,private navigationService:NavigationService) { }
+  constructor(private globalVariableService:GlobalVariablesService) { }
 
   ngOnInit(): void {
   }
 
   navigateToPage(ind:number):void{
     window.open(this.globalVariableService.legalityLink+ind, "_blank");
-  }
-
-  getShowSmallFooter():boolean{
-    if(this.navigationService.curPageInd==3){
-      return true;
-    }
-    return false;
   }
 }

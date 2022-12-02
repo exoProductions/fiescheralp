@@ -1,4 +1,4 @@
-<div class="main-container" *ngIf="!getShowSmallFooter()">
+<div class="main-container">
   <ul class="link-list">
     <li id="logo-container" >
       <img src="./assets/imgs/logos/logo.png" />
@@ -14,14 +14,4 @@
       © {{currentYear}} Fritz Gerber | Schweiz | Kanton Luzern | 6276 Hohenrain | Landschau 1
     </p>
   </div>
-</div>
-
-<div class="main-container small"  *ngIf="getShowSmallFooter()">
-  <ul class="link-list small">
-    <ng-container *ngFor="let sectionTitle of sectionTitles; let i = index">
-      <li (click)="navigateToPage(i)">
-        <h1 class="title-first">{{sectionTitle}}</h1>
-      </li>
-    </ng-container>
-  </ul>
 </div>

@@ -23,7 +23,7 @@ export class ActivityData {
             subclass: "activity-four"
         }, {
             activityTitle: "Wandern",
-            shortDescription: "Spektakuläre Gräte, tiefblaue Bergseen, duftende Arvenwälder - Entdecke die Aletsch-Arena zu Fuss",
+            shortDescription: "Spektakuläre Gebirgsgrate, tiefblaue Bergseen, duftende Arvenwälder - Entdecke die Aletsch-Arena zu Fuss",
             activityInd: 4,
             subclass: "activity-five"
         }, {

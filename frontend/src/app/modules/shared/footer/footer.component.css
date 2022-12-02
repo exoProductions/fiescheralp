@@ -1,5 +1,4 @@
-.main-container,
-.main-container.small {
+.main-container {
   width: 100%;
   background-color: #23282c;
   display: flex;
@@ -10,11 +9,7 @@
   position: relative;
   z-index: 4;
 }
-.main-container.small {
-  padding: 0px;
-}
-.link-list,
-.link-list.small {
+.link-list {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -37,10 +32,6 @@
   color: white;
   transition: 0.3s color;
 }
-.link-list.small li h1 {
-  padding: 0px;
-  font-size: 20px;
-}
 .link-list li:hover h1 {
   cursor: default;
   color: #d3b680;
@@ -55,6 +46,7 @@
   color: #999;
   text-align: center;
   font-size: 16px;
+  margin: 18px;
 }
 @media screen and (max-width: 800px) {
   .link-list {
