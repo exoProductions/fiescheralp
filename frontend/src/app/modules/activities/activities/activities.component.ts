@@ -38,7 +38,7 @@ export class ActivitiesComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     //this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + 0;
     //this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
-    this.pathLength = 3.25 * this.pathLength //450vh;
+    this.pathLength = 4 * this.pathLength //450vh;
     this.pathElem.nativeElement.style.strokeDasharray = this.pathLength + ' ' + this.pathLength;
     this.pathElem.nativeElement.style.strokeDashoffset = this.pathLength;
   }
