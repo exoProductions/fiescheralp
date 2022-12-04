@@ -17,7 +17,7 @@ export class ActivityData {
             activityInd: 2,
             subclass: "activity-three"
         }, {
-            activityTitle: "Ski fahren",
+            activityTitle: "Wintersport",
             shortDescription: "Im Winter bietet die Aletsch-Arena die perfekten voraussetzungen für Ihren Ski Urlaub. Tickets ab 50.- auf Aletscharena.ch",
             activityInd: 3,
             subclass: "activity-four"

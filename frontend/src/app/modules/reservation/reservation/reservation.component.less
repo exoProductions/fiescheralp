@@ -22,20 +22,27 @@ transform: translateY(calc(@navbar-height / 2));
     font-size: @fontsize-std;
     color: white;
 }
-.go-to-settings-section button{
+.go-to-settings-section .to-settings-btn{
     background-color: white;
     border-radius: @std-edge-rad;
     box-shadow: @box-shadow-1;
     animation: wobbleSmooth 2s infinite;
     color: @color-accent1;
     padding:@padding-smaller @padding-small;
+    margin: 0px @margin-small;
 }
-.go-to-settings-section button p{
+.go-to-settings-section .to-settings-btn p{
     font-size: @fontsize-std;
     color: @color-accent1;
     font-weight: 900;
     margin: 0px;
 }
+
+.close-btn{
+    background-color: transparent;
+    color: white;
+}
+
 //content--------------------------------------
 #reservation-section{
     width: 100%;
@@ -83,7 +90,6 @@ transform: translateY(calc(@navbar-height / 2));
 #settings-section{
     animation: slideInRight 1.5s;
 }
-
 .btn-round{
     padding: @padding-small;
     animation: none;
@@ -91,6 +97,8 @@ transform: translateY(calc(@navbar-height / 2));
     border-radius: @btn-medium;
     margin: 0px @margin @margin-large @margin;
 }
+
+
 
 @media screen and(max-width:@max-w-2) {
     #reservation-list {

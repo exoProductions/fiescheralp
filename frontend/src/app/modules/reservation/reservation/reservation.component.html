@@ -3,7 +3,12 @@
     <button class="to-settings-btn" (click)="scrollToSettings()">
         <p>Urlaub Konfigurieren</p>
     </button>
+    <button class="close-btn" (click)="scrolledToSettings=true">
+        <app-svg-icons class="icon advantage" name="close-outline" [strokeWidth]="25" [sizeInd]="4">
+        </app-svg-icons>
+    </button>
 </section>
+
 <section id="reservation-section" class="acc">
     <div id="content-section">
         <div class="bg-img"></div>

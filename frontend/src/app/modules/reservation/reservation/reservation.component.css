@@ -21,19 +21,24 @@
   font-size: 16px;
   color: white;
 }
-.go-to-settings-section button {
+.go-to-settings-section .to-settings-btn {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
   animation: wobbleSmooth 2s infinite;
   color: #d3b680;
   padding: 8px 18px;
+  margin: 0px 18px;
 }
-.go-to-settings-section button p {
+.go-to-settings-section .to-settings-btn p {
   font-size: 16px;
   color: #d3b680;
   font-weight: 900;
   margin: 0px;
+}
+.close-btn {
+  background-color: transparent;
+  color: white;
 }
 #reservation-section {
   width: 100%;
