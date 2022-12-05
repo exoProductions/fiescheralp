@@ -1,3 +1,23 @@
+<section [ngClass]="getReservationClicked()?'reservation-worked-section show acc':'reservation-worked-section acc'">
+    <button class="close-btn acr" (click)="setReservationClicked(false)">
+        <app-svg-icons class="svg-icon" name="chevron-back-outline" [sizeInd]="5" [strokeWidth]="48"></app-svg-icons>
+        <p>Zurück</p>
+    </button>
+
+    <p *ngIf="getReservationWorked()">Grossartig, Ihre Reservation hat funktioniert. Wir bearbeiten diese umgehend und
+        melden uns bei Ihnen. Sie
+        erhalten in den nächsten 5 Minuten ein bestätigungs E-Mail, falls nicht, kontrollieren Sie bitte auch den Spam
+        Ordner.<br><br>Bei Fragen, können Sie sich gerne auf untenstehender Mail-Adresse an uns wenden, besten Dank.</p>
+    <p *ngIf="!getReservationWorked()">
+        Etwas Ist schief gelaufen, bitte Kontaktieren Sie uns per E-Mail.<br>Vielen Dank.
+    </p>
+    <p>{{getEMail()}}</p>
+    <a class="btn-round" href="mailto:{{getEMail()}}">
+        <h2>Kontaktieren Sie uns bei Fragen</h2>
+    </a>
+</section>
+
+
 <ul id="settings-list">
     <li class="settings-item">
         <!-- <h1 class="setting-title"> Anzahl Personen</h1> -->
@@ -69,8 +89,12 @@
                     <input class="text-input" name="e-mail" type="mail" id="e-mail" [(ngModel)]="getUserdata().eMail">
                 </li>
                 <li class="accepted-agb-item">
-                    <button [ngClass]="getUserdata().acceptedAGB?'accept-btn accepted':'accept-btn'" (click)="getUserdata().acceptedAGB=!getUserdata().acceptedAGB"><div></div></button>
-                    <p class="read-agb-text">Ich habe die <button class="agb-link" (click)="navigateToAGB()" >AGB & Datenschutzerklärung</button> gelesen und akzeptiere diese.</p>
+                    <button [ngClass]="getUserdata().acceptedAGB?'accept-btn accepted':'accept-btn'"
+                        (click)="getUserdata().acceptedAGB=!getUserdata().acceptedAGB">
+                        <div></div>
+                    </button>
+                    <p class="read-agb-text">Ich habe die <button class="agb-link" (click)="navigateToAGB()">AGB &
+                            Datenschutzerklärung</button> gelesen und akzeptiere diese.</p>
                 </li>
             </ul>
         </form>
@@ -82,6 +106,6 @@
     </li>
     <li class="host-item acc">
         <img src="./assets/imgs/reservation/host-pb-big.png" />
-        <h1 >Wir freuen uns auf Sie!</h1>
+        <h1>Wir freuen uns auf Sie!</h1>
     </li>
 </ul>

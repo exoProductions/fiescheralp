@@ -12,16 +12,16 @@ import { ReservationService } from 'src/app/services/reservation.service';
 })
 export class SettingsSectionComponent implements OnInit {
 
-  constructor(private calendarService: CalendarService, private reservationService: ReservationService,private globalVariableService:GlobalVariablesService) { }
+  constructor(private calendarService: CalendarService, private reservationService: ReservationService, private globalVariableService: GlobalVariablesService) { }
 
   ngOnInit(): void {
-    this.reservate();
+   // this.reservate();
   }
 
-  onFormChanged():void{
+  onFormChanged(): void {
     console.log(this.getUserdata());
   }
-  submitReservation():void{
+  submitReservation(): void {
 
   }
 
@@ -31,36 +31,48 @@ export class SettingsSectionComponent implements OnInit {
   addToDuration(): void {
     this.calendarService.addToDuration();
   }
-  subtractFromGuests():void{
-    if(this.reservationService.numberOfGuests>1){
+  subtractFromGuests(): void {
+    if (this.reservationService.numberOfGuests > 1) {
       this.reservationService.numberOfGuests--;
     }
   }
-  addToGuests():void{
-    if(this.reservationService.numberOfGuests<this.reservationService.maxGuests){
+  addToGuests(): void {
+    if (this.reservationService.numberOfGuests < this.reservationService.maxGuests) {
       this.reservationService.numberOfGuests++;
     }
   }
-  navigateToAGB():void{
-    window.open(this.globalVariableService.legalityLink+1, "_blank");
+  navigateToAGB(): void {
+    window.open(this.globalVariableService.legalityLink + 1, "_blank");
   }
 
-  reservate():void{
+  reservate(): void {
     this.reservationService.reservate()
   }
-
+  setReservationClicked(state: boolean): void {
+    this.reservationService.reservationClicked = false;
+  }
   getDuration(): number {
     return this.calendarService.duration;
   }
-  getNumberOfGuests():number{
+  getNumberOfGuests(): number {
     return this.reservationService.numberOfGuests;
   }
   getPrice(): number {
     return this.reservationService.getPrice()
   }
 
-  getUserdata():any{
+  getUserdata(): any {
     return this.reservationService.userdata;
+  }
+
+  getReservationWorked(): boolean {
+    return this.reservationService.reservationWorked;
+  }
+  getReservationClicked(): boolean {
+    return this.reservationService.reservationClicked;
+  }
+  getEMail(): string {
+    return this.globalVariableService.eMail;
   }
 
 

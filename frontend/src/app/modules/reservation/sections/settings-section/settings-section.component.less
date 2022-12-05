@@ -1,5 +1,49 @@
 @import "../../../../shared/variables.less";
 
+
+//reservation status----------------------------
+.reservation-worked-section{
+position: fixed;
+top: 0px;
+left: 0px;
+z-index: 4;
+width: 100%;
+height: 100vh;
+background-color: rgba(@color-accent1,0.8);
+backdrop-filter: blur(12px);
+padding-top: calc(@navbar-height / 2);
+transform: translateX(100vw);
+transition: 1s transform;
+}
+.reservation-worked-section.show{
+    transform: translateX(0px);
+}
+
+
+.reservation-worked-section p{
+    color: white;
+    text-align: center;
+    margin: @margin-small;
+    max-width: @max-w-2;
+}
+.btn-round{
+    padding: @padding-small;
+    animation: none;
+    background-color: @color-accent-light2;
+    border-radius: @btn-medium;
+    margin: 0px @margin;
+}
+.close-btn{
+    position: absolute;
+    top:calc(@navbar-height / 2 + @margin-small);
+    left: @margin-small;
+    color:white;
+}
+.close-btn p{
+    margin: 0px;
+}
+
+//settings-list-----------------------------------
 #settings-list {
     min-width: 100%;
 }

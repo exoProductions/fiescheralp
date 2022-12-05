@@ -51,4 +51,7 @@ export class ReservationComponent implements OnInit {
 
     return show;
   }
+  getReservationClicked():boolean{
+    return this.reservationService.reservationClicked;
+  }
 }

@@ -46,8 +46,6 @@ if (isset($postdata) && !empty($postdata)) {
             $alreadyBooked = true;
         }
     }
-    echo json_encode(count($days_post));
-
 
     if (!$alreadyBooked) {
         for ($i = 0; $i < count($days_post); $i++) {
@@ -61,5 +59,5 @@ if (isset($postdata) && !empty($postdata)) {
     } else {
         $worked = false;
     }
-
+    echo json_encode($worked);
 }

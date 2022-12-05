@@ -20,6 +20,9 @@ export class ReservationService {
     acceptedAGB:true,
   }
 
+  reservationWorked:boolean=false;
+  reservationClicked:boolean=false;
+
   constructor(private calendarService:CalendarService,private apiService:ApiService) { }
 
   getPrice():number{
@@ -27,14 +30,15 @@ export class ReservationService {
   }
 
   reservate():void{
+    this.reservationClicked=true;
     this.apiService.reserve(this.getReservationData()).subscribe((worked:boolean) => {
-      console.log(worked);
+      this.reservationWorked=worked;
     });
   }
 
   getReservationData():ReservationData{
     return {
-      days:[1,3,5],
+      days:[2,4,7],
       months:[2,4,6],
       years:[3,5,7],
       firstname:this.userdata.firstname,

@@ -1,4 +1,4 @@
-<section [ngClass]="getShowGoToSettingsSection()?'go-to-settings-section':'go-to-settings-section hide'">
+<section [ngClass]="getShowGoToSettingsSection() && !getReservationClicked()?'go-to-settings-section':'go-to-settings-section hide'">
     <h1> {{getPricePerDay()}}.-/Nacht<br>{{getStartDate()}}</h1>
     <button class="to-settings-btn" (click)="scrollToSettings()">
         <p>Urlaub Konfigurieren</p>
