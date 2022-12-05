@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationData } from 'src/app/models/reservation-data.model';
+import { ApiService } from 'src/app/services/api.service';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { GlobalVariablesService } from 'src/app/services/global-variables.service';
 import { ReservationService } from 'src/app/services/reservation.service';
@@ -13,6 +15,7 @@ export class SettingsSectionComponent implements OnInit {
   constructor(private calendarService: CalendarService, private reservationService: ReservationService,private globalVariableService:GlobalVariablesService) { }
 
   ngOnInit(): void {
+    this.reservate();
   }
 
   onFormChanged():void{
@@ -41,6 +44,11 @@ export class SettingsSectionComponent implements OnInit {
   navigateToAGB():void{
     window.open(this.globalVariableService.legalityLink+1, "_blank");
   }
+
+  reservate():void{
+    this.reservationService.reservate()
+  }
+
   getDuration(): number {
     return this.calendarService.duration;
   }
