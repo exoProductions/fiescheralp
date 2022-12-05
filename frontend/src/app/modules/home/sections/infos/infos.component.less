@@ -6,17 +6,17 @@
 
 }
 
-#infos-list-wrapper {
+.infos-list-wrapper {
     width: 100%;
-   // width:calc(100% - @padding-small * 2);
     max-width: calc(@max-w-4 - @padding-small * 2);
     min-height: 100vh;
     background-image: url("../../../../../assets/imgs/home/infos-parallax.jpg");
     background-attachment: fixed;
-   // border-radius: @std-edge-rad;
     box-shadow: 0 10px 15px rgba(black,0.4);
 }
-
+.infos-list-wrapper.is-safari{
+background-attachment: unset;
+}
 
 #infos-list {
     width: fit-content;

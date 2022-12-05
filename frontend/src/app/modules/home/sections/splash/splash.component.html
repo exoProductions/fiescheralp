@@ -1,5 +1,5 @@
 <section id="splash-section">
-    <section id="background-section">
+    <section [ngClass]="getIsSafari()?'background-section is-safari':'background-section'">
         <section id="overlay-section-one" class="spacer side-layer">
             <div id="content-container">
                 <div class="text-container">

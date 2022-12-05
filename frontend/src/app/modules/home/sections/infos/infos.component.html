@@ -1,5 +1,5 @@
 <section id="infos-section" class="acc">
-    <div id="infos-list-wrapper" class="acc bg-img">
+    <div [ngClass]="getIsSafari()? 'infos-list-wrapper acc bg-img is-safari':'infos-list-wrapper acc bg-img'">
         <ul id="infos-list" class="acr bg-img">
             <ng-container *ngFor="let info of infos;let i=index">
                 <button (click)="openInfo(i)">

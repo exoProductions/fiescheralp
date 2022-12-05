@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-infos',
@@ -46,7 +47,7 @@ export class InfosComponent implements OnInit {
   ];
   openInd: number = -1;
 
-  constructor(private router:Router) { }
+  constructor(private navigationService:NavigationService) { }
 
   ngOnInit(): void {
     this.markers.push({
@@ -69,5 +70,7 @@ export class InfosComponent implements OnInit {
       this.infoElem.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
     },100);
   }
-
+getIsSafari():boolean{
+  return this.navigationService.isSafari;
+}
 }

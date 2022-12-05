@@ -113,4 +113,8 @@ export class ImpressionsComponent implements OnInit {
     return window.innerWidth >= 1200;
   }
 
+  getIsSafari():boolean{
+    return this.navigationService.isSafari;
+  }
+
 }

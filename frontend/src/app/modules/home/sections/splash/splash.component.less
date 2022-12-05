@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-#background-section {
+.background-section {
   height: @bg-height;
   width: 100%;
   //max-width: @max-w-4;
@@ -25,6 +25,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
+}
+.background-section.is-safari{
+background-attachment: unset;
 }
 
 #overlay-section-one {

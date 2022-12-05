@@ -6,10 +6,9 @@
   justify-content: flex-start;
   overflow: hidden;
 }
-#background-section {
+.background-section {
   height: calc(130vh + 100px);
   width: 100%;
-  max-width: 1920px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,6 +19,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: white;
+}
+.background-section.is-safari {
+  background-attachment: unset;
 }
 #overlay-section-one {
   height: calc(130vh + 100px);
@@ -53,6 +55,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  animation: slideInLeft 1.5s;
 }
 .small-title {
   color: white;
@@ -73,6 +76,10 @@
   justify-content: center;
   margin-right: 18px;
 }
+.welcome-container-animation-wrapper {
+  animation: slideInLeft 1.5s 0.2s;
+  animation-fill-mode: both;
+}
 .welcome-container h1 {
   text-align: left;
   color: white;
@@ -85,6 +92,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  animation: slideInRight 1.5s;
+  animation-fill-mode: both;
 }
 .fat-title.two {
   text-align: right;

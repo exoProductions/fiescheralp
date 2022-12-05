@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-splash',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashComponent implements OnInit {
 
-  constructor() { }
+  constructor(private navigationService:NavigationService) { }
 
   ngOnInit(): void {
   }
 
+  getIsSafari():boolean{
+    return this.navigationService.isSafari;
+  }
 }

@@ -18,6 +18,9 @@
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
   background-attachment: fixed;
 }
+.top-img.is-safari {
+  background-attachment: unset;
+}
 .top-img-title {
   position: absolute;
   font-size: 100px;

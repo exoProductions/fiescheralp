@@ -2,18 +2,32 @@
   margin: 100px 0px;
   min-height: 50vh;
 }
-#infos-list {
+.infos-list-wrapper {
   width: 100%;
-  min-height: 50vh;
+  max-width: calc(1920px - 18px * 2);
+  min-height: 100vh;
+  background-image: url("../../../../../assets/imgs/home/infos-parallax.jpg");
+  background-attachment: fixed;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+.infos-list-wrapper.is-safari {
+  background-attachment: unset;
+}
+#infos-list {
+  width: fit-content;
   flex-wrap: wrap;
-  background-image: url("../../../../../assets/imgs/home/reviews-parallax.jpg");
+  backdrop-filter: blur(6px);
+  border: solid 1px white;
+  margin: 30px;
+  border-radius: 10px;
+  padding: 0px 30px;
 }
 .item {
   margin: 30px;
-  color: #d3b680;
+  color: white;
 }
 .item h1 {
-  color: #d3b680;
+  color: white;
 }
 .item .icon {
   transform: scale(1);
@@ -28,8 +42,8 @@
 }
 .item .underline {
   width: 0%;
-  height: 1px;
-  background-color: #d3b680;
+  height: 2px;
+  background-color: white;
   transition: 0.3s width;
 }
 .item.open .underline,
@@ -39,4 +53,13 @@
 .google-map-container {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
   margin: 0px 18px;
+}
+@media screen and (max-width: 800px) {
+  #infos-list-wrapper {
+    height: 100vh;
+  }
+  #infos-list {
+    width: min-content;
+    padding: 0px;
+  }
 }
