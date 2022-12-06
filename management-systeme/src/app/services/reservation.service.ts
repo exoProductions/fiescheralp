@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ReservationData } from '../models/reservation-data.model';
+import { ReservationData } from '../models/reservation-data';
 import { Userdata } from '../models/userdata.model';
 import { ApiService } from './api.service';
 import { CalendarService } from './calendar.service';
@@ -14,10 +14,10 @@ export class ReservationService {
   maxGuests:number=5;
 
   userdata:Userdata={
-    firstname:"",
-    lastname:"",
-    eMail:"",
-    acceptedAGB:false,
+    firstname:"Dominic",
+    lastname:"Gut",
+    eMail:"dominic.gut@gmx.ch",
+    acceptedAGB:true,
   }
 
   reservationWorkedInd:number=0; //0=didnt work, 1=worked, 2=choose another date
@@ -50,11 +50,11 @@ export class ReservationService {
     let days:number[]=[];
     let months:number[]=[];
     let years:number[]=[];
-    for(let reservedDay of this.calendarService.daysInRange){
-      days.push(reservedDay.getDate());
-      months.push(reservedDay.getMonth());
-      years.push(reservedDay.getFullYear());
-      console.log(reservedDay);
+    for(let reservedDayAndInfos of this.calendarService.daysAndInfosInRange){
+      days.push(reservedDayAndInfos.date.getDate());
+      months.push(reservedDayAndInfos.date.getMonth());
+      years.push(reservedDayAndInfos.date.getFullYear());
+      console.log(reservedDayAndInfos.date);
     }
     
     return {

@@ -17,6 +17,10 @@ export class ApiService {
   }
 
   loadAlreadyBookedDaysAndInfos(): Observable<DaysAndInfos[]> {
-    return this.httpClient.post<DaysAndInfos[]>(`${this.server}/api/loadAlreadyBookedDaysAndInfos.php`,{});
+    return this.httpClient.post<DaysAndInfos[]>(`${this.server}/api/loadAlreadyBookedDaysAndInfos.php`,{nickname:"fritzgerber",password:"appartment-fiescheralp"});
+  }
+
+  deleteReservations(DaysAndInfos:DaysAndInfos[]): Observable<boolean> {
+    return this.httpClient.post<boolean>(`${this.server}/api/reserve.php`, DaysAndInfos);
   }
 }

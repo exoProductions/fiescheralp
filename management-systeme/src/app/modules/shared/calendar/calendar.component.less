@@ -1,0 +1,117 @@
+@import "../../../shared/variables.less";
+
+
+@head-height:60px;
+
+#calendar-section {
+  min-height: calc(7 * @day-width-calendar + @head-height);
+  max-width: calc(@day-width-calendar * 7 + @padding-small * 2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#calendar-head {
+  width: 100%;
+}
+
+#calendar-head p {
+  margin: 0px @margin;
+  width: 100%;
+  text-align: center;
+  height: @head-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.btn-prev,
+.btn-next {
+  color: @color-lightest;
+}
+
+.btn-prev:hover,
+.btn-next:hover {
+  color: @color-accent1;
+}
+
+
+#calendar-list {
+  width: calc(@day-width-calendar * 7);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.day-item,
+.day-name-item {
+  width: @day-width-calendar;
+  height: @day-width-calendar;
+  border-radius: @day-width-calendar;
+  background-color: transparent;
+  transition: 0.3s background-color;
+  overflow: hidden;
+  user-select: none;
+}
+
+.day-item.day-selected,
+.day-item:hover:not(.prev-day):not(.next-day) {
+  background-color: @color-accent1;
+}
+.day-item.day-selected.already-booked-in-selection{
+  background-color: @color-danger;
+}
+
+.day-item.prev-day:hover,
+.day-item.next-day:hover {
+  background-color: @color-lightest;
+}
+.day-already-booked button{
+  text-decoration: line-through;
+  color: @color-lightest;
+}
+.day-item.prev-day button,
+.day-item.next-day button,
+.day-item.day-passed button,
+.day-name-item button {
+  color: @color-lightest;
+  transition: 0.3s color;
+}
+
+.day-item:hover button,.day-item.day-selected button {
+  color: white;
+  width: 100%;
+    height: 100%;
+}
+
+#footer p{
+  text-align: center;
+}
+
+@media screen and(max-width:@max-w-1) {
+#calendar-section{
+  min-height: calc(7 * @day-width-calendar-small + @head-height);
+}
+  #calendar-head p {
+    margin: 0px @margin-smaller;
+  }
+
+  #calendar-list {
+    width: calc(@day-width-calendar-small * 7);
+  }
+
+  .day-item,
+  .day-name-item {
+    width: @day-width-calendar-small;
+    height: @day-width-calendar-small;
+  }
+
+  .day-item button h1,
+  .day-item.prev-day button h1,
+  .day-item.next-day button h1,
+  .day-name-item button h1 {
+    font-size: @fontsize-h2;
+  }
+
+}

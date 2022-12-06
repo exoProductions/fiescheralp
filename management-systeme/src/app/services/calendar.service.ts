@@ -17,7 +17,7 @@ export class CalendarService {
   duration: number = 2;
   maxDuration: number = 35;
   possibleDaysInRange: Date[] = [];
-  daysInRange: Date[] = [];
+  daysAndInfosInRange: DaysAndInfos[] = [];
   alreadyBookedDayInSelection: boolean = false;
   showSelectOtherText: boolean = false;
   dayNames: string[] = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
@@ -32,9 +32,11 @@ export class CalendarService {
     this.apiService.loadAlreadyBookedDaysAndInfos().subscribe((loadedDaysAndInfos: DaysAndInfos[]) => {
       if (loadedDaysAndInfos != null) {
         for (let i = 0; i < loadedDaysAndInfos.length; i++) {
-            loadedDaysAndInfos[i].date=new Date(Date.UTC(loadedDaysAndInfos[i].fullYear, loadedDaysAndInfos[i].month, loadedDaysAndInfos[i].day));          
+          loadedDaysAndInfos[i].date = new Date(Date.UTC(loadedDaysAndInfos[i].fullYear, loadedDaysAndInfos[i].month, loadedDaysAndInfos[i].day));
         }
-        this.alreadyBookedDaysAndInfos=loadedDaysAndInfos;
+        this.alreadyBookedDaysAndInfos = loadedDaysAndInfos;
+        console.log(this.alreadyBookedDaysAndInfos);
+        this.setSelectedStartDate(this.selectedStartDate);
       }
     });
   }
@@ -150,10 +152,18 @@ export class CalendarService {
     for (let i = 0; i < this.duration; i++) {
       let curDayFromList = this.possibleDaysInRange[i];
       if (date.getDate() == curDayFromList.getDate() && date.getMonth() == curDayFromList.getMonth() && date.getFullYear() == curDayFromList.getFullYear()) {
-        if (this.daysInRange.length < this.duration) {
-          this.daysInRange[i]=date;
-          if (this.daysInRange[this.duration-1] !=null) {
+        if (this.daysAndInfosInRange.length < this.duration) {
+          let curDayAndInfoInRange:DaysAndInfos=new DaysAndInfos();
+          for(let alreadyBookedDayAndInfos of this.alreadyBookedDaysAndInfos){
+            if (date.getDate() == alreadyBookedDayAndInfos.date.getDate() && date.getMonth() == alreadyBookedDayAndInfos.date.getMonth() && date.getFullYear() == alreadyBookedDayAndInfos.date.getFullYear()) {
+              curDayAndInfoInRange=alreadyBookedDayAndInfos;
+            }
+          }
+          this.daysAndInfosInRange[i]=curDayAndInfoInRange;
+          this.daysAndInfosInRange[i].date = date;
+          if (this.daysAndInfosInRange[this.duration - 1] != null) {
             this.calcAlreadyBookedDayInSelection();
+            console.log("aöksjf");
           }
         }
         if (this.getDayAlreadyBooked(date)) {
@@ -168,12 +178,12 @@ export class CalendarService {
   calcAlreadyBookedDayInSelection(): void {
     setTimeout(() => {
       this.showSelectOtherText = false;
-      for (let dayInRange of this.daysInRange) {
-        if (this.getDayAlreadyBooked(dayInRange)) {
+      for (let dayAndInfoInRange of this.daysAndInfosInRange) {
+        if (this.getDayAlreadyBooked(dayAndInfoInRange.date)) {
           this.showSelectOtherText = true;
         }
       }
-    }, 100);
+    }, 0);
   }
 
   generatePossibleDaysInRange(): void {
@@ -185,6 +195,7 @@ export class CalendarService {
       startDay.setUTCDate(startDay.getUTCDate() + 1);
     }
   }
+
   getDayAlreadyBooked(date: Date): boolean {
     for (let bookedDayAndInfos of this.alreadyBookedDaysAndInfos) {
       if (date.getDate() == bookedDayAndInfos.date.getDate() && date.getMonth() == bookedDayAndInfos.date.getMonth() && date.getFullYear() == bookedDayAndInfos.date.getFullYear()) {
@@ -207,9 +218,10 @@ export class CalendarService {
   }
   setSelectedStartDate(newStartDate: Date): void {
     this.selectedStartDate = newStartDate;
-    this.daysInRange = [];
+    this.daysAndInfosInRange = [];
     this.generatePossibleDaysInRange()
   }
+
   getSelectedStartDate(): Date {
     return this.selectedStartDate;
   }

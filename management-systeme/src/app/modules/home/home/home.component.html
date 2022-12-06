@@ -1,0 +1,79 @@
+<section id="home-section">
+    <section id="reservations-in-range-section">
+        <ul id="reservations-in-range-list">
+            <ng-container *ngFor="let reservation of getReservationsInRange();let i=index">
+                <li class="reservations-in-range-item" *ngIf="reservation.fullYear!=0">
+                    <h2>{{reservation.day}}.{{reservation.month}}.{{reservation.fullYear}}</h2>
+                    <p>{{reservation.firstname}} {{reservation.lastname}}, {{reservation.eMail}}</p>
+                </li>
+            </ng-container>
+        </ul>
+    </section>
+    <section id="settings-section">
+        <ul id="settings-list">
+            <li class="settings-item">
+                <ul id="mode-list">
+                    <li [ngClass]="mode==0?'mode-item selected acr':'mode-item acr'">
+                        <button (click)="mode=0"> </button>
+                        <h2>Reservieren</h2>
+                    </li>
+                    <li [ngClass]="mode==1?'mode-item selected acr':'mode-item acr'">
+                        <button (click)="mode=1"> </button>
+                        <h2>Reservation Löschen</h2>
+                    </li>
+                </ul>
+            </li>
+            <li class="settings-item">
+                <!-- <h1 class="setting-title"> Dauer </h1> -->
+                <div class="number-input">
+                    <button class="change-number-btn" (click)="subtractFromDuration()">
+                        <h1>
+                            -
+                        </h1>
+                    </button>
+                    <h2 class="number-container">
+                        <p class="number">{{getDuration()}}</p>
+                        <p class="unit">{{getDuration()>1?'Nächte':'Nacht'}}</p>
+                    </h2>
+                    <button class="change-number-btn" (click)="addToDuration()">
+                        <h1>
+                            +
+                        </h1>
+                    </button>
+                </div>
+            </li>
+
+            <li class="settings-item calendar">
+                <app-calendar></app-calendar>
+            </li>
+
+            <li class="settings-item">
+                <form #contactForm="ngForm">
+                    <ul class="input-list">
+                        <li class="input-item">
+                            <label for="firstname">Vorname</label>
+                            <input class="text-input" name="firstname" type="text" id="firstname"
+                                [(ngModel)]="getUserdata().firstname">
+                        </li>
+                        <li class="input-item">
+                            <label for="lastname">Nachname</label>
+                            <input class="text-input" name="lastname" type="text" id="lastname"
+                                [(ngModel)]="getUserdata().lastname">
+                        </li>
+                        <li class="input-item">
+                            <label for="e-mail">E-Mail</label>
+                            <input class="text-input" name="e-mail" type="mail" id="e-mail"
+                                [(ngModel)]="getUserdata().eMail">
+                        </li>
+                    </ul>
+                </form>
+            </li>
+            <li>
+                <button id="book-now-btn" (click)="reservate()">
+                    <h1>{{mode==0?'Reservieren':'Reservationen Löschen'}}</h1>
+                </button>
+            </li>
+        </ul>
+    </section>
+
+</section>

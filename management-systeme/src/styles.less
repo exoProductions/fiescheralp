@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/shared/variables.less";
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+}
+
+a,
+button {
+  margin: 0px;
+  padding: 0px;
+  font-family: @std-font;
+  font-size: @fontsize-std;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+label {
+  margin: 0px;
+  padding: 0px;
+  font-family: @std-font;
+  font-weight: 300;
+  text-transform: uppercase;
+  user-select: none;
+
+}
+
+h1 {
+  font-size: @fontsize-h1 ;
+}
+
+h2 {
+  font-size: @fontsize-h2 ;
+}
+
+h3 {
+  font-size: @fontsize-h3;
+}
+
+p {
+  font-family: @std-font;
+  font-size: @fontsize-h2;
+  color: @color-dark;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+form,
+textarea {
+  font-size: @fontsize-std;
+  font-family: @std-font;
+}
+
+.text-input,
+textarea {
+  width: calc(100% - @padding-smallest * 2);
+  height: 30px;
+  background-color: white;
+  color: black;
+  margin-bottom: @margin-small;
+  border: solid 1px @color-lightest;
+  outline: none;
+  box-shadow: @box-shadow-2;
+  padding: @padding-smallest;
+  min-height: @btn-small;
+  border-radius: @std-edge-rad;
+}
+
+label {
+  color: @color-lighter;
+  margin-bottom: @margin-small;
+}
+
+.title-first {
+  font-family: @std-font;
+  font-weight: 900;
+  font-size: @fontsize-h1;
+  text-align: center;
+  color: black;
+}
+
+.title-second {
+  font-size: @fontsize-std;
+  text-align: center;
+  text-transform: uppercase;
+  color: @color-dark;
+  font-weight: 300;
+}
+
+.btn-round {
+  margin-top: @margin;
+  background-color: @color-accent1;
+  padding: @padding-smaller;
+  border-radius: @std-edge-rad;
+  box-shadow: @box-shadow-1;
+  color: white;
+  text-align: center;
+  animation: 2s wobbleSmooth infinite;
+}
+
+.btn-round:hover {
+  animation: 2s wobbleSmooth;
+}
+
+.acr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.acc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

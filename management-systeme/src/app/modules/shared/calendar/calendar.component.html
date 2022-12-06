@@ -1,0 +1,62 @@
+<section id="calendar-section">
+    <div id="calendar-head" class="acr">
+        <button class="btn-prev" (click)="skipToPreviousMonth()">
+          <h1><</h1>
+        </button>
+        <p> {{getMonthFromNumber()}} {{getCurrentYear()}} </p>
+        <button class="btn-next" (click)="skipToNextMonth()">
+            <h1>></h1>
+        </button>
+    </div>
+    <ul id="calendar-list">
+        <ng-container *ngFor="let dayName of getDayNames()">
+            <li class="day-name-item acc">
+                <button>
+                    <h1>{{dayName}}</h1>
+                </button>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let prevMonthDate of getPrevMonthDays()">
+            <li [ngClass]="{
+                'day-item acc prev-day': true,
+                'day-selected': getDateIsSelected(prevMonthDate),
+                'already-booked-in-selection':getAlreadyBookedDayInSelection(),
+                'day-already-booked':getDayAlreadyBooked(prevMonthDate)
+              }">
+                <button (click)="skipToPreviousMonth()">
+                    <h1> {{prevMonthDate.getDate()}} </h1>
+                </button>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let date of getDaysOfCurrentMonth()">
+            <li [ngClass]="{
+                'day-item acc': true,
+                'day-selected': getDateIsSelected(date),
+                'already-booked-in-selection':getAlreadyBookedDayInSelection(),
+                'day-passed':getDayPassed(date),
+                'day-already-booked':getDayAlreadyBooked(date)
+              }">
+                <button (click)="setSelectedStartDate(date)">
+                    <h1> {{date.getDate()}}</h1>
+                </button>
+            </li>
+        </ng-container>
+        <ng-container *ngFor="let nextMonthDate of getNextMonthDays()">
+            <li [ngClass]="{
+                'day-item acc next-day': true,
+                'day-selected': getDateIsSelected(nextMonthDate),
+                'already-booked-in-selection':getAlreadyBookedDayInSelection(),
+                'day-already-booked':getDayAlreadyBooked(nextMonthDate)
+
+              }">
+                <button (click)="skipToNextMonth()">
+                    <h1> {{nextMonthDate.getDate()}} </h1>
+                </button>
+            </li>
+        </ng-container>
+    </ul>
+
+    <section id="footer">
+        <p *ngIf="showSelectOtherText()">Es befinden sich bereits vergebene Tage in Ihrer Auswahl.</p>
+    </section>
+</section>

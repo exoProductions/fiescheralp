@@ -1,0 +1,126 @@
+@import "../../../shared/variables.less";
+
+
+#home-section{
+    width: calc(100% - @padding * 2);
+    padding: @padding;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+#settings-section{
+    width: 50%;
+}
+#reservations-in-range-section{
+    width: 50%;
+}
+//reservations-in-range------------------------
+.reservations-in-range-item{
+    margin: 0px @margin-small @margin-small @margin-small;
+    box-shadow: @box-shadow-1;
+    border-radius: @std-edge-rad;
+    padding: @padding-small;
+}
+.reservations-in-range-item p{
+    margin: 0px;
+}
+
+//settings-list-------------------------------
+#settings-list {
+    width: fit-content;
+}
+
+.settings-item {
+    margin-bottom: @margin-small;
+    box-shadow: @box-shadow-1;
+    border-radius: @std-edge-rad;
+    padding: @padding-small;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+//number input------------------------------------
+#mode-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.mode-item{
+    margin: @margin-smaller 0px;
+}
+.mode-item button{
+    margin-right: @margin-small;
+    width: @btn-small;
+    height: @btn-small;
+    border-radius: @btn-small;
+    background-color: transparent;
+    border: solid 2px @color-lighter;
+}
+.mode-item.selected button{
+    border: none;
+    background-color: @color-accent1;
+}
+
+.number-input {
+    display: flex;
+    flex-direction: row;
+}
+
+.number-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0px @margin-small;
+    user-select: none;
+}
+
+.number {
+    margin: 0px @margin-smaller;
+    font-size: @fontsize-title;
+    color: @color-accent1;
+}
+
+.unit {
+    margin-bottom: 0px;
+    margin-top: @margin-smaller;
+    font-size: @fontsize-h3;
+    color: @color-accent1;
+}
+
+.change-number-btn {
+    color: @color-accent1;
+}
+
+//calendar------------------------------
+.settings-item.calendar {
+    margin-bottom: @margin-small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+//form-----------------------------------
+.accepted-agb-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.accept-btn {
+    width: calc(@btn-smaller + 4px);
+    height: calc(@btn-smaller + 4px);
+    border: solid 2px @color-accent1;
+    border-radius: @btn-smaller;
+}
+
+#book-now-btn{
+    background-color: @color-accent1;
+    padding: @padding-small;
+    color: white;
+    border-radius: @std-edge-rad;
+    width: 100%;
+    box-shadow: @box-shadow-1;
+}

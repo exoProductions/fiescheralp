@@ -49,7 +49,7 @@ export class SettingsSectionComponent implements OnInit {
     this.reservationService.reservate()
   }
   setReservationClicked(state: boolean): void {
-    this.reservationService.reservationClicked = false;
+    this.reservationService.reservationClicked = state;
   }
   getDuration(): number {
     return this.calendarService.duration;
