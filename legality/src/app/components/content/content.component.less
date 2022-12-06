@@ -1,0 +1,104 @@
+@import (reference) "../../../shared/variables.less";
+
+.main-container {
+    width              : 100%;
+    min-height         : 100vh;
+    position           : absolute;
+    top                : 0px;
+    bottom             : 0px;
+    z-index            : 2;
+    display            : flex;
+    justify-content    : center;
+    background-color: rgb(27, 22, 48);
+
+}
+
+.max-w-container {
+    width    : 100%;
+    max-width: @max-w-body;
+}
+
+.navigation {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+}
+
+.content {
+    margin          : @margin @margin 0 @margin;
+    background-color: white;
+    z-index         : 1;
+    border-radius   : @std-edge-rad;
+    box-shadow      : @box-shadow-std;
+    min-height      : calc(100% - @margin * 2);
+}
+
+//navigation-------------------------------------
+.language-button {
+    font-size: @fontsize-h1;
+    color    : @color-dark;
+    padding  : @padding 0;
+}
+
+.language-button:hover {
+    color: @color-accent1;
+}
+
+.go-home:hover {
+    color: @color-accent1;
+}
+
+.navigation-list {
+    display       : flex;
+    flex-direction: row;
+    margin-bottom : @margin;
+}
+
+.nav-link button {
+    font-size       : @fontsize-h2;
+    padding         : @padding-small;
+    background-color: transparent;
+    color           : @color-dark;
+}
+
+.nav-link button:hover,
+.nav-link.active button {
+    color: @color-accent1;
+}
+
+.bottom-border {
+    height          : 3px;
+    background-color: @color-accent1;
+}
+
+//navigation-------------------------------------
+
+//content articles-------------------------------
+.articles {
+    padding: @padding;
+}
+
+.article {
+    margin-top   : @margin;
+    border-radius: @std-edge-rad;
+}
+
+.article h1 {
+    color        : @color-lighter;
+    margin-bottom: @margin-smaller;
+}
+
+.article span {
+    color      : black;
+    white-space: pre-wrap;
+}
+
+//content articles-------------------------------
+
+
+@media screen and (max-width: @max-w) {
+    .nav-link button {
+        font-size: @std-fontsize;
+        padding  : @padding-small @padding-smaller;
+    }
+}

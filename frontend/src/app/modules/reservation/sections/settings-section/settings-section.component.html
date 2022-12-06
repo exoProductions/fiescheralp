@@ -4,12 +4,15 @@
         <p>Zurück</p>
     </button>
 
-    <p *ngIf="getReservationWorked()">Grossartig, Ihre Reservation hat funktioniert. Wir bearbeiten diese umgehend und
+    <p *ngIf="getReservationWorkedInd()==1">Grossartig, Ihre Reservation hat funktioniert. Wir bearbeiten diese umgehend und
         melden uns bei Ihnen. Sie
         erhalten in den nächsten 5 Minuten ein bestätigungs E-Mail, falls nicht, kontrollieren Sie bitte auch den Spam
         Ordner.<br><br>Bei Fragen, können Sie sich gerne auf untenstehender Mail-Adresse an uns wenden, besten Dank.</p>
-    <p *ngIf="!getReservationWorked()">
+    <p *ngIf="getReservationWorkedInd()==0">
         Etwas Ist schief gelaufen, bitte Kontaktieren Sie uns per E-Mail.<br>Vielen Dank.
+    </p>
+    <p *ngIf="getReservationWorkedInd()==2">
+        Es befinden sich bereits vergebene Daten in Ihrer Auswahl, bitte wählen Sie andere Daten für Ihren Urlaub.<br>Vielen Dank
     </p>
     <p>{{getEMail()}}</p>
     <a class="btn-round" href="mailto:{{getEMail()}}">

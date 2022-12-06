@@ -1,6 +1,22 @@
 <?php
 require 'database.php';
 
+function sendMail($to,$subject,$mailText)
+{
+     $from = "From: <benigerber@livenet.ch>";
+     $mailText = wordwrap($mailText, 70);
+    //$to = $eMail;
+    $headers   = array();
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-type: text/plain; charset=utf-8";
+    $headers[] = $from;
+    $headers[] = "X-Mailer: PHP/".phpversion();
+
+    if(isset($from) && isset($to) && isset($subject) && isset($mailText)){
+        mail($to, $subject, $mailText, implode("\r\n",$headers));
+    }
+}
+
 //main-----------------------------------------------------------------------------------------------------------
 // Get the posted data.
 $postdata = file_get_contents("php://input");
@@ -9,8 +25,6 @@ $postdata = file_get_contents("php://input");
 if (isset($postdata) && !empty($postdata)) {
     // Extract the data.
     $request = json_decode($postdata);
-
-
     // Sanitize.
 
     $days_post = [];
@@ -56,6 +70,12 @@ if (isset($postdata) && !empty($postdata)) {
                 $worked = false;
             }
         }
+        $subject="Ferien Fiescheralp";
+        $mailText="Vielen Dank für Ihre Reservation des Appartments Fiescheralp, wir kontaktieren Sie in kürze mit weiteren Details\n\nBuchung vom ".$days_post[0].".".$months_post[0].".".$years_post[0]." bis ".$days_post[count($days_post)-1].".".$months_post[count($days_post)-1].".".$years_post[count($days_post)-1];
+        sendMail($eMail_post,$subject,$mailText);
+        $subject="Buchung Fiescheralp";
+        $mailText=$firstname_post." ".$lastname_post."\nE-Mail: ".$eMail_post."\nBuchung vom ".$days_post[0].".".$months_post[0].".".$years_post[0]." bis ".$days_post[count($days_post)-1].".".$months_post[count($days_post)-1].".".$years_post[count($days_post)-1];
+        sendMail("benigerber@livenet.ch",$subject,$mailText);
     } else {
         $worked = false;
     }

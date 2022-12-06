@@ -65,8 +65,8 @@ export class SettingsSectionComponent implements OnInit {
     return this.reservationService.userdata;
   }
 
-  getReservationWorked(): boolean {
-    return this.reservationService.reservationWorked;
+  getReservationWorkedInd(): number {
+    return this.reservationService.reservationWorkedInd;
   }
   getReservationClicked(): boolean {
     return this.reservationService.reservationClicked;

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { delay } from 'rxjs';
+import { DateSeparated } from '../models/date-separated.model';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,32 +14,31 @@ export class CalendarService {
   currentYear: number = this.today.getFullYear();
   currentMonth: number = this.today.getMonth()
 
-  private selectedStartDate: Date =this.today;
+  private selectedStartDate: Date = this.today;
   duration: number = 2;
   maxDuration: number = 35;
   possibleDaysInRange: Date[] = [];
-  daysInRange:Date[]=[];
-  alreadyBookedDayInSelection:boolean=false;
-  showSelectOtherText:boolean=false;
+  daysInRange: Date[] = [];
+  alreadyBookedDayInSelection: boolean = false;
+  showSelectOtherText: boolean = false;
   dayNames: string[] = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
   alreadyBookedDays: Date[] = [];
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.loadAlreadyBookedDays();
     this.generateNewYear(this.currentYear);
   }
 
   loadAlreadyBookedDays(): void {
-    let loadedDays: any[] = [
-      { date: 25, month: 10, fullYear: 2022 },
-      { date: 27, month: 10, fullYear: 2022 },
-      { date: 5, month: 11, fullYear: 2022 },
-      { date: 6, month: 11, fullYear: 2022 },
-      { date: 1, month: 0, fullYear: 2023 },
-    ];
-    for (let i = 0; i < loadedDays.length; i++) {
-      this.alreadyBookedDays.push(new Date(Date.UTC(loadedDays[i].fullYear, loadedDays[i].month, loadedDays[i].date,)))
-    }
+    this.apiService.loadAlreadyBookedDays().subscribe((loadedDates: DateSeparated[]) => {
+      console.log(loadedDates);
+      if (loadedDates != null) {
+        for (let i = 0; i < loadedDates.length; i++) {
+          this.alreadyBookedDays.push(new Date(Date.UTC(loadedDates[i].fullYear, loadedDates[i].month, loadedDates[i].date)));
+        }
+      }
+      console.log(this.alreadyBookedDays);
+    });
   }
 
   generateNewYear(year: number): void {
@@ -61,6 +62,7 @@ export class CalendarService {
     }
     return days;
   }
+
   skipToPreviousMonth(): void {
     this.currentMonth--;
     if (this.currentMonth < 0) {
@@ -80,6 +82,7 @@ export class CalendarService {
   getDaysOfCurrentMonth(): Date[] {
     return this.allMonthsOfYear[this.currentMonth];
   }
+
   getDayOfFirstDayInMonth(): number {
     let day = this.getDaysOfCurrentMonth()[0].getDay();
     if (day == 0) {
@@ -146,18 +149,18 @@ export class CalendarService {
   }
 
   getDayIsInSelectionRange(date: Date): boolean {
-    this.alreadyBookedDayInSelection=false;
+    this.alreadyBookedDayInSelection = false;
     for (let i = 0; i < this.duration; i++) {
       let curDayFromList = this.possibleDaysInRange[i];
       if (date.getDate() == curDayFromList.getDate() && date.getMonth() == curDayFromList.getMonth() && date.getFullYear() == curDayFromList.getFullYear()) {
-        if(this.daysInRange.length<this.duration){
-          this.daysInRange.push(date);
-          if(this.daysInRange.length==this.duration){
+        if (this.daysInRange.length < this.duration) {
+          this.daysInRange[i]=date;
+          if (this.daysInRange[this.duration-1] !=null) {
             this.calcAlreadyBookedDayInSelection();
           }
         }
-        if(this.getDayAlreadyBooked(date)){
-          this.alreadyBookedDayInSelection=true;
+        if (this.getDayAlreadyBooked(date)) {
+          this.alreadyBookedDayInSelection = true;
         }
         return true;
       }
@@ -165,17 +168,15 @@ export class CalendarService {
     return false;
   }
 
-  calcAlreadyBookedDayInSelection():void{
-    setTimeout(()=>{
-      this.showSelectOtherText=false;
-      for(let dayInRange of this.daysInRange){
-        if(this.getDayAlreadyBooked(dayInRange)){
-            this.showSelectOtherText=true;
+  calcAlreadyBookedDayInSelection(): void {
+    setTimeout(() => {
+      this.showSelectOtherText = false;
+      for (let dayInRange of this.daysInRange) {
+        if (this.getDayAlreadyBooked(dayInRange)) {
+          this.showSelectOtherText = true;
         }
       }
-    },100);
-
-   // return false
+    }, 100);
   }
 
   generatePossibleDaysInRange(): void {
@@ -187,12 +188,12 @@ export class CalendarService {
       startDay.setUTCDate(startDay.getUTCDate() + 1);
     }
   }
-  getDayAlreadyBooked(date:Date):boolean{
-      for(let bookedDay of this.alreadyBookedDays){
-        if (date.getDate() == bookedDay.getDate() && date.getMonth() == bookedDay.getMonth() && date.getFullYear() == bookedDay.getFullYear()) {
-          return true;
-        }
+  getDayAlreadyBooked(date: Date): boolean {
+    for (let bookedDay of this.alreadyBookedDays) {
+      if (date.getDate() == bookedDay.getDate() && date.getMonth() == bookedDay.getMonth() && date.getFullYear() == bookedDay.getFullYear()) {
+        return true;
       }
+    }
     return false;
   }
 
@@ -209,7 +210,7 @@ export class CalendarService {
   }
   setSelectedStartDate(newStartDate: Date): void {
     this.selectedStartDate = newStartDate;
-    this.daysInRange=[];
+    this.daysInRange = [];
     this.generatePossibleDaysInRange()
   }
   getSelectedStartDate(): Date {

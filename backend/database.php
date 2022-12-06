@@ -1,7 +1,7 @@
 <?php
 require 'accessHeaders.php';
 
-define('DB_HOST', 'avuwaker.mysql.db.hostpoint.ch');
+define('DB_HOST', 'avuwaker.mysql.db.internal');
 define('DB_USER', 'avuwaker_root');
 define('DB_PASS', 'asdf12345gtx-10-80');
 define('DB_NAME', 'avuwaker_exoProductions');

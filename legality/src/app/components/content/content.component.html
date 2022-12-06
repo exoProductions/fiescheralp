@@ -1,0 +1,31 @@
+<div class="main-container">
+    <div class="max-w-container">
+        <div class="content">
+            <div class="navigation">
+            <!--<button class="language-button" (click)="toggleLanguage()"><fa-icon [icon]="languageIcon"></fa-icon> {{language}}</button>-->
+                <ul class="navigation-list">
+                    <li [ngClass]="(getCurrentTab() == 'privacy')?'nav-link active':'nav-link'">
+                        <button (click)="setCurrentTab('privacy')">Privacy</button>
+                        <div *ngIf="getCurrentTab() === 'privacy'" class="bottom-border"></div>
+                    </li>
+                    <li [ngClass]="(getCurrentTab() == 'impressum')?'nav-link active':'nav-link'">
+                        <button (click)="setCurrentTab('impressum')">Impressum</button>
+                        <div *ngIf="getCurrentTab() === 'impressum'" class="bottom-border"></div>
+                    </li>
+                    <li [ngClass]="(getCurrentTab() == 'AGB')?'nav-link active':'nav-link'">
+                        <button (click)="setCurrentTab('AGB')">AGB</button>
+                        <div *ngIf="getCurrentTab() === 'AGB'" class="bottom-border"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="articles">
+                <ul class="article-list">
+                    <li class="article" *ngFor="let article of getArticle(); let i=index">
+                        <h1>{{article.title}}</h1>
+                        <span>{{article.content}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>

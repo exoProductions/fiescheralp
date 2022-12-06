@@ -16,6 +16,7 @@
   bottom: 0px;
   z-index: 3;
   background-color: #d3b680;
+  box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.2);
 }
 .go-to-settings-section h1 {
   font-size: 16px;

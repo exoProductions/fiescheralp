@@ -1,0 +1,48 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #1b1630;
+}
+a,
+button {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Calibri Light', Helvetica, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+button {
+  background-color: white;
+  border: none;
+  outline: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Calibri Light', Helvetica, sans-serif;
+}
+h1 {
+  font-size: 26px;
+}
+h2 {
+  font-size: 20px;
+}
+span {
+  font-family: 'Calibri Light', Helvetica, sans-serif;
+  font-size: 16px;
+  color: white;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+form,
+textarea {
+  font-size: 16px;
+  font-family: 'Calibri Light', Helvetica, sans-serif;
+}
