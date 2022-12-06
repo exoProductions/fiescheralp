@@ -28,7 +28,7 @@ export class ActivityData {
             subclass: "activity-five"
         }, {
             activityTitle: "Weitere Aktivitäten",
-            shortDescription: "Nicht nur auf den Skiern, sondern auch mit Schneeschuhen und aus der Luft per Gleitschirm kann das Gebiet erkundet werden (Aletscharena.ch). ",
+            shortDescription: "Nicht nur auf den Skiern, sondern auch mit Schneeschuhen und aus der Luft per Gleitschirm kann das Gebiet erkundet werden. ",
             activityInd: 5,
             subclass: "activity-six"
         },

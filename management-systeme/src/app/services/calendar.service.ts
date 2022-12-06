@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { delay } from 'rxjs';
-import { DateSeparated } from '../models/date-separated.model';
+import { DaysAndInfos } from '../models/days-and-infos.model';
 import { ApiService } from './api.service';
 
 @Injectable({
@@ -22,7 +21,7 @@ export class CalendarService {
   alreadyBookedDayInSelection: boolean = false;
   showSelectOtherText: boolean = false;
   dayNames: string[] = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
-  alreadyBookedDays: Date[] = [];
+  alreadyBookedDaysAndInfos: DaysAndInfos[] = [];
 
   constructor(private apiService: ApiService) {
     this.loadAlreadyBookedDays();
@@ -30,11 +29,12 @@ export class CalendarService {
   }
 
   loadAlreadyBookedDays(): void {
-    this.apiService.loadAlreadyBookedDays().subscribe((loadedDates: DateSeparated[]) => {
-      if (loadedDates != null) {
-        for (let i = 0; i < loadedDates.length; i++) {
-          this.alreadyBookedDays.push(new Date(Date.UTC(loadedDates[i].fullYear, loadedDates[i].month, loadedDates[i].date)));
+    this.apiService.loadAlreadyBookedDaysAndInfos().subscribe((loadedDaysAndInfos: DaysAndInfos[]) => {
+      if (loadedDaysAndInfos != null) {
+        for (let i = 0; i < loadedDaysAndInfos.length; i++) {
+            loadedDaysAndInfos[i].date=new Date(Date.UTC(loadedDaysAndInfos[i].fullYear, loadedDaysAndInfos[i].month, loadedDaysAndInfos[i].day));          
         }
+        this.alreadyBookedDaysAndInfos=loadedDaysAndInfos;
       }
     });
   }
@@ -186,8 +186,8 @@ export class CalendarService {
     }
   }
   getDayAlreadyBooked(date: Date): boolean {
-    for (let bookedDay of this.alreadyBookedDays) {
-      if (date.getDate() == bookedDay.getDate() && date.getMonth() == bookedDay.getMonth() && date.getFullYear() == bookedDay.getFullYear()) {
+    for (let bookedDayAndInfos of this.alreadyBookedDaysAndInfos) {
+      if (date.getDate() == bookedDayAndInfos.date.getDate() && date.getMonth() == bookedDayAndInfos.date.getMonth() && date.getFullYear() == bookedDayAndInfos.date.getFullYear()) {
         return true;
       }
     }
