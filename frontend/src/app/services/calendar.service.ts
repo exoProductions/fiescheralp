@@ -35,7 +35,6 @@ export class CalendarService {
         for (let i = 0; i < loadedDates.length; i++) {
           this.alreadyBookedDays.push(new Date(Date.UTC(loadedDates[i].fullYear, loadedDates[i].month, loadedDates[i].date)));
         }
-        console.log(this.alreadyBookedDays);
       }
     });
   }
@@ -130,18 +129,18 @@ export class CalendarService {
 
   getMonthFromNumber(ind: number): string {
     switch (ind) {
-      case 0: return "Januar"; break;
-      case 1: return "Februar"; break;
-      case 2: return "März"; break;
-      case 3: return "April"; break;
-      case 4: return "May"; break;
-      case 5: return "Juni"; break;
-      case 6: return "Juli"; break;
-      case 7: return "August"; break;
-      case 8: return "September"; break;
-      case 9: return "Oktober"; break;
-      case 10: return "November"; break;
-      case 11: return "Dezember"; break;
+      case 0: return "Januar";
+      case 1: return "Februar";
+      case 2: return "März";
+      case 3: return "April";
+      case 4: return "May";
+      case 5: return "Juni";
+      case 6: return "Juli";
+      case 7: return "August";
+      case 8: return "September";
+      case 9: return "Oktober";
+      case 10: return "November";
+      case 11: return "Dezember";
       default: return "Januar";
     }
   }
