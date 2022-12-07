@@ -1,19 +1,23 @@
 <?php
 require 'database.php';
 
-function sendMail($to,$subject,$mailText)
+$adminEMail = "";
+
+function sendMail($to, $subject, $mailText)
 {
-     $from = "From: <benigerber@livenet.ch>";
-     $mailText = wordwrap($mailText, 70);
+    global $adminEMail;
+
+    $from = "From: <" . $adminEMail . ">";
+    $mailText = wordwrap($mailText, 70);
     //$to = $eMail;
     $headers   = array();
     $headers[] = "MIME-Version: 1.0";
     $headers[] = "Content-type: text/plain; charset=utf-8";
     $headers[] = $from;
-    $headers[] = "X-Mailer: PHP/".phpversion();
+    $headers[] = "X-Mailer: PHP/" . phpversion();
 
-    if(isset($from) && isset($to) && isset($subject) && isset($mailText)){
-        mail($to, $subject, $mailText, implode("\r\n",$headers));
+    if (isset($from) && isset($to) && isset($subject) && isset($mailText)) {
+        mail($to, $subject, $mailText, implode("\r\n", $headers));
     }
 }
 
@@ -42,6 +46,7 @@ if (isset($postdata) && !empty($postdata)) {
     $firstname_post = mysqli_real_escape_string($con, trim($request->firstname));
     $lastname_post = mysqli_real_escape_string($con, trim($request->lastname));
     $eMail_post = mysqli_real_escape_string($con, trim($request->eMail));
+    $adminEMail_post = mysqli_real_escape_string($con, trim($request->adminEMail));
     $acceptedAGB_post =  filter_var($request->acceptedAGB, FILTER_VALIDATE_BOOLEAN);
 
     if (mysqli_connect_errno()) {
@@ -63,19 +68,19 @@ if (isset($postdata) && !empty($postdata)) {
 
     if (!$alreadyBooked) {
         for ($i = 0; $i < count($days_post); $i++) {
-           // $sql = "INSERT INTO fiescheralp_reservations_tbl (day, month,year,firstname,lastname,eMail,acceptedAGB) VALUES ( '{$days_post[$i]}','{$months_post[$i]}','{$years_post[$i]}','{$firstname_post}','{$lastname_post}','{$eMail_post}','{$acceptedAGB_post}')";
-            $sql="INSERT INTO fiescheralp_reservations_tbl (day,month,year,firstname,lastname,eMail,acceptedAGB) VALUES ({$days_post[$i]},{$months_post[$i]},{$years_post[$i]},'{$firstname_post}','{$lastname_post}','{$eMail_post}','{$acceptedAGB_post}')";
+            // $sql = "INSERT INTO fiescheralp_reservations_tbl (day, month,year,firstname,lastname,eMail,acceptedAGB) VALUES ( '{$days_post[$i]}','{$months_post[$i]}','{$years_post[$i]}','{$firstname_post}','{$lastname_post}','{$eMail_post}','{$acceptedAGB_post}')";
+            $sql = "INSERT INTO fiescheralp_reservations_tbl (day,month,year,firstname,lastname,eMail,acceptedAGB) VALUES ({$days_post[$i]},{$months_post[$i]},{$years_post[$i]},'{$firstname_post}','{$lastname_post}','{$eMail_post}','{$acceptedAGB_post}')";
             if ($con->query($sql) === TRUE) {
             } else {
                 $worked = false;
             }
         }
-        $subject="Ferien Fiescheralp";
-        $mailText="Vielen Dank für Ihre Reservation des Appartments Fiescheralp, wir kontaktieren Sie in kürze mit weiteren Details\n\nBuchung vom ".$days_post[0].".".$months_post[0].".".$years_post[0]." bis ".$days_post[count($days_post)-1].".".$months_post[count($days_post)-1].".".$years_post[count($days_post)-1];
-        sendMail($eMail_post,$subject,$mailText);
-        $subject="Buchung Fiescheralp";
-        $mailText=$firstname_post." ".$lastname_post."\nE-Mail: ".$eMail_post."\nBuchung vom ".$days_post[0].".".$months_post[0].".".$years_post[0]." bis ".$days_post[count($days_post)-1].".".$months_post[count($days_post)-1].".".$years_post[count($days_post)-1];
-        sendMail("benigerber@livenet.ch",$subject,$mailText);
+        $subject = "Ferien Fiescheralp";
+        $mailText = "Vielen Dank für Ihre Reservation des Appartments Fiescheralp, wir kontaktieren Sie in kürze mit weiteren Details\n\nBuchung vom " . $days_post[0] . "." . $months_post[0] . "." . $years_post[0] . " bis " . $days_post[count($days_post) - 1] . "." . $months_post[count($days_post) - 1] . "." . $years_post[count($days_post) - 1];
+        sendMail($eMail_post, $subject, $mailText);
+        $subject = "Buchung Fiescheralp";
+        $mailText = $firstname_post . " " . $lastname_post . "\nE-Mail: " . $eMail_post . "\nBuchung vom " . $days_post[0] . "." . $months_post[0] . "." . $years_post[0] . " bis " . $days_post[count($days_post) - 1] . "." . $months_post[count($days_post) - 1] . "." . $years_post[count($days_post) - 1];
+        sendMail($adminEMail, $subject, $mailText);
     } else {
         $worked = false;
     }

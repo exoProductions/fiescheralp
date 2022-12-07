@@ -32,7 +32,7 @@ export class ReservationComponent implements OnInit {
   }
 
   getEmail():string{
-    return this.globalVariableService.eMail;
+    return this.globalVariableService.adminEmail;
   }
 
   getPricePerDay():number{

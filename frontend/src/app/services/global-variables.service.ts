@@ -10,7 +10,7 @@ export class GlobalVariablesService {
   websiteNameShort:string="Fiescheralp";
   isWiderThan800:boolean=true;
   legalityLink:string="https://www.legality.exo-productions.ch/";
-  eMail:string="benigerber@livenet.ch"; //achtung, auch in reserve.php ändern
+  adminEmail:string="dominic.gut@stud.hslu.ch"; //"benigerber@livenet.ch"; //achtung, auch in reserve.php ändern
 
   navbarHeight:number=120;
   configLarge: SwiperOptions = {

@@ -72,7 +72,7 @@ export class SettingsSectionComponent implements OnInit {
     return this.reservationService.reservationClicked;
   }
   getEMail(): string {
-    return this.globalVariableService.eMail;
+    return this.globalVariableService.adminEmail;
   }
 
 

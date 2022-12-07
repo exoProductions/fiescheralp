@@ -7,5 +7,6 @@ export class ReservationData {
     firstname:string="";
     lastname:string="";
     eMail:string="";
+    adminEMail:string="";
     acceptedAGB:boolean=false;
 }

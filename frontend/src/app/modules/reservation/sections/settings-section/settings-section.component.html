@@ -14,6 +14,9 @@
     <p *ngIf="getReservationWorkedInd()==2">
         Es befinden sich bereits vergebene Daten in Ihrer Auswahl, bitte wählen Sie andere Daten für Ihren Urlaub.<br>Vielen Dank
     </p>
+    <p *ngIf="getReservationWorkedInd()==3">
+       Nicht alle Felder wurden korrekt ausgefüllt, bitte überprüfen Sie Ihre Angaben<br>Vielen Dank
+    </p>
     <p>{{getEMail()}}</p>
     <a class="btn-round" href="mailto:{{getEMail()}}">
         <h2>Kontaktieren Sie uns bei Fragen</h2>
