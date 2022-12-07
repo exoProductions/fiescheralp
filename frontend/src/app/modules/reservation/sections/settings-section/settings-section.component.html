@@ -17,6 +17,9 @@
     <p *ngIf="getReservationWorkedInd()==3">
        Nicht alle Felder wurden korrekt ausgefüllt, bitte überprüfen Sie Ihre Angaben<br>Vielen Dank
     </p>
+    <p *ngIf="getReservationWorkedInd()==4">
+       Bitte akzeptieren Sie die AGBs<br>Vielen Dank
+     </p>
     <p>{{getEMail()}}</p>
     <a class="btn-round" href="mailto:{{getEMail()}}">
         <h2>Kontaktieren Sie uns bei Fragen</h2>

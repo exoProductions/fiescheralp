@@ -32,22 +32,26 @@ export class ReservationService {
 
   reservate(): void {
     this.reservationClicked = true;
-    if (this.userdata.firstname.length>0 && this.userdata.lastname.length>0 && this.userdata.eMail.length>5) {
-      if (!this.calendarService.showSelectOtherText) {
-        this.apiService.reserve(this.getReservationData()).subscribe((worked: boolean) => {
-
-          if (worked) {
-            this.reservationWorkedInd = 1;
-            this.calendarService.loadAlreadyBookedDays();
-          } else {
-            this.reservationWorkedInd = 0;
-          }
-        });
-      } else {
-        this.reservationWorkedInd = 2;
+    if(this.userdata.acceptedAGB){
+      if (this.userdata.firstname.length>0 && this.userdata.lastname.length>0 && this.userdata.eMail.length>5) {
+        if (!this.calendarService.showSelectOtherText) {
+          this.apiService.reserve(this.getReservationData()).subscribe((worked: boolean) => {
+  
+            if (worked) {
+              this.reservationWorkedInd = 1;
+              this.calendarService.loadAlreadyBookedDays();
+            } else {
+              this.reservationWorkedInd = 0;
+            }
+          });
+        } else {
+          this.reservationWorkedInd = 2;
+        }
+      }else{
+        this.reservationWorkedInd = 3;
       }
     }else{
-      this.reservationWorkedInd = 3;
+      this.reservationWorkedInd = 4;
     }
   }
 
@@ -61,7 +65,7 @@ export class ReservationService {
       years.push(reservedDay.getFullYear());
       console.log(reservedDay);
     }
-
+    console.log(days);
     return {
       days: days,
       months: months,

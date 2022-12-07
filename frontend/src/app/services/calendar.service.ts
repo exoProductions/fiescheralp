@@ -35,6 +35,7 @@ export class CalendarService {
         for (let i = 0; i < loadedDates.length; i++) {
           this.alreadyBookedDays.push(new Date(Date.UTC(loadedDates[i].fullYear, loadedDates[i].month, loadedDates[i].date)));
         }
+        console.log(this.alreadyBookedDays);
       }
     });
   }
@@ -199,11 +200,13 @@ export class CalendarService {
     if (this.duration < 1) {
       this.duration = 1;
     }
+    this.setSelectedStartDate(this.selectedStartDate);
   }
   addToDuration(): void {
     if (this.duration < this.maxDuration) {
       this.duration++;
     }
+    this.setSelectedStartDate(this.selectedStartDate);
   }
   setSelectedStartDate(newStartDate: Date): void {
     this.selectedStartDate = newStartDate;
