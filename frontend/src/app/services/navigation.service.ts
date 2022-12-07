@@ -19,7 +19,7 @@ export class NavigationService {
 
   isSafari:boolean=false;
   constructor() { 
-    this.isSafari=this.getBrowserName()=='safari' || true;//safari
+    this.isSafari=this.getBrowserName()=='safari';//safari
   }
 
   getBrowserName():string {
