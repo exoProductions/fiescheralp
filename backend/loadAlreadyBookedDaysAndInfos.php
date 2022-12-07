@@ -37,13 +37,10 @@ if (isset($postdata) && !empty($postdata)) {
         exit('Failed to connect to MySQL: ' . mysqli_connect_error());
     }
 
-    $sql = "SELECT nickname, password FROM fiescheralp_admins_tbl WHERE nickname='{$nickname_post}'";
+    $sql = "SELECT nickname FROM fiescheralp_admins_tbl WHERE nickname='{$nickname_post}' AND password='{$password_post}' ";
     $result = $con->query($sql);
 
     if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            if ($row['password'] == $password_post) { //login
                 $sql = "SELECT DISTINCT day,month,year,firstname,lastname,eMail FROM fiescheralp_reservations_tbl";
                 $result = $con->query($sql);
 
@@ -55,7 +52,5 @@ if (isset($postdata) && !empty($postdata)) {
                     }
                 }
                 echo json_encode($allDates);
-            }
-        }
     }
 }

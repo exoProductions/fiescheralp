@@ -1,6 +1,18 @@
 @import "../../../shared/variables.less";
 
-
+#worked-section{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(@color-accent1,0.7);
+    backdrop-filter: blur(12px);
+}
+#worked-section p,#worked-section button{
+color: white;
+}
 #home-section{
     width: calc(100% - @padding * 2);
     padding: @padding;

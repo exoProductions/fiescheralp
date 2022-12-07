@@ -25,8 +25,12 @@ export class HomeComponent implements OnInit {
     this.calendarService.addToDuration();
   }
 
-  reservate(): void {
-    this.reservationService.reservate()
+  submit(): void {
+    if(this.mode==0){
+      this.reservationService.reservate()
+    }else{
+      this.reservationService.deleteReservation();
+    }
   }
   setReservationClicked(state: boolean): void {
     this.reservationService.reservationClicked = state;

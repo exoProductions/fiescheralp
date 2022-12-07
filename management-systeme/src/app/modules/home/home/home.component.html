@@ -1,3 +1,10 @@
+<section *ngIf="getReservationClicked()" id="worked-section" class="acc">
+    <button (click)="setReservationClicked(false)"><h1> < Zurück</h1></button>
+<p *ngIf="getReservationWorkedInd()==0">Etwas hat nicht funktioniert<br>überprüfen Sie Ihre Internetverbindung<br><br>überprüfen Sie die eingegebenen Daten auf Korrektheit<br>überprüfen Sie, ob evtl. ungewollte überlappungen zu anderen Reservationen entstanden sind</p>
+<p *ngIf="getReservationWorkedInd()==1">Änderungen wurden übernommen</p>
+<p *ngIf="getReservationWorkedInd()==2 && mode==0">Wählen Sie andere Daten, es befinden sich bereits Reservationen in diesem Zeitraum</p>
+</section>
+
 <section id="home-section">
     <section id="reservations-in-range-section">
         <ul id="reservations-in-range-list">
@@ -19,7 +26,7 @@
                     </li>
                     <li [ngClass]="mode==1?'mode-item selected acr':'mode-item acr'">
                         <button (click)="mode=1"> </button>
-                        <h2>Reservation Löschen</h2>
+                        <h2>Reservationen Löschen</h2>
                     </li>
                 </ul>
             </li>
@@ -69,7 +76,7 @@
                 </form>
             </li>
             <li>
-                <button id="book-now-btn" (click)="reservate()">
+                <button id="book-now-btn" (click)="submit()">
                     <h1>{{mode==0?'Reservieren':'Reservationen Löschen'}}</h1>
                 </button>
             </li>

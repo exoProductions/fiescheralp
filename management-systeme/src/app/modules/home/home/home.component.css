@@ -1,0 +1,120 @@
+#worked-section {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 182, 128, 0.7);
+  backdrop-filter: blur(12px);
+}
+#worked-section p,
+#worked-section button {
+  color: white;
+}
+#home-section {
+  width: calc(100% - 30px * 2);
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+#settings-section {
+  width: 50%;
+}
+#reservations-in-range-section {
+  width: 50%;
+}
+.reservations-in-range-item {
+  margin: 0px 18px 18px 18px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 18px;
+}
+.reservations-in-range-item p {
+  margin: 0px;
+}
+#settings-list {
+  width: fit-content;
+}
+.settings-item {
+  margin-bottom: 18px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 18px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#mode-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.mode-item {
+  margin: 8px 0px;
+}
+.mode-item button {
+  margin-right: 18px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: solid 2px #999;
+}
+.mode-item.selected button {
+  border: none;
+  background-color: #d3b680;
+}
+.number-input {
+  display: flex;
+  flex-direction: row;
+}
+.number-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 18px;
+  user-select: none;
+}
+.number {
+  margin: 0px 8px;
+  font-size: 50px;
+  color: #d3b680;
+}
+.unit {
+  margin-bottom: 0px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #d3b680;
+}
+.change-number-btn {
+  color: #d3b680;
+}
+.settings-item.calendar {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.accepted-agb-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.accept-btn {
+  width: calc(15px + 4px);
+  height: calc(15px + 4px);
+  border: solid 2px #d3b680;
+  border-radius: 15px;
+}
+#book-now-btn {
+  background-color: #d3b680;
+  padding: 18px;
+  color: white;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
