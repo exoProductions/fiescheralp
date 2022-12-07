@@ -16,9 +16,9 @@ export class ReservationService {
   maxGuests:number=5;
 
   userdata:Userdata={
-    firstname:"Dominic",
-    lastname:"Gut",
-    eMail:"dominic.gut@gmx.ch",
+    firstname:"",
+    lastname:"",
+    eMail:"",
     acceptedAGB:true,
   }
 

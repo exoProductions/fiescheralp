@@ -38,7 +38,7 @@ if (isset($postdata) && !empty($postdata)) {
 
     if ($result->num_rows > 0) {
         for ($i = 0; $i < count($days_post); $i++) {
-             $sql="DELETE * FROM fiescheralp_reservations_tbl WHERE WHERE day='{$days_post[$i]}' AND month='{$months_post[$i]}' AND year='{$years_post[$i]}'";
+             $sql="DELETE FROM fiescheralp_reservations_tbl WHERE day='{$days_post[$i]}' AND month='{$months_post[$i]}' AND year='{$years_post[$i]}'";
              if ($con->query($sql) === TRUE) {
              } else {
                  $worked = false;
