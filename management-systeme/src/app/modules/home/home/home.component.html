@@ -3,6 +3,7 @@
 <p *ngIf="getReservationWorkedInd()==0">Etwas hat nicht funktioniert<br>überprüfen Sie Ihre Internetverbindung<br><br>überprüfen Sie die eingegebenen Daten auf Korrektheit<br>überprüfen Sie, ob evtl. ungewollte überlappungen zu anderen Reservationen entstanden sind</p>
 <p *ngIf="getReservationWorkedInd()==1">Änderungen wurden übernommen</p>
 <p *ngIf="getReservationWorkedInd()==2 && mode==0">Wählen Sie andere Daten, es befinden sich bereits Reservationen in diesem Zeitraum</p>
+<p *ngIf="getReservationWorkedInd()==3 && mode==0">Nicht alle Felder wurden ausgefüllt</p>
 </section>
 
 <section id="home-section">
