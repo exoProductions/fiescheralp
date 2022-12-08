@@ -13,19 +13,19 @@ export class AppartmentInfosComponent implements OnInit {
       firstLetter:"E",
       titleOne:"ine",
       titleTwo:"Kurze Übersicht",
-      text:"öalsdfj asdjf alsdjf asdf laksjdf kajsdf jasdöfk jaösdkfjaöskdfj asödfj asdfasdk fjöasdfjasdfas dölkfjasödfjasdfadsf adsfjöaksdfasdf asdf asdf asdfadsf asdf  ",
+      text:"Das nahe der Aletscharena gelegene Appartment Fiescheralp bietet Ihnen nebst heimeliger ausstattung auch den nahen Zugang zu etlichen Skipisten Restaurants und weitläufigen Wanderwegen.",
     },
     {
       firstLetter:"V",
       titleOne:"or Ort",
       titleTwo:"Vorhanden",
-      text:"öalsdfj asdjf alsdjf asdf laksjdf kajsdf jasdöfk jaösdkfjaöskdfj asödfj asdfasdk fjöasdfjasdfas dölkfjasödfjasdfadsf adsfjöaksdfasdf asdf asdf asdfadsf asdf  ",
+      text:"Nebst grosszügiger Küche und Wohnraum finden Sie auch vor dem Haus Platz für Ihren privaten Apres-Ski Plausch und geniesserisch ausschweifende Nachmittage",
     },
     {
       firstLetter:"I",
       titleOne:"hre",
       titleTwo:"Gastgeber",
-      text:"öalsdfj asdjf alsdjf asdf laksjdf kajsdf jasdöfk jaösdkfjaöskdfj asödfj asdfasdk fjöasdfjasdfas dölkfjasödfjasdfadsf adsfjöaksdfasdf asdf asdf asdfadsf asdf  ",
+      text:"Ihre Gastgeber, Fritz und Irene Gerber aus dem schönen Hohenrain im Kanton Luzern, sind sehr bemüht, Ihnen einen reibungsfreien und Erinnerungsreichen Urlaub zu ermöglichen",
     }
   ];
 

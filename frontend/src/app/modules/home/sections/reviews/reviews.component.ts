@@ -9,9 +9,9 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class ReviewsComponent implements OnInit {
 
   numbers: number[] = [
-    5,
-    5,
     4,
+    36,
+    15,
   ];
   subtitles: string[] = [
     "Vermietungen im Sommer",
@@ -22,27 +22,27 @@ export class ReviewsComponent implements OnInit {
 
   quotes: any[] = [
     {
-      quote: "Ich fühle mich viel wohler, seit ich weiss, dass ich etwas für die Umwelt getan habe.",
-      person: "Alexander Schoch",
-      date: "15.03.2017",
-      stars: "111100",
-    },
-    {
-      quote: "Eine Wohltat für Körper und Geist. Mens sana in corpore sano",
-      person: "Micha Scherer",
-      date: "23.10.2019",
+      quote: "Was für ein Panorama, die Fiescheralp hat mich definitiv nicht das letzte mal gesehen!",
+      person: "Stefanie Fessler",
+      date: "17.03.2023",
       stars: "111110",
     },
     {
-      quote: "Ich selbst habe bereits hunderte Bäume gefällt - einen fällen zu lassen ist ein ganz neues Gefühl",
-      person: "Franz Gut",
+      quote: "Wer einmal die überwältigende grösse eines Gletschers gespührt hat, der fühlt sich der Unendlichkeit ein gutes Stück näher.",
+      person: "Dominic Gut",
+      date: "19.03.2023",
+      stars: "111110",
+    },
+    {
+      quote: "Alles Reibungslos verlaufen, gerne wieder",
+      person: "Micha Scherer",
       date: "01.06.2021",
       stars: "111100"
     },
     {
-      quote: "Ich kam, sah und siegte! Der Baum ist gefallen - Daumen hoch",
+      quote: "Ein Paradies für Skifahrer und Wanderer. Die Wohnung hat gehalten was Sie versprochen hat.",
       person: "Riccardo Cicchetti",
-      date: "24.12.2022",
+      date: "24.01.2022",
       stars: "111111",
     }
   ];

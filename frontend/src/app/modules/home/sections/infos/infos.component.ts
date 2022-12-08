@@ -14,18 +14,19 @@ export class InfosComponent implements OnInit {
   infos: any[] = [
     {
       title: "Anreise",
-      info: "Für die Anreise stehen Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+      info: "Deine Anreise ins Ferienparadies Aletsch Arena ist sowohl mit dem Auto, wie als auch mittels ÖV ungehindert möglich. Da deine Unterkunft auf dem autofreien Plateau Fiescheralp liegt, stehen dir im Tal Parkplätze zur Verfügung. Vom Bahnhof aus befindet sich die Luftseilbahn direkt in unmittelbarer nähe. Für die An- und Abreise empfiehlt es sich aufgrund der eingeschneiten Strassen auf höhe der Fiescheralp, den Gepäcktransport von der Bergstation zur Ferienunterkunft zu buchen.",
       icon: "trail-sign-outline",
     },
     {
-      title: "Hausregeln",
-      info: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-      icon: "book-outline",
-    },
-    {
       title: "Ortsinfo",
-      info: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+      info: "Von unserem Appartment aus sind eine vielzahl von Freizeitaktivitäten direkt zugänglich, darunter Restaurants, Skipisten und weitere Vergnügungsmöglichkeiten. Die meisten davon liegen in unmittelbarer Nähe, andere sind durch eine gemütliche Wanderung zu erreichen. Erfahren Sie mehr über mögliche Aktivitäten auf unserer Seite.",
       icon: "location-outline",
+    }
+    ,
+    {
+      title: "Hausregeln",
+      info: "Das Rauchen im Haus ist untersagt, gerne können Sie für solcherlei Aktivitäten den Vorplatz benutzen. Auch Tiere sind aufgrund von möglichen Schäden nicht erwünscht. Die Nachtruhe beginnt ab 10Uhr Abends.",
+      icon: "book-outline",
     },
   ];
   zoom = 10;
@@ -47,7 +48,7 @@ export class InfosComponent implements OnInit {
   ];
   openInd: number = -1;
 
-  constructor(private navigationService:NavigationService) { }
+  constructor(private navigationService:NavigationService,private router:Router) { }
 
   ngOnInit(): void {
     this.markers.push({
@@ -69,6 +70,10 @@ export class InfosComponent implements OnInit {
     setTimeout(()=>{
       this.infoElem.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
     },100);
+  }
+
+  goToActivities():void{
+    this.router.navigate([this.navigationService.pages[3]]);
   }
 getIsSafari():boolean{
   return this.navigationService.isSafari;

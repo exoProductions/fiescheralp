@@ -16,6 +16,8 @@
     </div>
     <section  *ngIf="openInd>=0" class="info">
         <p>{{infos[openInd].info}}</p>
+        <span class="acc">        <button (click)="goToActivities()" class="btn-round" *ngIf="openInd==1"><h1>Aktivitäten</h1></button>
+        </span>
         <div class="google-map-container">
             <google-map  height="500px" width="100%" [zoom]="zoom" [center]="center" [options]="options" *ngIf="openInd==0">
 
